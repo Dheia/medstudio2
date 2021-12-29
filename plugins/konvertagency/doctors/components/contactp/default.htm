@@ -1,0 +1,156 @@
+<script src="{{ 'assets/js/jquery-3.6.0.min.js'|theme }}"></script>
+<script src="{{ 'assets/js/jquery.maskedinput.min.js'|theme }}"></script>
+<script src="{{ 'assets/js/glightbox.min.js'|theme }}"></script>
+<link href="{{ 'assets/css/glightbox.min.css'|theme }}" rel="stylesheet">
+{% set time = 'now'|date('h:i:s') %}
+{# {% set nameGallery = random() %} #}
+{% set refer = get("refer") %}
+{% set btn_txt = btn_txt ? btn_txt : "Отправить" %}
+{% spaceless %}
+
+<iframe name="frame" width=100% height=100% style="position:absolute;z-index:-1; background: #000 " frameborder="0"></iframe>
+<div class="container-fluid container_form">
+  <div class="row row_mail justify-content-md-center align-items-center ">
+    <div class="form form_mail">
+      {% if title_form %}
+      <div class="title_form">
+        <h1>{{ title_form }}</h1>
+      </div>
+      {% endif %}
+      {% if description_form %}
+      <div class="description_form">
+        {{ description_form }}
+      </div>
+      {% endif %}
+      {# <form onsubmit="$(this).request('onSend'); return false;"> #}
+        <form {# method="POST" #} data-request="onSendMail" data-request-validate {# data-request-success="this.reset(); sending()" #} data-request-success="sending()" id="form">
+          {# <label for="name">Имя:</label> #}
+          <input placeholder="Ваше имя" type="text" name="name" value="" id="name">
+          <p data-validate-for="name" class="text-danger"></p>
+          {# <label for="tel">Телефон:</label> #}
+          <input placeholder="Ваш телефон" class="phone_mask" name="tel" id="tel" type="tel" value="">
+          <script>
+            $(
+            // ".phone_mask").mask("+7(999)999-99-99",
+            ".phone_mask").mask("9(999)999-99-99",
+            {
+              autoclear: false,
+              placeholder: "_"
+            });
+            </script>
+          <p data-validate-for="tel" class="text-danger"></p>
+          <input type="hidden" name="content" id="content" value="{{ refer }}">
+          <p data-validate-for="content" class="text-danger"></p>
+          <input type="hidden" name="mail_to" value="{{ mail_to }}">
+          <p data-validate-for="mail_to" class="text-danger"></p>
+          <input type="hidden" name="mail_from" value="{{ mail_from }}">
+          <p data-validate-for="mail_from" class="text-danger"></p>
+          <div class="acceptance_checkbox">
+            <input type="checkbox" name="acceptance" value="1" aria-invalid="false" checked="checked" class="acceptance">
+            <a href="#acceptance" class="accept" data-glightbox="width: 700; height: auto;">
+              Согласен на обработку персональных данных
+            </a>
+            {# <a href="#" style="cursor: pointer;">Согласен на обработку персональных данных </a> #}
+          </div>
+          <p data-validate-for="acceptance" class="text-danger"></p>
+          <div class="message_send">
+            Спасибо за Ваше сообщение. <br> Оно успешно отправлено.
+          </div>
+          <button id="send" class="btn form-btn" type="submit" data-attach-loading>{{ btn_txt }}
+            <span></span>
+          </button>
+          {# {{ d(errors) }}
+          <ul>
+            {% for error in errors.all %}
+            <li>{{ error|replace({'name': "Имя", 'tel': "Телефон", 'acceptance': "соглашения"}) }}</li>
+            {% endfor %}
+          </ul> #}
+        </form>
+    </div>
+    <div class="btn-close ">
+      <a href="#" id="button">
+        ×
+      </a>
+    </div>
+  </div>
+</div>
+{# {% framework %} #}
+{% framework extras %}
+{# {% scripts %} #}
+<script>
+frame.onload = function() {
+  goPostMessage();
+};
+
+frame.onresize = function() {
+  goPostMessage();
+};
+
+document.querySelector('#send').onclick = function() {
+  setTimeout(function() {
+    goPostMessage();
+  }, 100);
+};
+
+function goPostMessage() {
+  // let heightForm = document.querySelector('.container_form').clientHeight;
+
+  let heightForm = document.querySelector('.form_mail').clientHeight;
+
+  // console.log('Отправлдено сообщение во фрейм: ' +heightForm);
+
+  window.parent.postMessage(heightForm, '*');
+
+  if (window != window.top) {
+    //  console.log('это фрейм')
+  } else {
+     // console.log('это local')
+    document.querySelector('#button').style.display = "none";
+  }
+}
+
+function sending() {
+
+  //alert('Отправлено!');
+  //$( ".message_send" ).toggle(250);
+
+  let message_send = document.querySelector('.message_send');
+  message_send.style.display = "block";
+
+  let send = document.querySelector('#send');
+  send.style.display = "none";
+
+ym(82850647,'reachGoal','zapis_na_priem');
+// yaCounter82850647.reachGoal('zapis_na_priem');
+
+
+  setTimeout(function() {
+    // закрыть окно с фреймом
+    window.parent.postMessage('sending', '*');
+  }, 4000);
+
+
+}
+
+
+button.onclick = function() {
+  window.parent.postMessage('sending', '*');
+};
+</script>
+<div id="acceptance" style="display: none; height: auto;" aria-hidden="true" class="ginlined-content-1">
+  {# ginlined-content-1 - не используется #}
+  {% partial 'fragments/acceptance' %}
+
+</div>
+<script>
+var lightboxInlineIframe = GLightbox({
+  selector: '.accept',
+  skin: "popup glightbox-clean",
+  closeOnOutsideClick: false,
+  // width: '800px',
+  touchNavigation: false,
+  draggable: false,
+  // closeButton: false,
+});
+</script>
+{% endspaceless %}

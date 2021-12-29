@@ -1,0 +1,6 @@
+columns:
+    name:
+        label: 'konvertagency.doctors::lang.country.name'
+        type: text
+        searchable: true
+        sortable: true

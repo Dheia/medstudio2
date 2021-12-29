@@ -1,0 +1,23 @@
+fields:
+    title:
+        label: 'konvertagency.doctors::lang.faq.title'
+        span: auto
+        type: text
+    faq_slug:
+        label: 'konvertagency.doctors::lang.faq.faq_slug'
+        span: auto
+        placeholder: 'konvertagency.doctors::lang.faq.slug_faq_placeholder'
+        required: 1
+        preset:
+            field: title
+            type: slug
+        type: text
+    description:
+        label: 'konvertagency.doctors::lang.faq.description'
+        span: left
+        placeholder: 'konvertagency.doctors::lang.faq.description_placeholder'
+        type: text
+    class:
+        label: 'konvertagency.doctors::lang.faq.class'
+        span: right
+        type: text

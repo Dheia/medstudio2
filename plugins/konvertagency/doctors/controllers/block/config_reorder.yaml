@@ -1,0 +1,4 @@
+title: Block
+modelClass: KonvertAgency\Doctors\Models\BloksForPage
+toolbar:
+    buttons: reorder_toolbar

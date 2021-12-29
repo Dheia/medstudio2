@@ -1,0 +1,13 @@
+columns:
+    id:
+        label: 'konvertagency.doctors::lang.faq.id'
+        type: number
+        sortable: true
+    description:
+        label: 'konvertagency.doctors::lang.faq.description'
+        type: text
+        sortable: true
+    faq_slug:
+        label: 'konvertagency.doctors::lang.faq.faq_slug'
+        type: text
+        sortable: true

@@ -1,0 +1,74 @@
+fields:
+    last_name:
+        label: 'konvertagency.doctors::lang.doctors.LastName'
+        span: auto
+        required: 1
+        type: text
+    rating:
+        label: 'konvertagency.doctors::lang.doctors.Rating'
+        span: auto
+        required: 1
+        type: number
+    name:
+        label: 'konvertagency.doctors::lang.doctors.Name'
+        span: left
+        required: 1
+        type: text
+    start_year_work:
+        label: 'konvertagency.doctors::lang.doctors.StartYearWork'
+        span: right
+        type: number
+    patronymic:
+        label: 'konvertagency.doctors::lang.doctors.Patronymic'
+        span: left
+        required: 1
+        type: text
+    slug:
+        label: 'konvertagency.doctors::lang.doctors.slug'
+        span: right
+        required: 1
+        preset:
+            field: last_name
+            type: slug
+        type: text
+    specialities:
+        label: 'konvertagency.doctors::lang.doctors.Specialities'
+        span: left
+        type: text
+    specialization:
+        label: 'konvertagency.doctors::lang.doctors.Specialization'
+        span: right
+        type: text
+    view_in_page:
+        label: 'konvertagency.doctors::lang.doctors.view_page'
+        span: full
+        placeholder: 'konvertagency.doctors::lang.view_page_placeholder'
+        default: vrachi
+        type: text
+    PhotoDoctor:
+        label: 'konvertagency.doctors::lang.doctors.Doctor photo'
+        mode: image
+        imageWidth: '100'
+        imageHeight: '150'
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: left
+        type: fileupload
+    description:
+        label: 'konvertagency.doctors::lang.doctors.Description'
+        size: small
+        span: right
+        type: richeditor
+    certificates:
+        label: 'konvertagency.doctors::lang.doctors.certificates'
+        mode: image
+        imageWidth: '200'
+        imageHeight: '130'
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: full
+        type: fileupload

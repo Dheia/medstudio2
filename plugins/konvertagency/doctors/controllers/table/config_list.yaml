@@ -1,0 +1,15 @@
+title: Table
+modelClass: KonvertAgency\Doctors\Models\Table
+list: $/konvertagency/doctors/models/table/columns.yaml
+recordUrl: 'konvertagency/doctors/table/update/:id'
+noRecordsMessage: 'backend::lang.list.no_records'
+recordsPerPage: 20
+showSetup: true
+showCheckboxes: true
+defaultSort:
+    column: id
+    direction: desc
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'

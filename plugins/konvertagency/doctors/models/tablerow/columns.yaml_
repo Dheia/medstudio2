@@ -1,0 +1,16 @@
+columns:
+    id:
+        label: 'konvertagency.doctors::lang.table_row.id'
+        type: number
+    nomination:
+        label: 'konvertagency.doctors::lang.table_row.nomination'
+        type: text
+        searchable: true
+        sortable: true
+    price:
+        label: 'konvertagency.doctors::lang.table_row.price'
+        type: text
+    table_slug:
+        label: 'konvertagency.doctors::lang.table_row.table_slug'
+        type: text
+        sortable: true

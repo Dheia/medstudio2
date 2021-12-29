@@ -1,0 +1,119 @@
+title = "Скидки и акции"
+url = "/discounts/:slug"
+layout = "static-page-noindex"
+description = "Страница «Скидки и акции»"
+is_hidden = 0
+
+[builderDetails]
+modelClass = "KonvertAgency\Doctors\Models\Discounts"
+identifierValue = "{{ :slug }}"
+modelKeyColumn = "slug"
+displayColumn = "title"
+notFoundMessage = "Запись о скидке не найдена"
+==
+{# {% component 'builderDetails' %} #}
+
+
+{% set record = builderDetails.record %}
+{% set displayColumn = builderDetails.displayColumn %}
+{% set notFoundMessage = builderDetails.notFoundMessage %}
+
+<noindex>
+  <section></section>
+
+
+  <section>
+    <div class="container">
+      <div class="row">
+        {% if record %}
+          {% if  record.ImgPpromotions %}
+            <div class="col-md-6">
+              <div class="promotions_img">
+                {# <img src="{{ record.ImgPpromotions.thumb(333,auto,{'quality': 80}) }}" #}
+
+                <img src="{{ record.ImgPpromotions.thumb(600,600,{'mode':'crop', 'quality': 70}) }}"
+                     alt="{{ record.title }}">
+              </div>
+            </div>
+          {% endif %}
+
+          <div class="promotions-data {% if  record.ImgPpromotions %} col-md-6 {% else %} col-md-12 {% endif %}">
+
+            <div class="promotions_h">
+              {% if record.link %}
+              {% spaceless %}
+              <a href="/{{ record.link }}">
+              {% endspaceless %}
+              {% endif %}
+                {{ attribute(record, displayColumn) }}
+              {% if record.link %}
+              </a>
+
+              {% endif %}
+
+            </div>
+            <div class="row">
+
+              {% if record.price_old %}
+
+                <div class="{% if record.price_current %} col-6 {% else %} col-12 {% endif %} promotions-price">
+                  <div class="promotions-price-txt">Обычная цена</div>
+                  <div class="promotions-price_old">
+                    <del class="cross">
+                      {{ record.price_old|cur|span_numb }}
+                    </del>
+                  </div>
+                </div>
+              {% endif %}
+
+              {% if record.price_current %}
+                <div class="{% if  record.price_old %} col-6 {% else %} col-12 {% endif %} promotions-price">
+                  <div class="promotions-price-txt">Цена по акции</div>
+                  <div class="promotions-price_current">
+                    {{ record.price_current|cur|span_numb }}
+                  </div>
+                </div>
+              {% endif %}
+            </div>
+            {% if record.txt_promotions %}
+              <div class="promotions-txt">
+                {{ record.txt_promotions|raw }}
+              </div>
+            {% endif %}
+
+            <div class="btn-title">
+              {% partial 'btn-pop-up' titleBtn =  'Записаться по акции' %}
+            </div>
+
+          </div>
+
+
+          {# {{ d(record) }} #}
+        {% else %} {# if record #}
+          <div class="no-data">{{ notFoundMessage }}</div>
+        {% endif %}{# if record #}
+
+      </div> {# row #}
+    </div> {# container #}
+  </section>
+</noindex>
+
+
+
+
+{#
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" aria-hidden="true" focusable="false" role="img"  style="fill-rule:evenodd;" class="cross" viewBox="0 0 32 32">
+
+
+	<path
+	fill="currentColor"
+	d="M 31.250837,0.74906709 0.74914093,31.250933"
+	/>
+
+	<path  fill="currentColor"
+	d="M 31.250922,31.250848 0.74905601,0.74915201"
+	/>
+</svg> #}
+
+
+{# {{ ((slide.price|cur)|span_numb)|raw }}        #}

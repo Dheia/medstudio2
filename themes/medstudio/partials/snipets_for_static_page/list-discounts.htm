@@ -1,0 +1,185 @@
+description = "Список скидок"
+
+[viewBag]
+snippetCode = "list-discounts"
+snippetName = "Скидки и акции"
+
+[builderList]
+modelClass = "KonvertAgency\Doctors\Models\Discounts"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "title"
+noRecordsMessage = "Записи о скидках не найдены"
+detailsPage = "discounts-promotions"
+detailsKeyColumn = "slug"
+detailsUrlParameter = "slug"
+pageNumber = "{{ :page }}"
+sortColumn = "sort_order"
+sortDirection = "desc"
+==
+{# {% component 'builderList' %} #}
+
+{% set records = builderList.records %}
+{% set displayColumn = builderList.displayColumn %}
+{% set noRecordsMessage = builderList.noRecordsMessage %}
+{% set detailsPage = builderList.detailsPage %}
+{% set detailsKeyColumn = builderList.detailsKeyColumn %}
+{% set detailsUrlParameter = builderList.detailsUrlParameter %}
+{% set publicationNot = true %}
+
+{% set word_keywords = page.word_keywords %}
+{% set isset_publication = 0 %}
+{% spaceless %}
+
+<section></section>
+{# builderList {{ d(builderList) }} #}
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12"><h2>Акции и скидки</h2></div>
+
+      {% for record in records %}
+
+        {% if record.date %}
+          {% set date_prn = record.auto_date ? last_date_months() : rus_date_months(record.date|date("d-m-Y")) %}
+          {% set date =  record.auto_date ? 'now'|date('Ymt') : record.date|date("Ymd") %}
+          {% set data_on = ('now'|date('Ymd') <= date) ? 1 : 0 %}
+        {% else %}
+          {% set date_prn = record.auto_date ? last_date_months() : '' %}
+          {% set data_on =  1 %}
+        {% endif %}
+
+
+        {% if record.publication %}
+
+          {% if (data_on == 1) or (record.date_on == 0) %}
+
+
+            {% set isset_publication = 1 %}
+
+
+              {% if  record.price_current >= 0 %}
+                {% if record.price_old %}
+                  {% set skidka = ((record.price_current - record.price_old) / record.price_old * 100)|round(0, 'floor') %}
+                  {% set skidka = (skidka < 0) ? skidka : 0 %}
+                {% else %}
+                  {% set skidka = 0 %}
+                {% endif %}
+              {% else %}
+                {% set skidka = record.price_current %}
+              {% endif %}
+
+            <div class="col-md-4 pb30px flex-grow-11">
+              {# <div class="card-u card_uslug"> #}
+              {# Use spaceless tag to remove spaces inside the A tag. #}
+              {# {% spaceless %} #}
+                {% if detailsPage %}
+                  <div class="card-promotions flex-grow-11">
+                  <a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}"
+                  rel="nofollow">
+                {% endif %}
+
+
+                {% if record.ImgPpromotions %}
+                  <div class="card-promotions-img">
+                    {# <img src="{{ record.ImgPpromotions.thumb(333,auto,{'quality': 80}) }}" #}
+
+                    <img src="{{ record.ImgPpromotions.thumb(600,400,{'mode':'crop', 'quality': 70}) }}"
+                         alt="{{ record.title }}">
+                    {% if skidka < 0 %}
+                      <div class="card-promotions-skidka-bg">
+                        {# {% set skidka = 'Бесплатно!' %}#}
+                        {% if skidka == '-100' %}
+                          <div class="card-promotions-sale0">
+                            Бесплатно!
+                          </div>
+                        {% else %}
+                          <div class="card-promotions-skidka">
+                            {{ skidka }}%
+                          </div>
+                        {% endif %}
+                      </div>
+                    {% endif %}
+                  </div>
+
+
+                {% else %}
+
+                  <div class="card-promotions-skidka-center">
+                    {% if skidka < 0 %}
+                      <div class="card-promotions-skidka-bg">
+                        {% if skidka == '-100' %}
+                          <div class="card-promotions-sale0">
+                            Бесплатно!
+                          </div>
+                        {% else %}
+                          <div class="card-promotions-skidka">
+                            {{ skidka }}%
+                          </div>
+                        {% endif %}
+                      </div>
+                    {% endif %}
+                  </div>
+                {% endif %}
+
+
+                {% if date_prn and (data_on == 1) %}
+                  <div class="list_promotions_date">
+                    Только до {{ date_prn }}!
+                  </div>
+                {% endif %}
+
+                <div class="card-promotions-txt">
+                  {{ attribute(record, displayColumn) }}
+                </div>
+                {% if detailsPage %}
+                  </a>
+                  </div>
+                {% endif %}
+              {# {% endspaceless %} #}
+              {# </div> #}
+            </div>
+            {% set publicationNot = false %}
+          {% else %} {# {% if (data_on == 1) or (record.date_on == 0) %} #}
+           {#  <div class="no-data">Акций в текущем месяце не предусмотрено.</div> #}
+          {% endif %} {# {% if (data_on == 1) or (record.date_on == 0) %} #}
+
+
+        {% endif %}  {# record.publication #}
+      {% else %}
+        <div class="no-data">{{ noRecordsMessage }}</div>
+      {% endfor %}
+    </div>
+{% if publicationNot %}
+   <div class="no-data">Акций в текущем месяце не предусмотрено</div>
+
+{% endif %}
+
+  </div>
+</section>
+
+
+{# не настроено #}
+{#
+{% if records.lastPage > 1 %}
+    <ul class="pagination">
+        {% if records.currentPage > 1 %}
+            <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage-1) }) }}">&larr; Prev</a></li>
+        {% endif %}
+
+        {% for page in 1..records.lastPage %}
+            <li class="{{ records.currentPage == page ? 'active' : null }}">
+                <a href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
+            </li>
+        {% endfor %}
+
+        {% if records.lastPage > records.currentPage %}
+            <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage+1) }) }}">Next &rarr;</a></li>
+        {% endif %}
+    </ul>
+{% endif %}
+#}
+{# не настроено        #}
+
+{% endspaceless %}

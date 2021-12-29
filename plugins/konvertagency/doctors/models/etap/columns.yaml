@@ -1,0 +1,22 @@
+columns:
+    sort_order:
+        label: 'konvertagency.doctors::lang.etap.sort_order'
+        type: number
+        sortable: true
+    title:
+        label: 'konvertagency.doctors::lang.etap.title'
+        type: text
+        searchable: true
+        sortable: true
+    sub_title:
+        label: 'konvertagency.doctors::lang.etap.sub_title'
+        type: text
+        searchable: true
+        sortable: true
+    rel_etaps:
+        label: 'konvertagency.doctors::lang.etaps.slug'
+        type: text
+        searchable: true
+        relation: block_etaps
+        valueFrom: title
+

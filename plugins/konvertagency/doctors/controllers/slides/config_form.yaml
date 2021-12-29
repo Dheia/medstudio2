@@ -1,0 +1,10 @@
+name: Slides
+form: $/konvertagency/doctors/models/slides/fields.yaml
+modelClass: KonvertAgency\Doctors\Models\Slides
+defaultRedirect: konvertagency/doctors/slides
+create:
+    redirect: 'konvertagency/doctors/slides/update/:id'
+    redirectClose: konvertagency/doctors/slides
+update:
+    redirect: konvertagency/doctors/slides
+    redirectClose: konvertagency/doctors/slides

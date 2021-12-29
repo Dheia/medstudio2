@@ -1,0 +1,166 @@
+url = "/discounts/:slug"
+layout = "static-page-noindex"
+title = "Скидки и акции"
+description = "Страница «Скидки и акции»"
+is_hidden = 0
+
+[builderDetails]
+modelClass = "KonvertAgency\Doctors\Models\Discounts"
+identifierValue = "{{ :slug }}"
+modelKeyColumn = "slug"
+displayColumn = "title"
+notFoundMessage = "Запись о скидке не найдена"
+==
+{# {% component 'builderDetails' %} #}
+
+
+{% set record = builderDetails.record %}
+{% set displayColumn = builderDetails.displayColumn %}
+{% set notFoundMessage = builderDetails.notFoundMessage %}
+
+
+
+<section></section>
+
+
+<section>
+  <div class="container">
+    <div class="row">
+      {% if record %}
+{% if record.publication %}
+
+        {% if record.date %}
+          {% set date_prn = record.auto_date ? last_date_months() : rus_date_months(record.date|date("d-m-Y")) %}
+          {% set date =  record.auto_date ? 'now'|date('Ymt') : record.date|date("Ymd") %}
+          {% set data_on = ('now'|date('Ymd') <= date) ? 1 : 0 %}
+        {% else %}
+          {% set date_prn = record.auto_date ? last_date_months() : '' %}
+          {% set data_on =  1 %}
+        {% endif %}
+
+        {# <div class="col-12 del" style="color: red"> #}
+        {# Ymd {{ 'now'|date('Ymd') }}<br> #}
+        {# если date - показать ({{ date }})<br> #}
+        {# date_prn {{date_prn }}<br> #}
+        {# <br> #}
+        {# date_on {{data_on }}<br> #}
+        {# record.date_on {{ record.date_on }}<br> #}
+        {# record.date {{ record.date }} #}
+        {# </div> #}
+
+        {% if (data_on == 1) or (record.date_on == 0) %}
+
+          {% if  record.ImgPpromotions %}
+            <div class="col-md-6">
+              <div class="promotions_img">
+                {# <img src="{{ record.ImgPpromotions.thumb(333,auto,{'quality': 80}) }}" #}
+
+                <img src="{{ record.ImgPpromotions.thumb(600,600,{'mode':'crop', 'quality': 70}) }}"
+                     alt="{{ record.title }}">
+              </div>
+            </div>
+          {% endif %}
+
+          <div class="promotions-data {% if  record.ImgPpromotions %} col-md-6 {% else %} col-md-12 {% endif %}">
+
+
+            {% if date_prn and (data_on == 1) %}
+            <div class="promotions_date">
+                Только до {{ date_prn }}!
+            </div>
+            {% endif %}
+
+            <div class="promotions_h">
+
+
+              {% if record.link %}
+              {% spaceless %}
+              <a href="/{{ record.link }}" rel="nofollow">
+                {% endspaceless %}
+                {% endif %}
+                {# {{ attribute(record, displayColumn) }} #}
+{% if record.txt_title %}
+
+            {{record.txt_title}}
+{% else %}
+            {{record.title}}
+
+{% endif %}
+
+                {# {{ attribute(record, displayColumn) }} #}
+                {% if record.link %}
+              </a>
+
+              {% endif %}
+
+            </div>
+            <div class="row">
+
+              {% if record.price_old %}
+
+                <div class="{% if record.price_current %} col-6 {% else %} col-12 {% endif %} promotions-price">
+                  <div class="promotions-price-txt">Обычная цена</div>
+                  <div class="promotions-price_old">
+                    <del class="cross">
+                      {{ record.price_old|cur|span_numb }}
+                    </del>
+                  </div>
+                </div>
+              {% endif %}
+
+              {% if record.price_current and  record.price_current > 0 %}
+                <div class="{% if  record.price_old %} col-6 {% else %} col-12 {% endif %} promotions-price">
+                  <div class="promotions-price-txt">Цена по акции</div>
+                  <div class="promotions-price_current">
+                    {{ record.price_current|cur|span_numb }}
+                  </div>
+                </div>
+              {% endif %}
+            </div>
+            {% if record.txt_promotions %}
+              <div class="promotions-txt">
+                {{ record.txt_promotions|raw }}
+              </div>
+            {% endif %}
+
+            <div class="btn-title">
+              {% set btn_title = (record.txt_btn == "") ? "Записаться" : record.txt_btn %}
+              {% partial 'btn-pop-up' titleBtn = btn_title %}
+            </div>
+
+          </div>
+
+        {% else %}{# {% if (data_on == 1) or (record.date_on == 0) %} #}
+          <div class="no-data"> Акция "{{ record.title }}" завершена.</div>
+        {% endif %}{# {% if (data_on == 1) or (record.date_on == 0) %} #}
+
+{% else %} {# {% if record.publication %} #}
+<div class="no-data"> Акция "{{ record.title }}" завершена.</div>
+{% endif %} {# {% if record.publication %} #}
+
+        {# {{ d(record) }} #}
+      {% else %} {# if record #}
+        <div class="no-data">{{ notFoundMessage }}</div>
+      {% endif %}{# if record #}
+
+    </div> {# row #}
+  </div> {# container #}
+</section>
+
+
+{#
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" aria-hidden="true" focusable="false" role="img"  style="fill-rule:evenodd;" class="cross" viewBox="0 0 32 32">
+
+
+	<path
+	fill="currentColor"
+	d="M 31.250837,0.74906709 0.74914093,31.250933"
+	/>
+
+	<path  fill="currentColor"
+	d="M 31.250922,31.250848 0.74905601,0.74915201"
+	/>
+</svg> #}
+
+
+{# {{ ((slide.price|cur)|span_numb)|raw }}         #}

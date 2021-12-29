@@ -1,0 +1,11 @@
+name: Table
+modelClass: KonvertAgency\Doctors\Models\Table
+form: $/konvertagency/doctors/models/table/fields.yaml
+defaultRedirect: konvertagency/doctors/table
+create:
+    redirect: 'konvertagency/doctors/table/update/:id'
+    redirectClose: konvertagency/doctors/table
+update:
+    redirect: konvertagency/doctors/table
+    redirectClose: konvertagency/doctors/table
+preview: {  }

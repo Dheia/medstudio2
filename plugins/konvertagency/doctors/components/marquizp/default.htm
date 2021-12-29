@@ -1,0 +1,157 @@
+{% set marquiz_arr = __SELF__.marquiz_arr %}
+	{% set marquiz_col = __SELF__.marquiz_col %}
+		{# marquiz_slug = {{ marquiz_slug }} #}
+{% set yes = false %}
+{% if marquiz_slug != '' %}
+ {% spaceless %}
+  <section>
+    <div class="container marquiz">
+      {% for var in marquiz_col %}
+        {% set yes = true %}
+
+        <div class="row row_marquiz">
+          {% if var.img_marquiz %}
+          {# <div class="marquiz_col_img"> #}
+          <div class="col-xl-5 col-lg-6 col-md-12">
+            {% endif %}
+<div class="img-marquiz">
+            <img src="{{ var.img_marquiz.thumb(auto,500,{'mode':'crop', 'quality': 70}) }}">
+</div>
+
+            {% if var.img_marquiz %}
+          </div>
+          {% endif %}
+          <div class='{{ var.img_marquiz ? "col-xl-7 col-lg-6 col-md-12" : "marquiz_col_txt_full" }}'>
+          {# <div class='{{ var.img_marquiz ? "marquiz_col_txt" : "marquiz_col_txt_full" }}'> #}
+            {% if var.img_marquiz %}
+              <h2>{{ var.title }}</h2>
+            {% endif %}
+            {% if var.txt %}
+              <div class="marquiz_txt">
+                {{ var.txt|raw }}
+              </div>
+            {% endif %}
+
+
+            {% if var.auto_date or var.date or var.txt_slogan %}
+              {% set slogan = '' %}
+              <div class="slogan-marquiz">
+                {% if var.auto_date %}
+                  <span>
+									{{ slogan ~ "До " ~ last_date_months() }}
+								</span>
+                {% else %}
+                  <span>
+									{{ slogan ~ var.date }}
+								</span>
+                {% endif %}
+                {% if var.txt_slogan %}
+                  {{ slogan ~ var.txt_slogan }}
+                {% endif %}
+              </div>
+            {% endif %} {# var.auto_date or var.date or var.txt_slogan #}
+
+
+
+
+
+            {% if var.repeater != null %}
+
+              {% if var.per_row == 1 %}
+                {% set per_row = "col-12" %}
+              {% elseif var.per_row == 2 %}
+                {% set per_row = "col-6" %}
+              {% elseif var.per_row == 3 %}
+                {% set per_row = "col-lg-12 col-xl-4 col-md-4 col-sm-6 col-6" %}
+              {% else %}
+                {% set per_row = "col-md-3 col-6" %}
+              {% endif %}
+
+
+
+
+              <div class="row">
+                {% for item in var.repeater %}
+
+                  <div class="{{ per_row }} col-marquiz">
+                    <div class="act-marquiz">
+
+                      {% if item.img_act_marquiz %}
+                        <div class="img-act-marquiz">
+                          <img
+                            src="{{ item.img_act_marquiz|media|resize(60, 60, { mode: 'crop' }) }}"/>
+                        </div>
+                      {% endif %}
+
+                      {% if item.txt_act_marquiz or item.old_price or item.new_price %}
+                        <div class="txts-act-marquiz">
+                          {% if item.txt_act_marquiz %}
+                            <div class="txt_act_marquiz">
+                              {{ item.txt_act_marquiz }}
+                            </div>
+                          {% endif %}
+
+                          {% if item.old_price or item.new_price %}
+                            <div class="price_act_marquiz">
+
+                              {% if item.old_price %}
+                                <div class="old_price_act_marquiz">
+                                	<del class="cross">
+                                  {{ item.old_price }}
+                                	</del>
+                                </div>
+                              {% endif %}
+
+                              {% if  item.new_price %}
+                                <div class="new_price_act_marquiz">
+                                  {{ item.old_price }}
+                                </div>
+                              {% endif %}
+
+                            </div>
+
+                          {% endif %}
+                        </div>
+
+                      {% endif %}
+
+
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+
+
+              {% partial 'marquiz'  ipmarquiz = var.id_marquiz_site %}
+
+              <div class="width100">
+                <a href="#popup:marquiz_{{ var.id_marquiz_site }}" rel="noopener" class="btn btn-marquiz"
+                   data-width="350px">
+                  {{ var.txt_btn }}
+                  <span></span>
+                </a>
+              </div>
+
+              {# {{ d(marquiz_arr) }} #}
+
+            {% endif %}
+
+
+          </div> {# marquiz_col_txt or marquiz_col_txt_full #}
+
+        </div> {# row_marquiz #}
+
+
+      {% endfor %} {# for var in marquiz_col #}
+    </div> {# container marquiz #}
+  </section>
+   {% endspaceless %}
+{% endif %}
+
+{% if not yes %}
+  <section>
+    <div class="not_found">
+      <span> {{ comp_message }} </span>
+    </div>
+  </section>
+{% endif %}

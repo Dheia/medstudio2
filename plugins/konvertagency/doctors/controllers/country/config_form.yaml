@@ -1,0 +1,10 @@
+name: Country
+form: $/konvertagency/doctors/models/country/fields.yaml
+modelClass: KonvertAgency\Doctors\Models\Country
+defaultRedirect: konvertagency/doctors/country
+create:
+    redirect: 'konvertagency/doctors/country/update/:id'
+    redirectClose: konvertagency/doctors/country
+update:
+    redirect: konvertagency/doctors/country
+    redirectClose: konvertagency/doctors/country

@@ -1,0 +1,374 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table konvertagency_doctors_'
+    - builder_table_create_konvertagency_doctors_.php
+1.0.3:
+    - 'Updated table konvertagency_doctors_'
+    - builder_table_update_konvertagency_doctors.php
+1.0.4:
+    - 'Updated table konvertagency_doctors_'
+    - builder_table_update_konvertagency_doctors2.php
+1.0.5:
+    - 'Updated table konvertagency_doctors_'
+    - builder_table_update_konvertagency_doctors__2.php
+1.0.6:
+    - 'Updated table konvertagency_doctors_'
+    - builder_table_update_konvertagency_doctors_.php
+1.0.7:
+    - 'Updated table konvertagency_doctors_'
+    - builder_table_update_konvertagency_doctors__3.php
+1.0.8:
+    - 'Updated table konvertagency_doctors_'
+    - builder_table_update_konvertagency_doctors__4.php
+1.0.9:
+    - 'Updated table konvertagency_doctors_'
+    - builder_table_update_konvertagency_doctors__5.php
+1.0.10:
+    - 'Updated table konvertagency_doctors_'
+    - builder_table_update_konvertagency_doctors__6.php
+1.0.11:
+    - 'Updated table konvertagency_doctors_'
+    - builder_table_update_konvertagency_doctors__7.php
+1.0.12:
+    - 'Updated table konvertagency_doctors_'
+    - builder_table_update_konvertagency_doctors__8.php
+1.0.13:
+    - 'Updated table konvertagency_doctors_'
+    - builder_table_update_konvertagency_doctors__9.php
+1.0.14:
+    - 'Created table konvertagency_doctors_sample_works_'
+    - builder_table_create_konvertagency_doctors_sample_works_.php
+1.0.15:
+    - 'Updated table konvertagency_doctors_sample_works_'
+    - builder_table_update_konvertagency_doctors_sample_works_.php
+1.0.16:
+    - 'Updated table konvertagency_doctors_sample_works_'
+    - builder_table_update_konvertagency_doctors_sample_works__2.php
+1.0.17:
+    - 'Updated table konvertagency_doctors_sample_works_'
+    - builder_table_update_konvertagency_doctors_sample_works__3.php
+1.0.18:
+    - 'Updated table konvertagency_doctors_sample_works_'
+    - builder_table_update_konvertagency_doctors_sample_works__4.php
+1.0.19:
+    - 'Created table konvertagency_doctors_bloks'
+    - builder_table_create_konvertagency_doctors_bloks.php
+1.0.20:
+    - 'Updated table konvertagency_doctors_bloks'
+    - builder_table_update_konvertagency_doctors_bloks_.php
+1.0.21:
+    - 'Updated table konvertagency_doctors_bloks_'
+    - builder_table_update_konvertagency_doctors_bloks__2.php
+1.0.22:
+    - 'Updated table konvertagency_doctors_bloks_'
+    - builder_table_update_konvertagency_doctors_bloks__3.php
+1.0.23:
+    - 'Updated table konvertagency_doctors_bloks_'
+    - builder_table_update_konvertagency_doctors_bloks__4.php
+1.0.24:
+    - 'Updated table konvertagency_doctors_bloks_'
+    - builder_table_update_konvertagency_doctors_bloks__5.php
+1.0.25:
+    - 'Updated table konvertagency_doctors_bloks_'
+    - builder_table_update_konvertagency_doctors_bloks__6.php
+1.0.26:
+    - 'Updated table konvertagency_doctors_bloks_'
+    - builder_table_update_konvertagency_doctors_bloks__7.php
+1.0.27:
+    - 'Created table konvertagency_doctors_gallery_examples_'
+    - builder_table_create_konvertagency_doctors_gallery_examples_.php
+1.0.28:
+    - 'Created table konvertagency_doctors_title_page'
+    - builder_table_create_konvertagency_doctors_title_page.php
+1.0.29:
+    - 'Создание базы текстового контента'
+    - builder_table_create_konvertagency_doctors_content.php
+1.0.30:
+    - 'konvertagency_doctors_content изменение умолчального значения img_position'
+    - builder_table_update_konvertagency_doctors_content.php
+1.0.31:
+    - 'Drop table konvertagency_doctors_bloks_'
+    - builder_table_delete_konvertagency_doctors_bloks_.php
+1.0.32:
+    - 'Drop table konvertagency_doctors_gallery_examples_'
+    - builder_table_delete_konvertagency_doctors_gallery_examples_.php
+1.0.33:
+    - 'Drop table konvertagency_doctors_sample_works_'
+    - builder_table_delete_konvertagency_doctors_sample_works_.php
+1.0.34:
+    - 'Created table konvertagency_doctors_galleries'
+    - builder_table_create_konvertagency_doctors_galleries.php
+1.0.35:
+    - 'Created table konvertagency_doctors_slides'
+    - builder_table_create_konvertagency_doctors_slides.php
+1.0.36:
+    - 'Created table konvertagency_doctors_slides_gall'
+    - builder_table_create_konvertagency_doctors_slides_gall.php
+1.0.37:
+    - 'Updated table konvertagency_doctors_slides_gall'
+    - builder_table_update_konvertagency_doctors_slides_galleries.php
+1.0.38:
+    - 'Drop table konvertagency_doctors_slides_galleries'
+    - builder_table_delete_konvertagency_doctors_slides_galleries.php
+1.0.39:
+    - 'Updated table konvertagency_doctors_galleries'
+    - builder_table_update_konvertagency_doctors_galleries.php
+1.0.40:
+    - 'Updated table konvertagency_doctors_galleries'
+    - builder_table_update_konvertagency_doctors_galleries_2.php
+1.0.41:
+    - 'Updated table konvertagency_doctors_galleries'
+    - builder_table_update_konvertagency_doctors_galleries_3.php
+1.0.42:
+    - 'Created table konvertagency_doctors_table'
+    - builder_table_create_konvertagency_doctors_table.php
+1.0.43:
+    - 'Created table konvertagency_doctors_table_row'
+    - builder_table_create_konvertagency_doctors_table_row.php
+1.0.44:
+    - 'Created table konvertagency_doctors_table_rel_row'
+    - builder_table_create_konvertagency_doctors_table_rel_row.php
+1.0.45:
+    - 'Updated table konvertagency_doctors_table_row'
+    - builder_table_update_konvertagency_doctors_table_row.php
+1.0.46:
+    - 'Updated table konvertagency_doctors_table_row'
+    - builder_table_update_konvertagency_doctors_table_row_2.php
+1.0.47:
+    - 'Updated table konvertagency_doctors_table_row'
+    - builder_table_update_konvertagency_doctors_table_row_3.php
+1.0.48:
+    - 'Updated table konvertagency_doctors_table'
+    - builder_table_update_konvertagency_doctors_table.php
+1.0.49:
+    - 'Updated table konvertagency_doctors_table_row'
+    - builder_table_update_konvertagency_doctors_table_row_4.php
+1.0.50:
+    - 'Updated table konvertagency_doctors_table'
+    - builder_table_update_konvertagency_doctors_table_2.php
+1.0.51:
+    - 'Updated table konvertagency_doctors_table_row'
+    - builder_table_update_konvertagency_doctors_table_row_5.php
+1.0.52:
+    - 'Updated table konvertagency_doctors_table'
+    - builder_table_update_konvertagency_doctors_table_3.php
+1.0.53:
+    - 'Updated table konvertagency_doctors_table'
+    - builder_table_update_konvertagency_doctors_table_4.php
+1.0.54:
+    - 'Updated table konvertagency_doctors_table'
+    - builder_table_update_konvertagency_doctors_table_5.php
+1.0.55:
+    - 'Updated table konvertagency_doctors_table'
+    - builder_table_update_konvertagency_doctors_table_6.php
+1.0.56:
+    - 'Created table konvertagency_doctors_faq'
+    - builder_table_create_konvertagency_doctors_faq.php
+1.0.57:
+    - 'Created table konvertagency_doctors_faq_row'
+    - builder_table_create_konvertagency_doctors_faq_row.php
+1.0.58:
+    - 'Created table konvertagency_doctors_brand'
+    - builder_table_create_konvertagency_doctors_brand.php
+1.0.59:
+    - 'Created table konvertagency_doctors_country'
+    - builder_table_create_konvertagency_doctors_country.php
+1.0.60:
+    - 'Updated table konvertagency_doctors_slides'
+    - builder_table_update_konvertagency_doctors_slides.php
+1.0.61:
+    - 'Updated table konvertagency_doctors_slides'
+    - builder_table_update_konvertagency_doctors_slides_2.php
+1.0.62:
+    - 'Updated table konvertagency_doctors_galleries'
+    - builder_table_update_konvertagency_doctors_galleries_4.php
+1.0.63:
+    - 'Updated table konvertagency_doctors_brand'
+    - builder_table_update_konvertagency_doctors_brand.php
+1.0.64:
+    - 'Updated table konvertagency_doctors_country'
+    - builder_table_update_konvertagency_doctors_country.php
+1.0.65:
+    - 'Updated table konvertagency_doctors_country'
+    - builder_table_update_konvertagency_doctors_country_2.php
+1.0.66:
+    - 'Updated table konvertagency_doctors_brand'
+    - builder_table_update_konvertagency_doctors_brand_2.php
+1.0.67:
+    - 'Updated table konvertagency_doctors_country'
+    - builder_table_update_konvertagency_doctors_country_3.php
+1.0.68:
+    - 'Updated table konvertagency_doctors_brand'
+    - builder_table_update_konvertagency_doctors_brand_3.php
+1.0.69:
+    - 'Updated table konvertagency_doctors_brand'
+    - builder_table_update_konvertagency_doctors_brand_4.php
+1.0.70:
+    - 'Updated table konvertagency_doctors_country'
+    - builder_table_update_konvertagency_doctors_country_4.php
+1.0.71:
+    - 'Updated table konvertagency_doctors_slides'
+    - builder_table_update_konvertagency_doctors_slides_3.php
+1.0.72:
+    - 'Updated table konvertagency_doctors_slides'
+    - builder_table_update_konvertagency_doctors_slides_4.php
+1.0.73:
+    - 'Updated table konvertagency_doctors_brand'
+    - builder_table_update_konvertagency_doctors_brand_5.php
+1.0.74:
+    - 'Updated table konvertagency_doctors_slides'
+    - builder_table_update_konvertagency_doctors_slides_5.php
+1.0.75:
+    - 'Updated table konvertagency_doctors_galleries'
+    - builder_table_update_konvertagency_doctors_galleries_5.php
+1.0.76:
+    - 'Created table konvertagency_doctors_rating'
+    - builder_table_create_konvertagency_doctors_rating.php
+1.0.77:
+    - 'Updated table konvertagency_doctors_rating'
+    - builder_table_update_konvertagency_doctors_rating.php
+1.0.78:
+    - 'Updated table konvertagency_doctors_rating'
+    - builder_table_update_konvertagency_doctors_rating_2.php
+1.0.79:
+    - 'Updated table konvertagency_doctors_rating'
+    - builder_table_update_konvertagency_doctors_rating_3.php
+1.0.80:
+    - 'Updated table konvertagency_doctors_rating'
+    - builder_table_update_konvertagency_doctors_rating_4.php
+1.0.81:
+    - 'Updated table konvertagency_doctors_rating'
+    - builder_table_update_konvertagency_doctors_rating_5.php
+1.0.82:
+    - 'Updated table konvertagency_doctors_rating'
+    - builder_table_update_konvertagency_doctors_rating_6.php
+1.0.83:
+    - 'Updated table konvertagency_doctors_rating'
+    - builder_table_update_konvertagency_doctors_rating_7.php
+1.0.84:
+    - 'Updated table konvertagency_doctors_title_page'
+    - builder_table_update_konvertagency_doctors_title_page.php
+1.0.85:
+    - 'Updated table konvertagency_doctors_rating'
+    - builder_table_update_konvertagency_doctors_rating_8.php
+1.0.86:
+    - 'Created table konvertagency_doctors_feadback'
+    - builder_table_create_konvertagency_doctors_feadback.php
+1.0.87:
+    - 'Updated table konvertagency_doctors_feadback'
+    - builder_table_update_konvertagency_doctors_feadback.php
+1.0.88:
+    - 'Updated table konvertagency_doctors_feadback'
+    - builder_table_update_konvertagency_doctors_feadback_2.php
+1.0.89:
+    - 'Updated table konvertagency_doctors_feadback'
+    - builder_table_update_konvertagency_doctors_feadback_3.php
+1.0.90:
+    - 'Updated table konvertagency_doctors_content'
+    - builder_table_update_konvertagency_doctors_content_2.php
+1.0.91:
+    - 'Updated table konvertagency_doctors_content'
+    - builder_table_update_konvertagency_doctors_content_3.php
+1.0.92:
+    - 'Updated table konvertagency_doctors_slides'
+    - builder_table_update_konvertagency_doctors_slides_6.php
+1.0.93:
+    - 'Updated table konvertagency_doctors_table'
+    - builder_table_update_konvertagency_doctors_table_7.php
+1.0.94:
+    - 'Updated table konvertagency_doctors_table_row'
+    - builder_table_update_konvertagency_doctors_table_row_6.php
+1.0.95:
+    - 'Updated table konvertagency_doctors_table'
+    - builder_table_update_konvertagency_doctors_table_8.php
+1.0.96:
+    - 'Updated table konvertagency_doctors_title_page'
+    - builder_table_update_konvertagency_doctors_title_page_2.php
+1.0.97:
+    - 'Updated table konvertagency_doctors_title_page'
+    - builder_table_update_konvertagency_doctors_title_page_3.php
+1.0.98:
+    - 'Created table konvertagency_doctors_discounts'
+    - builder_table_create_konvertagency_doctors_discounts.php
+1.0.99:
+    - 'Updated table konvertagency_doctors_discounts'
+    - builder_table_update_konvertagency_doctors_discounts.php
+1.0.100:
+    - 'Updated table konvertagency_doctors_discounts'
+    - builder_table_update_konvertagency_doctors_discounts_2.php
+1.0.101:
+    - 'Created table konvertagency_doctors_marquiz'
+    - builder_table_create_konvertagency_doctors_marquiz.php
+1.0.102:
+    - 'Updated table konvertagency_doctors_table_row'
+    - builder_table_update_konvertagency_doctors_table_row_7.php
+1.0.103:
+    - 'Updated table konvertagency_doctors_discounts'
+    - builder_table_update_konvertagency_doctors_discounts_3.php
+1.0.104:
+    - 'Created table konvertagency_doctors_etap'
+    - builder_table_create_konvertagency_doctors_etap.php
+1.0.105:
+    - 'Created table konvertagency_doctors_etaps'
+    - builder_table_create_konvertagency_doctors_etaps.php
+1.0.106:
+    - 'Updated table konvertagency_doctors_discounts'
+    - builder_table_update_konvertagency_doctors_discounts_4.php
+1.0.107:
+    - 'Updated table konvertagency_doctors_discounts'
+    - builder_table_update_konvertagency_doctors_discounts_5.php
+1.0.108:
+    - 'Updated table konvertagency_doctors_discounts'
+    - builder_table_update_konvertagency_doctors_discounts_6.php
+1.0.109:
+    - 'Updated table konvertagency_doctors_discounts'
+    - builder_table_update_konvertagency_doctors_discounts_7.php
+1.0.110:
+    - 'Updated table konvertagency_doctors_discounts'
+    - builder_table_update_konvertagency_doctors_discounts_8.php
+1.0.111:
+    - 'Updated table konvertagency_doctors_discounts'
+    - builder_table_update_konvertagency_doctors_discounts_9.php
+1.0.112:
+    - 'Created table konvertagency_doctors_accordion_list_works'
+    - builder_table_create_konvertagency_doctors_accordion_list_works.php
+1.0.113:
+    - 'Updated table konvertagency_doctors_accordion_list_works'
+    - builder_table_update_konvertagency_doctors_accordion_list_works.php
+1.0.114:
+    - 'Updated table konvertagency_doctors_accordion_list_works'
+    - builder_table_update_konvertagency_doctors_accordion_list_works_2.php
+1.0.115:
+    - 'Updated table konvertagency_doctors_accordion_list_works'
+    - builder_table_update_konvertagency_doctors_accordion_list_works_3.php
+1.0.116:
+    - 'Created table konvertagency_doctors_quote_block'
+    - builder_table_create_konvertagency_doctors_quote_block.php
+1.0.117:
+    - 'Updated table konvertagency_doctors_quote_block'
+    - builder_table_update_konvertagency_doctors_quote_block.php
+1.0.118:
+    - 'Updated table konvertagency_doctors_discounts'
+    - builder_table_update_konvertagency_doctors_discounts_10.php
+1.0.119:
+    - 'Updated table konvertagency_doctors_discounts'
+    - builder_table_update_konvertagency_doctors_discounts11.php
+1.0.120:
+    - 'Updated table konvertagency_doctors_discounts'
+    - builder_table_update_konvertagency_doctors_discounts12.php
+1.0.121:
+    - 'Updated table konvertagency_doctors_discounts'
+    - builder_table_update_konvertagency_doctors_discounts_11.php
+1.0.122:
+    - 'Updated table konvertagency_doctors_discounts'
+    - builder_table_update_konvertagency_doctors_discounts_12.php
+1.0.123:
+    - 'Updated table konvertagency_doctors_discounts'
+    - builder_table_update_konvertagency_doctors_discounts_13.php
+1.0.124:
+    - 'Updated table konvertagency_doctors_discounts'
+    - builder_table_update_konvertagency_doctors_discounts_14.php
+1.0.125:
+    - 'Updated table konvertagency_doctors_discounts'
+    - builder_table_update_konvertagency_doctors_discounts_15.php

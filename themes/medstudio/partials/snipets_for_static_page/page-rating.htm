@@ -1,0 +1,25 @@
+description = "Рейтинги"
+
+[viewBag]
+snippetCode = "page-rating"
+snippetName = "страница - Рейтинги"
+snippetProperties[maxitems][title] = "Слайдов на экран"
+snippetProperties[maxitems][type] = "string"
+snippetProperties[maxitems][default] = 4
+snippetProperties[maxitems][options][] = ""
+snippetProperties[size][title] = "Размер сторон картинки"
+snippetProperties[size][type] = "dropdown"
+snippetProperties[size][default] = 0
+snippetProperties[size][options][] = "как есть"
+snippetProperties[size][options][] = "2 горизонтальный"
+snippetProperties[size][options][] = "3 вертикальный"
+snippetProperties[size][options][] = "1 квадрат"
+snippetProperties[title][title] = "Заголовок"
+snippetProperties[title][type] = "string"
+snippetProperties[title][default] = ""
+snippetProperties[title][options][] = ""
+
+[Rating]
+maxItems = 4
+==
+{% component 'Rating' %}

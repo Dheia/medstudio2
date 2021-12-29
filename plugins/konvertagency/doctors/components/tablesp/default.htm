@@ -1,0 +1,138 @@
+{% set tables = __SELF__.tables %}
+{% set rows = __SELF__.rows %}
+{% set yes = false %}
+{% set rows_hidden_id =  "id" ~ random() %}
+{% set btn_hidden_id =  "btn" ~ random() %}
+
+{# {{ d(tables) }} <br> #}
+{# {{ d(rows) }} <br> #}
+{% spaceless %}
+
+{% if tableslug %}
+  {% if tables %}
+
+
+    {% for table in tables %}
+      {% if table.table_slug == tableslug %}
+        {% set yes = true %}
+        {#
+        id
+        class
+        table_slug
+        title
+      visible_pcs
+        visible_row #}
+        {% if  table.class %}
+
+          {% set table_class = " " ~ table.class|remove_sp_char ~ " " %} {# заменяет спецсимволы на пробел #}
+        {% else %}
+          {% set table_class =  "" %}
+        {% endif %}
+
+        <section>
+          <div class="container">
+            <div class="row">
+              <div class="table{{ table_class }}">
+                {% if table.title %}
+                  <h2> {{ table.title }} </h2>
+                {% endif %}
+
+                <div class="tr_first">
+                  <div class="td nomination">Услуга клиники</div>
+                  {% if table.visible_pcs %}
+                    <div class="rowforever">
+
+                      <div class="td pcs">кол-во</div>
+                      <div class="td price">Цена</div>
+                    </div>
+                  {% else %}
+                    <div class="td price">Цена</div>
+                  {% endif %}
+                </div>
+
+                {% set visible_row =  table.visible_row %}
+                {% set render_row =  0 %}
+                {% for row in rows %}
+                  {% if row.table_slug == tableslug %}
+                    {% set render_row =  render_row + 1 %}
+
+
+                {% if render_row > visible_row and (visible_row or  visible_row != 0) and not rows_hidden %}
+                  {% set rows_hidden = true %}
+
+
+                  </div> <!-- закрываем тег видимой таблицы -->
+                  <div class="table rows_hidden" id="{{rows_hidden_id}}"> <!-- открываем тег скрытой таблицы -->
+                 {% endif %}
+
+
+                    <div class="tr">
+                      <div class="td nomination">{{ row.nomination|raw }}</div>
+                      {% if table.visible_pcs %}
+                        <div class="rowforever">
+                          <div class="td pcs">{{ row.pcs }}</div>
+                          <div class="td price">{{ (row.price|cur|span_numb)|raw }}</div>
+                        </div>
+                      {% else %}
+                        <div class="td price">{{ (row.price|cur|span_numb)|raw }}</div>
+                      {% endif %}
+                    </div>
+                  {% endif %} {# row.table_slug == tableslug #}
+                {% endfor %}{# row in rows #}
+
+              </div>{# table #} <!--  тег  таблицы скрытой или видимой -->
+
+
+            </div>
+
+
+            {% if render_row > visible_row and (visible_row or  visible_row != 0) %}
+
+<br>
+<div class="width100">
+<a href="javascript:collapsTable('{{rows_hidden_id}}', '{{btn_hidden_id}}', 400, 'linear' , 'easeIn')" class="btn standart-btn light-btn" id="{{btn_hidden_id}}">
+                        Показать все цены
+                        <span></span></a>
+</div>
+
+
+            {% endif %}
+
+          </div> {# container #}
+        </section>
+      {% endif %}  {# table.tableslug #}
+    {% endfor %}  {# table in tables #}
+
+
+
+  {% else %} {# tables #}
+    <section>
+      <div class="not_found">
+        В базе таблиц нет записей
+      </div>
+    </section>
+  {% endif %} {# tables #}
+
+
+
+{% else %} {# tableslug #}
+  {% set yes = true %}
+  <section>
+    <div class="not_found">
+      Не указан идентификатор таблицы
+    </div>
+  </section>
+
+{% endif %} {# tableslug #}
+
+
+{% if not yes %}
+  <section>
+    <div class="not_found">
+      Таблицы с идентификатором <span> {{ tableslug }} </span> не существует
+    </div>
+  </section>
+{% endif %}
+
+
+{% endspaceless %}

@@ -1,0 +1,27 @@
+static-pages:
+    glavnaya: {  }
+    o-klinike: {  }
+    uslugi:
+        stomatologiya-lechenie-zubov:
+            lechenie-kariesa: {  }
+            lechenie-pulpita: {  }
+            restavraciya-zubov: {  }
+        implantation: {  }
+        protezirovanie:
+            viniry: {  }
+            zubnye-protezy: {  }
+            koronki-na-zuby: {  }
+        ispravlenie-prikusa:
+            brekety: {  }
+        lechenie-desen: {  }
+        udalenie-zuba: {  }
+        profgigiena-polosti-rta: {  }
+    kontakty: {  }
+    vrachi: {  }
+    ceny: {  }
+    promotions: {  }
+    sistemnye-stranicy:
+        informaciya-pacientam: {  }
+        rassrochka-i-kredit: {  }
+        nalogovyj-vychet: {  }
+        sistemnye-stranicy-etaps: {  }

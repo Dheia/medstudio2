@@ -1,0 +1,10 @@
+name: Marquiz
+form: $/konvertagency/doctors/models/marquiz/fields.yaml
+modelClass: KonvertAgency\Doctors\Models\Marquiz
+defaultRedirect: konvertagency/doctors/marquiz
+create:
+    redirect: 'konvertagency/doctors/marquiz/update/:id'
+    redirectClose: konvertagency/doctors/marquiz
+update:
+    redirect: konvertagency/doctors/marquiz
+    redirectClose: konvertagency/doctors/marquiz

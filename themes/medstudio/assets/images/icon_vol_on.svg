@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 576 512"
+   aria-hidden="true"
+   focusable="false"
+   role="img"
+   version="1.1"
+   id="svg1625"
+   sodipodi:docname="icon_vol_on.svg"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1629" />
+  <sodipodi:namedview
+     id="namedview1627"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="1.4707031"
+     inkscape:cx="169.64675"
+     inkscape:cy="256"
+     inkscape:window-width="1920"
+     inkscape:window-height="1137"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1625" />
+  <g
+     id="g1638"
+     transform="matrix(0.99826088,0,0,0.99826088,1.0000047,0.8474143)">
+    <path
+       fill="currentColor"
+       d="m 486.51015,65.997457 c 31.5472,56.058133 49.52908,120.732493 49.52908,189.609893 0,68.87741 -17.98188,133.55178 -49.52908,189.55737 l 28.49763,28.47564 c 38.11953,-63.78123 59.99221,-138.33274 59.99221,-218.03301 0,-79.70024 -21.87268,-154.25178 -59.99221,-218.085525 z m -28.70792,28.738326 c 25.08002,48.124867 39.32884,102.817007 39.32884,160.871567 0,58.00202 -14.24882,112.7467 -39.32884,160.87157 l -29.076,-29.05355 c 18.87575,-39.98146 29.44403,-84.69135 29.44403,-131.81802 0,-47.17917 -10.56828,-91.83654 -29.44403,-131.81802 z m -58.62519,58.579947 c 12.88175,31.52285 20.03247,66.0929 20.03247,102.29162 0,36.19874 -7.15072,70.71627 -20.03247,102.29162 l -30.33788,-30.31445 c 7.4136,-22.64389 11.40957,-46.86396 11.40957,-71.97717 0,-25.16571 -3.99597,-49.33324 -11.40957,-71.97715 z"
+       id="path1621"
+       style="stroke-width:0.998264" />
+    <path
+       fill="currentColor"
+       d="M 42.220649,139.70836 H 152.68838 L 287.97322,26.751521 c 1.4722,-1.208375 8.8332,-8.773865 8.8332,7.355324 V 255.02944 475.95203 c 0,14.76319 -2.52376,12.60914 -8.8332,7.35532 L 152.68838,370.35052 H 42.220649 c -19.927314,0 -33.965808,-16.33935 -36.2266884,-35.98859 -7.9919547,-67.93173 -7.9919547,-90.73326 0,-158.66497 2.3134599,-19.64925 16.2993744,-35.9886 36.2266884,-35.9886 z"
+       id="path1623"
+       style="stroke-width:0.998264" />
+  </g>
+</svg>

@@ -1,0 +1,72 @@
+fields:
+    title:
+        label: 'konvertagency.doctors::lang.accordion.title'
+        span: left
+        placeholder: 'konvertagency.doctors::lang.accordion.placeholder_title'
+        type: text
+    description:
+        label: 'konvertagency.doctors::lang.accordion.description'
+        span: auto
+        type: text
+    img_title:
+        label: 'konvertagency.doctors::lang.accordion.img_accordion'
+        mode: image
+        imageWidth: '80'
+        imageHeight: '80'
+        span: right
+        cssClass: accordion_list_img
+        type: mediafinder
+    # img_accordion:
+    #     label: 'konvertagency.doctors::lang.accordion.img_accordion'
+    #     mode: image
+    #     imageWidth: '100'
+    #     imageHeight: '100'
+    #     useCaption: true
+    #     thumbOptions:
+    #         mode: crop
+    #         extension: auto
+    #     span: right
+    #     type: fileupload
+    sub_title:
+        label: 'konvertagency.doctors::lang.accordion.sub_title'
+        span: left
+        placeholder: 'konvertagency.doctors::lang.accordion.placeholder_sub_title'
+        type: text
+    repeater:
+        label: 'konvertagency.doctors::lang.accordion.repeater'
+        prompt: 'Add new item'
+        style: collapsed
+        span: auto
+        type: repeater
+        form:
+            fields:
+                rep_title:
+                    label: 'konvertagency.doctors::lang.accordion.rep_title'
+                    span: full
+                    type: text
+                rep_txt:
+                    label: 'konvertagency.doctors::lang.accordion.rep_txt'
+                    size: small
+                    span: full
+                    type: richeditor
+                rep_img:
+                    label: 'konvertagency.doctors::lang.accordion.rep_img'
+                    mode: image
+                    imageWidth: '80'
+                    imageHeight: '80'
+                    span: auto
+                    type: mediafinder
+    total:
+        label: 'konvertagency.doctors::lang.accordion.total'
+        span: auto
+        placeholder: 'konvertagency.doctors::lang.accordion.placeholder_total'
+        type: text
+    per_row:
+        label: 'konvertagency.doctors::lang.accordion.per_row'
+        span: left
+        type: number
+        default: 1
+    open_all:
+        label: 'konvertagency.doctors::lang.accordion.open_all'
+        span: left
+        type: checkbox

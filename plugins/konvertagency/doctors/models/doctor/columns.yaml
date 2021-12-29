@@ -1,0 +1,21 @@
+columns:
+    last_name:
+        label: 'konvertagency.doctors::lang.doctors.LastName'
+        type: text
+        searchable: true
+        sortable: true
+    rating:
+        label: 'konvertagency.doctors::lang.doctors.Rating'
+        type: number
+        searchable: true
+        sortable: true
+    id:
+        label: id
+        type: number
+        searchable: false
+        sortable: true
+    slug:
+        label: 'konvertagency.doctors::lang.doctors.slug'
+        type: text
+        searchable: true
+        sortable: true

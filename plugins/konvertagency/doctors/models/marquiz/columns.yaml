@@ -1,0 +1,11 @@
+columns:
+    title:
+        label: 'konvertagency.doctors::lang.marquiz.title'
+        type: text
+        searchable: true
+        sortable: true
+    slug:
+        label: 'konvertagency.doctors::lang.marquiz.slug'
+        type: text
+        searchable: true
+        sortable: true

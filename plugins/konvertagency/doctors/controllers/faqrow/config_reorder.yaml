@@ -1,0 +1,4 @@
+title: FaqRow
+modelClass: KonvertAgency\Doctors\Models\FaqRow
+toolbar:
+    buttons: reorder_toolbar

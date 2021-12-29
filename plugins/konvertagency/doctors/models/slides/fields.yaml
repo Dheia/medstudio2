@@ -1,0 +1,75 @@
+fields:
+    slide_title:
+        label: 'konvertagency.doctors::lang.slide.title'
+        span: auto
+        type: text
+    gallery:
+        label: 'konvertagency.doctors::lang.galleries.title'
+        nameFrom: slug_gallerie
+        descriptionFrom: description
+        span: right
+        type: relation
+    description:
+        label: 'konvertagency.doctors::lang.slide.description'
+        span: auto
+        type: text
+    link:
+        label: 'konvertagency.doctors::lang.slide.link'
+        span: left
+        type: text
+    img_slide:
+        label: 'konvertagency.doctors::lang.slide.img_slide'
+        mode: image
+        imageWidth: '100'
+        imageHeight: '100'
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: left
+        cssClass: slide
+        type: fileupload
+tabs:
+    fields:
+        properties_title:
+            label: 'konvertagency.doctors::lang.slide.properties_title'
+            span: auto
+            default: ''
+            type: text
+            tab: 'konvertagency.doctors::lang.slide.data-tovar'
+        properties_1:
+            label: 'konvertagency.doctors::lang.slide.properties_1'
+            span: auto
+            type: text
+            tab: 'konvertagency.doctors::lang.slide.data-tovar'
+        price:
+            label: 'konvertagency.doctors::lang.slide.price'
+            span: auto
+            type: text
+            tab: 'konvertagency.doctors::lang.slide.data-tovar'
+        properties_2:
+            label: 'konvertagency.doctors::lang.slide.properties_2'
+            span: auto
+            type: text
+            tab: 'konvertagency.doctors::lang.slide.data-tovar'
+        brand:
+            label: 'konvertagency.doctors::lang.brand.name'
+            showSearch: true
+            span: auto
+            type: dropdown
+            tab: 'konvertagency.doctors::lang.slide.data-tovar'
+        properties_3:
+            label: 'konvertagency.doctors::lang.slide.properties_3'
+            span: auto
+            type: text
+            tab: 'konvertagency.doctors::lang.slide.data-tovar'
+        position:
+            label: 'konvertagency.doctors::lang.slide.pisition'
+            span: left
+            type: number
+            tab: 'konvertagency.doctors::lang.slide.data-tovar'
+        properties_4:
+            label: 'konvertagency.doctors::lang.slide.properties_4'
+            span: right
+            type: text
+            tab: 'konvertagency.doctors::lang.slide.data-tovar'

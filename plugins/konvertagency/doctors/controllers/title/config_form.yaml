@@ -1,0 +1,10 @@
+name: Title
+form: $/konvertagency/doctors/models/titlepage/fields.yaml
+modelClass: KonvertAgency\Doctors\Models\TitlePage
+defaultRedirect: konvertagency/doctors/title
+create:
+    redirect: 'konvertagency/doctors/title/update/:id'
+    redirectClose: konvertagency/doctors/title
+update:
+    redirect: konvertagency/doctors/title
+    redirectClose: konvertagency/doctors/title

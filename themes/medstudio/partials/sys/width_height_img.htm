@@ -1,0 +1,100 @@
+description = "назначение размеров картинки галереи"
+
+[viewBag]
+==
+{% if gallerie.pcs > 4 %}
+  {% if gallerie.size == 0 %}
+    {% set width_img = 220 %}
+    {% set height_img = false %}
+  {% elseif gallerie.size == 1 %}
+    {% set width_img = 220 %}
+    {% set height_img = 143 %}
+  {% elseif gallerie.size == 2 %}
+    {% set width_img = 220 %}
+    {% set height_img = 340 %}
+  {% else %}
+    {% set width_img = 220 %}
+    {% set height_img = 230 %}
+  {% endif %}
+  {% set quality_img = 95 %}
+
+{% elseif gallerie.pcs == 4 %}
+  {% if gallerie.size == 0 %}
+    {% set width_img = 280 %}
+    {% set height_img = false %}
+  {% elseif gallerie.size == 1 %}
+    {% set width_img = 280 %}
+    {% set height_img = 183 %}
+  {% elseif gallerie.size == 2 %}
+    {% set width_img = 280 %}
+    {% set height_img = 430 %}
+  {% else %}
+    {% set width_img = 280 %}
+    {% set height_img = 280 %}
+  {% endif %}
+  {% set quality_img = 95 %}
+
+{% elseif gallerie.pcs == 3 %}
+  {% if gallerie.size == 0 %}
+    {% set width_img = 385 %}
+    {% set height_img = false %}
+  {% elseif gallerie.size == 1 %}
+    {% set width_img = 385 %}
+    {% set height_img = 250 %}
+  {% elseif gallerie.size == 2 %}
+    {% set width_img = 385 %}
+    {% set height_img = 590 %}
+  {% else %}
+    {% set width_img = 385 %}
+    {% set height_img = 385 %}
+  {% endif %}
+  {% set quality_img = 95 %}
+
+{% elseif gallerie.pcs == 2 %}
+  {% if gallerie.size == 0 %}
+    {% set width_img = 600 %}
+    {% set height_img = false %}
+  {% elseif gallerie.size == 1 %}
+    {% set width_img = 600 %}
+    {% set height_img = 390 %}
+  {% elseif gallerie.size == 2 %}
+    {% set width_img = 600 %}
+    {% set height_img = 920 %}
+  {% else %}
+    {% set width_img = 600 %}
+    {% set height_img = 600 %}
+  {% endif %}
+  {% set quality_img = 95 %}
+
+{% elseif gallerie.pcs == 1 %}
+  {% if gallerie.size == 0 %}
+    {% set width_img = 1110 %}
+    {% set height_img = false %}
+  {% elseif gallerie.size == 1 %}
+    {% set width_img = 1110 %}
+    {% set height_img = 720 %}
+  {% elseif gallerie.size == 2 %}
+    {% set width_img = 1110 %}
+    {% set height_img = 1700 %}
+  {% else %}
+    {% set width_img = 1110 %}
+    {% set height_img = 1110 %}
+  {% endif %}
+  {% set quality_img = 95 %}
+
+{% else %}
+  {% if gallerie.size == 0 %}
+    {% set width_img = 600 %}
+    {% set height_img = false %}
+  {% elseif gallerie.size == 1 %}
+    {% set width_img = 600 %}
+    {% set height_img = 390 %}
+  {% elseif gallerie.size == 2 %}
+    {% set width_img = 600 %}
+    {% set height_img = 920 %}
+  {% else %}
+    {% set width_img = 600 %}
+    {% set height_img = 600 %}
+  {% endif %}
+  {% set quality_img = 95 %}
+{% endif %}

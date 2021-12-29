@@ -1,0 +1,168 @@
+{% set accordion = __SELF__.accordion %}
+{# {{ d(accordion) }} #}
+{% set yes = false %}
+
+{% if accordion != '' %}
+
+
+
+  {# {{ d(accordion) }} #}
+  {# {{ d(comp_message) }} #}
+
+
+  {% spaceless %}
+    <section>
+      {% set idblock =  "idblock" ~ random() %}
+      <div class="container accordionlistworks" id="{{ idblock }}">
+
+        <div class="row">
+          {# <div class="col-md-5"> #}
+
+
+            {% for var in accordion %}
+{% set yes = true %}
+
+              {% if var.per_row <= 1 %}
+                {% set per_row = "col-12" %}
+              {% elseif var.per_row == 2 %}
+                {% set per_row = "col-12 col-md-6" %}
+              {% elseif var.per_row == 3 %}
+                {# {% set per_row = "col-lg-12 col-xl-4 col-md-4 col-sm-6 col-6" %} #}
+                {% set per_row = " col-xl-4 col-md-6  col-12" %}
+              {% else %}
+                {% set per_row = "col-xl-3 col-md-4 col-sm-6 col-12" %}
+              {% endif %}
+              <div class="col-12 acc_row ">
+
+
+                <div class="accordion__title">
+
+                  {% if var.img_title %}
+                    <div class="accordion__title_img">
+                      <img
+                        src="{{ var.img_title|media|resize(60, 60, { mode: 'crop' }) }}"/>
+                    </div>
+                  {% endif %}
+
+
+                  <div class="accordion__title_title">
+                    <div class="accordion__title_title_1">
+                      {{ var.title }}
+                    </div>
+                    {% if var.sub_title %}
+                      <div class="accordion__title_title_2">
+                        {{ var.sub_title }}
+                      </div>
+                    {% endif %}
+                  </div>
+
+                </div>
+
+                {% if var.repeater %}
+
+
+
+                  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" aria-hidden="true" focusable="false" role="img"
+                       style="fill-rule:evenodd; display:none;" class="caret_arow" viewBox="0 0 33.307 19.864">
+                    <polyline id="caret" fill="currentColor"
+                              points="16.653,9.827 28.364,0 33.307,5.89 16.653,19.864 0,5.89 4.943,0 "></polyline>
+                  </svg>
+
+                  <div class="accordion__repeater  accordion__repeater_row row">
+                    {% for rep in var.repeater %}
+                      {% set id =  "id" ~ random() %}
+                      <div class="faq {{per_row}} flex-grow-11 " id="{{ id }}">
+                        <a
+                          href="javascript:collapsElementFaqNativeTimeSet( '{{ idblock }}' ,'{{ id }}' , {{ var.open_all ? 'true' : 'false' }} , 250)">
+                          {# {{ var.open_all ? 'true' : 'false' }} #}
+
+                          <div class="question">
+                            {% if rep.rep_img %}
+                              <div class="accordion__rep_img">
+                                <img
+                                  src="{{ rep.rep_img|media|resize(60, 60, { mode: 'crop' }) }}"/>
+                              </div>
+
+                            {% endif %}
+
+
+
+                            {% if rep.rep_title %}
+                              <div class="question-txt">
+                                {{ rep.rep_title }}
+                              </div>
+                            {% endif %}
+                            <div class="arrow">
+<span>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" aria-hidden="true" focusable="false" role="img"
+         style="fill-rule:evenodd;" class="caret_arow" viewBox="0 0 33.307 19.864">
+  <use xlink:href="#caret"/>
+</svg>
+</span>
+
+                              {# <span>&gt;</span> #}
+                            </div>
+
+                            {# <div class="arrow">
+<span>
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" version="1.1" style="fill-rule:evenodd;" class="arow-to-right" viewBox="0 0 1.84 3.41">
+  <polyline fill="currentColor" points="0.41,0 1.84,1.7 0.41,3.41 0,3.06 1.14,1.7 0,0.35 " />
+</svg>
+</span>
+                            {# <span>&gt;</span> #}
+                            {# </div> #}
+                          </div>
+                        </a>
+                        <div class="answer">
+{% if rep.rep_img %} <div class="p-img"></div> {% endif %}
+                          {{ rep.rep_txt|raw }}
+                        </div>
+                      </div>
+
+
+                    {% endfor %}
+                  </div>
+                {% endif %}
+
+                {% if var.total %}
+                  <div class="accordion__total">
+
+                    {# {{var.total|span_numb|cur}} #}
+                    {{ var.total|raw|cur }}
+
+                  </div>
+                {% endif %}
+                {# {{ d(var.repeater)}} #}
+              {# </div> #}
+
+            {% endfor %}
+          </div>
+
+{#           <div class="col-md-2">+</div>
+          <div class="col-md-5">удалить</div> #}
+
+
+        </div> {# row #}
+
+      </div> {# container #}
+
+    </section>
+  {% endspaceless %}
+{% else %} {# if accordion #}
+  <section>
+    <div class="not_found">
+      Этапы работ не найдены
+    </div>
+  </section>
+
+{% endif %} {# if accordion #}
+
+
+
+{% if not yes %}
+  <section>
+    <div class="not_found">
+       <span> {{ comp_message }} </span>
+    </div>
+  </section>
+{% endif %}

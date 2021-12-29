@@ -1,0 +1,42 @@
+description = "Главное меню"
+==
+{% set idTogle = random() %}
+  <input class="togle-submenu" type="checkbox" id="id{{ idTogle }}"/>
+
+  <label for="id{{ idTogle }}" class="label-submenu"> <span>
+    <svg aria-hidden="true" focusable="false" role="img"  style="fill-rule:evenodd;" class="caret_arow" viewBox="0 0 33.307 19.864">
+      <use xlink:href="#caret" />
+    </svg>
+  </span>
+</label>
+
+{% spaceless %}
+  <ul class="{{ class }} Green">
+    {% for item in itemsMenuAll %}
+      <li class="{{ item.isActive or item.isChildActive ? 'active' : '' }} {{ item.items ? 'dropdown' : '' }}">
+        {% if item.title != "Услуги" %}
+          <a {% if item.items %}class="dropdown-toggle" data-toggle="dropdown" {% endif %} href="{{ item.url }}">
+        {% else %}
+         <div class="nolink">
+         {% endif %}
+         {{ item.title }}
+         {% if item.items %}{#  добавляет элемент (стрелку) открытия #}
+          <div class="caret">
+            <svg aria-hidden="true" focusable="false" role="img"  style="fill-rule:evenodd;" class="caret_arow" viewBox="0 0 33.307 19.864">
+              <use xlink:href="#caret" />
+            </svg>
+          </div>
+        {% endif %}
+        {% if item.title != "Услуги" %}
+        </a>
+      {% else %}
+      </div>
+    {% endif %}
+    {% if item.items %}
+      {# рекурсивный вызов #}
+      {% partial 'static-menu' itemsMenuAll=item.items class='dropdown-menu' %}
+    {% endif %}
+  </li>
+{% endfor %}
+</ul>
+{% endspaceless %}

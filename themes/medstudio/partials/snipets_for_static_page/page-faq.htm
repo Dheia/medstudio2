@@ -1,0 +1,13 @@
+description = "Вопросы"
+
+[viewBag]
+snippetCode = "page-faq"
+snippetName = "Вопросы"
+snippetProperties[faqslug][title] = "идентификатор (slug) вопросов"
+snippetProperties[faqslug][type] = "string"
+snippetProperties[faqslug][default] = ""
+snippetProperties[faqslug][options][] = ""
+
+[FAQ]
+==
+{% component 'FAQ' %}

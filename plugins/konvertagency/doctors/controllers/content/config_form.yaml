@@ -1,0 +1,10 @@
+name: Content
+form: $/konvertagency/doctors/models/contentpage/fields.yaml
+modelClass: KonvertAgency\Doctors\Models\ContentPage
+defaultRedirect: konvertagency/doctors/content
+create:
+    redirect: 'konvertagency/doctors/content/update/:id'
+    redirectClose: konvertagency/doctors/content
+update:
+    redirect: konvertagency/doctors/content
+    redirectClose: konvertagency/doctors/content

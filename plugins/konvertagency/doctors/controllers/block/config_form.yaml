@@ -1,0 +1,10 @@
+name: Block
+form: $/konvertagency/doctors/models/bloksforpage/fields.yaml
+modelClass: KonvertAgency\Doctors\Models\BloksForPage
+defaultRedirect: konvertagency/doctors/block
+create:
+    redirect: 'konvertagency/doctors/block/update/:id'
+    redirectClose: konvertagency/doctors/block
+update:
+    redirect: konvertagency/doctors/block
+    redirectClose: konvertagency/doctors/block

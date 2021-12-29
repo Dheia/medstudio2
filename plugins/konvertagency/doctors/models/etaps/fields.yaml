@@ -1,0 +1,24 @@
+fields:
+    title:
+        label: 'konvertagency.doctors::lang.etaps.title'
+        span: auto
+        required: 1
+        type: text
+    slug:
+        label: 'konvertagency.doctors::lang.etaps.id'
+        span: auto
+        placeholder: 'konvertagency.doctors::lang.etaps.etaps_placeholder'
+        required: 1
+        preset:
+            field: title
+            type: slug
+        type: text
+    desc:
+        label: 'konvertagency.doctors::lang.etaps.desc'
+        size: ''
+        span: auto
+        type: textarea
+    etap:
+        label: 'konvertagency.doctors::lang.etaps.etaps_list'
+        span: right
+        type: widget_etap

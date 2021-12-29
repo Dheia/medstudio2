@@ -1,0 +1,56 @@
+description = "картинка для галереи"
+
+[viewBag]
+==
+<picture>
+    {% if gallerie.pcs == 2 %}
+    {% if gallerie.size == 0 %}
+    <source media="(min-width:1199px)" data-srcset="{{ slides_img[ii].thumb(600,false,{'mode':'auto', 'quality': 90}) }}" class="swiper-lazy">
+    {% elseif gallerie.size == 1 %}
+    <source media="(min-width:1199px)" data-srcset="{{ slides_img[ii].thumb(600,390,{'mode':'crop', 'quality': 90}) }}" class="swiper-lazy">
+    {% elseif gallerie.size == 2 %}
+    <source media="(min-width:1199px)" data-srcset="{{ slides_img[ii].thumb(600,920,{'mode':'crop', 'quality': 90}) }}" class="swiper-lazy">
+    {% else %}
+    <source media="(min-width:1199px)" data-srcset="{{ slides_img[ii].thumb(600,600,{'mode':'crop', 'quality': 90}) }}" class="swiper-lazy">
+    {% endif %}
+    {% else %}
+    {% if gallerie.size == 0 %}
+    <source media="(min-width:1199px)" data-srcset="{{ slides_img[ii].thumb(360,false,{'mode':'auto', 'quality': 95}) }}" class="swiper-lazy">
+    {% elseif gallerie.size == 1 %}
+    <source media="(min-width:1199px)" data-srcset="{{ slides_img[ii].thumb(360,235,{'mode':'crop', 'quality': 95}) }}" class="swiper-lazy">
+    {% elseif gallerie.size == 2 %}
+    <source media="(min-width:1199px)" data-srcset="{{ slides_img[ii].thumb(360,550,{'mode':'crop', 'quality': 95}) }}" class="swiper-lazy">
+    {% else %}
+    <source media="(min-width:1199px)" data-srcset="{{ slides_img[ii].thumb(360,360,{'mode':'crop', 'quality': 95}) }}" class="swiper-lazy">
+    {% endif %}
+    {% endif %} {# gallerie.pcs == 2 #}
+    {% if gallerie.size == 0 %}
+    <source media="(min-width:659px)" data-srcset="{{ slides_img[ii].thumb(600,false,{'mode':'auto', 'quality': 90}) }}" class="swiper-lazy">
+    {% elseif gallerie.size == 1 %}
+    <source media="(min-width:659px)" data-srcset="{{ slides_img[ii].thumb(600,390,{'mode':'crop', 'quality': 90}) }}" class="swiper-lazy">
+    {% elseif gallerie.size == 2 %}
+    <source media="(min-width:659px)" data-srcset="{{ slides_img[ii].thumb(600,920,{'mode':'crop', 'quality': 90}) }}" class="swiper-lazy">
+    {% else %}
+    <source media="(min-width:659px)" data-srcset="{{ slides_img[ii].thumb(600,600,{'mode':'crop', 'quality': 90}) }}" class="swiper-lazy">
+    {% endif %}
+    {% if gallerie.size == 0 %}
+    <source media="(min-width:485px)" data-srcset="{{ slides_img[ii].thumb(480,false,{'mode':'auto', 'quality': 95}) }}" class="swiper-lazy">
+    {% elseif gallerie.size == 1 %}
+    <source media="(min-width:485px)" data-srcset="{{ slides_img[ii].thumb(480,313,{'mode':'crop', 'quality': 95}) }}" class="swiper-lazy">
+    {% elseif gallerie.size == 2 %}
+    <source media="(min-width:485px)" data-srcset="{{ slides_img[ii].thumb(480,740,{'mode':'crop', 'quality': 95}) }}" class="swiper-lazy">
+    {% else %}
+    <source media="(min-width:485px)" data-srcset="{{ slides_img[ii].thumb(480,480,{'mode':'crop', 'quality': 95}) }}" class="swiper-lazy">
+    {% endif %}
+    {% if gallerie.size == 0 %}
+    <source media="(min-width:360px)" data-srcset="{{ slides_img[ii].thumb(360,false,{'mode':'auto', 'quality': 95}) }}" class="swiper-lazy">
+    {% elseif gallerie.size == 1 %}
+    <source media="(min-width:360px)" data-srcset="{{ slides_img[ii].thumb(360,235,{'mode':'crop', 'quality': 95}) }}" class="swiper-lazy">
+    {% elseif gallerie.size == 2 %}
+    <source media="(min-width:360px)" data-srcset="{{ slides_img[ii].thumb(360,550,{'mode':'crop', 'quality': 95}) }}" class="swiper-lazy">
+    {% else %}
+    <source media="(min-width:360px)" data-srcset="{{ slides_img[ii].thumb(360,360,{'mode':'crop', 'quality': 95}) }}" class="swiper-lazy">
+    {% endif %}
+    <img data-src="{{ slides_img[ii].thumb(width_img,height_img,{'mode':'crop', 'quality': quality_img}) }}" class="swiper-lazy" >
+  </picture>
+    <div class="swiper-lazy-preloader"></div>

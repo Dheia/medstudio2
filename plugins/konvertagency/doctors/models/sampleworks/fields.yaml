@@ -1,0 +1,33 @@
+fields:
+    title:
+        label: 'konvertagency.doctors::lang.sampleworks.title'
+        span: auto
+        type: text
+    link:
+        label: 'konvertagency.doctors::lang.sampleworks.link'
+        span: auto
+        type: text
+    view_in_page:
+        label: 'konvertagency.doctors::lang.sampleworks.view_page'
+        span: auto
+        placeholder: 'konvertagency.doctors::lang.view_page_placeholder'
+        type: text
+    action:
+        label: 'konvertagency.doctors::lang.sampleworks.action'
+        options:
+            - 'ничего не делать'
+            - 'открыть изображение в галерее'
+            - 'перейти по ссылке'
+        span: auto
+        type: radio
+    imgSampleWorks:
+        label: 'konvertagency.doctors::lang.sampleworks.img'
+        mode: image
+        imageWidth: '80'
+        imageHeight: '80'
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        type: fileupload

@@ -1,0 +1,88 @@
+plugin:
+    name: 'konvertagency.doctors::lang.plugin.name'
+    description: 'konvertagency.doctors::lang.plugin.description'
+    author: 'Konvert Agency'
+    icon: oc-icon-user-md
+    homepage: ''
+navigation:
+    doctors:
+        label: 'konvertagency.doctors::lang.menu.Parts'
+        url: konvertagency/doctors/title
+        icon: icon-cogs
+        sideMenu:
+            doctors:
+                label: 'konvertagency.doctors::lang.menu.Doctors'
+                url: konvertagency/doctors/doctors
+                icon: icon-user-md
+            title_page:
+                label: 'konvertagency.doctors::lang.menu.title_page'
+                url: konvertagency/doctors/title
+                icon: icon-header
+            content_page:
+                label: 'konvertagency.doctors::lang.menu.content_page'
+                url: konvertagency/doctors/content
+                icon: icon-edit
+            galleries:
+                label: 'konvertagency.doctors::lang.menu.galleries'
+                url: konvertagency/doctors/galleries
+                icon: icon-language
+            slides:
+                label: 'konvertagency.doctors::lang.menu.slides'
+                url: konvertagency/doctors/slides
+                icon: icon-image
+            table:
+                label: 'konvertagency.doctors::lang.menu.table'
+                url: konvertagency/doctors/table
+                icon: icon-table
+            table_row:
+                label: 'konvertagency.doctors::lang.menu.row'
+                url: konvertagency/doctors/tablerow
+                icon: icon-bars
+            faq:
+                label: 'konvertagency.doctors::lang.menu.faq'
+                url: konvertagency/doctors/faq
+                icon: icon-question
+            faq_row:
+                label: 'konvertagency.doctors::lang.menu.faq_row'
+                url: konvertagency/doctors/faqrow
+                icon: icon-question-circle
+            country:
+                label: 'konvertagency.doctors::lang.menu.country'
+                url: konvertagency/doctors/country
+                icon: icon-flag
+            brand:
+                label: 'konvertagency.doctors::lang.menu.brand'
+                url: konvertagency/doctors/brand
+                icon: icon-shirtsinbulk
+            rating:
+                label: 'konvertagency.doctors::lang.menu.rating'
+                url: konvertagency/doctors/rating
+                icon: icon-star-half-empty
+            feadback:
+                label: 'konvertagency.doctors::lang.menu.feadback'
+                url: konvertagency/doctors/feadback
+                icon: icon-comment-o
+            discounts:
+                label: 'konvertagency.doctors::lang.menu.discounts'
+                url: konvertagency/doctors/discounts
+                icon: icon-bullhorn
+            marquiz:
+                label: 'konvertagency.doctors::lang.menu.marquiz'
+                url: konvertagency/doctors/marquiz
+                icon: icon-wechat
+            etaps:
+                label: 'konvertagency.doctors::lang.menu.etaps'
+                url: konvertagency/doctors/etaps
+                icon: icon-sitemap
+            etap:
+                label: 'konvertagency.doctors::lang.menu.etap'
+                url: konvertagency/doctors/etap
+                icon: icon-arrow-right
+            accordion:
+                label: 'konvertagency.doctors::lang.menu.accordion'
+                url: konvertagency/doctors/accordionlistworks
+                icon: icon-bars
+            quote_block:
+                label: 'konvertagency.doctors::lang.menu.quote_block'
+                url: konvertagency/doctors/quoteblock
+                icon: icon-quote-right

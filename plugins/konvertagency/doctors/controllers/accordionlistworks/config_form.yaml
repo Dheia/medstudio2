@@ -1,0 +1,10 @@
+name: AccordionListWorks
+form: $/konvertagency/doctors/models/accordionlistworks/fields.yaml
+modelClass: KonvertAgency\Doctors\Models\AccordionListWorks
+defaultRedirect: konvertagency/doctors/accordionlistworks
+create:
+    redirect: 'konvertagency/doctors/accordionlistworks/update/:id'
+    redirectClose: konvertagency/doctors/accordionlistworks
+update:
+    redirect: konvertagency/doctors/accordionlistworks
+    redirectClose: konvertagency/doctors/accordionlistworks

@@ -1,0 +1,42 @@
+<section></section> {# удалить #}
+<section>
+  <div class="container">
+    <h3>пользователь {{ __SELF__.name }}</h3>
+    {% set edit = __SELF__.edit %}
+    {% set sampls = __SELF__.sampls %}
+      {% spaceless %}
+    {{ d(sampls) }}
+    {# {% if __SELF__.user %}
+    {{ d(__SELF__.user) }}
+    {% endif %}
+    #}
+    <div class="row">
+      {% if edit %}
+      {% for el in sampls %}
+      {% set random =  random() %}
+
+      <div class="col-4">
+        <form class="form_sample" action="">
+          <input type="text" id="title_{{random}}" name="title_{{random}}" value="{{ (el.title) }}">
+          <input type="text" id="link_{{random}}" name="link_{{random}}" value="{{ (el.link) }}">
+          <input type="text" id="view_in_page_{{random}}" name="view_in_page_{{random}}" value="{{ (el.view_in_page) }}">
+          <input type="text" id="random_{{random}}" name="rendom_{{random}}" value="rendom_{{random}}">
+
+          <button type="submit">edit {{ (el.id) }}</button>
+        </form>
+      </div>
+      {% endfor %}
+    <br>
+    редактируем
+    <br>
+    </div>
+  {% else %}
+  <div class="row">
+    <br>
+    не редактируем
+    <br>
+  </div>
+  {% endif %}
+</div>
+</section>
+{% endspaceless %}

@@ -1,0 +1,26 @@
+fields:
+    partial1:
+        span: auto
+        path: $/bauboo/youtube/models/settings/_hint.htm
+        type: partial
+    api_key:
+        label: bauboo.youtube::lang.settings.api_key_label
+        span: full
+        required: 1
+        type: text
+        comment: bauboo.youtube::lang.settings.api_key_comment
+        placeholder: ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefgh123_-
+    display_error:
+        label: bauboo.youtube::lang.settings.display_error_label
+        span: full
+        required: 0
+        type: switch
+        default: true
+        comment: bauboo.youtube::lang.settings.display_error_comment
+    is_bootstrap_5:
+        label: bauboo.youtube::lang.settings.is_bootstrap_5
+        span: full
+        required: 0
+        type: switch
+        default: true
+        comment: bauboo.youtube::lang.settings.is_bootstrap_5_comment

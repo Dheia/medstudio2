@@ -1,0 +1,4 @@
+columns:
+    title:
+        label: ttt
+        type: text

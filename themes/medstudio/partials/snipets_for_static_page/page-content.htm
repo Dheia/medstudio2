@@ -1,0 +1,20 @@
+description = "текстовое содержимое страницы"
+
+[viewBag]
+snippetCode = "page-content"
+snippetName = "страница -текст"
+snippetProperties[idcontentcode][title] = "ID текстового блока"
+snippetProperties[idcontentcode][type] = "string"
+snippetProperties[idcontentcode][default] = ""
+snippetProperties[idcontentcode][options][] = ""
+snippetProperties[marginbottom][title] = "Отступ снизу"
+snippetProperties[marginbottom][type] = "checkbox"
+snippetProperties[marginbottom][default] = 1
+snippetProperties[marginbottom][options][] = "Да"
+snippetProperties[marginbottom][options][] = "Нет"
+
+[ContentPage]
+id_txt = 1
+==
+{% set idcontentcode = this.controller.vars.idcontentcode %}
+{% component 'ContentPage' %}

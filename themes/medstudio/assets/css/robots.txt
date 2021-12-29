@@ -1,0 +1,20 @@
+User-agent: *
+
+Disallow: /sistemnye-stranicy
+Disallow: /informaciya-pacientam
+Disallow: /nalogovyj-vychet
+Disallow: /uslugi
+Disallow: /nalogovyj-vychet
+Disallow: /doktor/
+Disallow: /sendmail*
+Disallow: /sendmail
+Disallow: /sendmail/
+Disallow: /implantaciya-all-on-4-6
+Disallow: /index.php*
+
+
+Disallow: *utm*=            # links with utm-marker
+
+Allow: /assets/css/*.css?*
+Allow: /assets/images
+# Allow: /assets/font/roboto

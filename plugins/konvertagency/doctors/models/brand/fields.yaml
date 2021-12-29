@@ -1,0 +1,10 @@
+fields:
+    name_brand:
+        label: 'konvertagency.doctors::lang.brand.name'
+        span: auto
+        type: text
+    country:
+        label: 'konvertagency.doctors::lang.brand.country'
+        showSearch: true
+        span: auto
+        type: dropdown

@@ -1,0 +1,10 @@
+name: Etaps
+form: $/konvertagency/doctors/models/etaps/fields.yaml
+modelClass: KonvertAgency\Doctors\Models\Etaps
+defaultRedirect: konvertagency/doctors/etaps
+create:
+    redirect: 'konvertagency/doctors/etaps/update/:id'
+    redirectClose: konvertagency/doctors/etaps
+update:
+    redirect: konvertagency/doctors/etaps
+    redirectClose: konvertagency/doctors/etaps

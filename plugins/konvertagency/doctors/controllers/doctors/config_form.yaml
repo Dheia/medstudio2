@@ -1,0 +1,10 @@
+name: Doctors
+form: $/konvertagency/doctors/models/doctor/fields.yaml
+modelClass: KonvertAgency\Doctors\Models\Doctor
+defaultRedirect: konvertagency/doctors/doctors
+create:
+    redirect: 'konvertagency/doctors/doctors/update/:id'
+    redirectClose: konvertagency/doctors/doctors
+update:
+    redirect: konvertagency/doctors/doctors
+    redirectClose: konvertagency/doctors/doctors

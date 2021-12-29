@@ -1,0 +1,4 @@
+title: Brand
+modelClass: KonvertAgency\Doctors\Models\Brand
+toolbar:
+    buttons: reorder_toolbar

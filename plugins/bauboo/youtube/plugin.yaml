@@ -1,0 +1,6 @@
+plugin:
+    name: 'bauboo.youtube::lang.plugin.name'
+    description: 'bauboo.youtube::lang.plugin.description'
+    author: Bauboo
+    icon: oc-icon-youtube-play
+    homepage: 'https://octobercms.com/plugin/bauboo-youtube'

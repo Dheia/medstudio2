@@ -1,0 +1,36 @@
+fields:
+    description:
+        label: 'konvertagency.doctors::lang.rating.description'
+        span: left
+        required: 1
+        placeholder: 'konvertagency.doctors::lang.rating.description_placeholder'
+        type: text
+    stars:
+        label: 'konvertagency.doctors::lang.rating.stars'
+        span: auto
+        placeholder: 'konvertagency.doctors::lang.rating.placeholder'
+        required: 1
+        type: number
+    img_rating:
+        label: 'File upload'
+        mode: image
+        imageWidth: '100'
+        imageHeight: '66'
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: left
+        cssClass: img_rating
+        type: fileupload
+    rating:
+        label: 'konvertagency.doctors::lang.rating.rating'
+        span: right
+        required: 1
+        type: number
+    txt:
+        label: 'konvertagency.doctors::lang.rating.txt'
+        span: right
+        placeholder: ''
+        required: 1
+        type: text

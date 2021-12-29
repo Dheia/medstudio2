@@ -1,0 +1,16 @@
+columns:
+    title:
+        label: 'konvertagency.doctors::lang.accordion.title'
+        type: text
+        searchable: true
+        sortable: true
+    sub_title:
+        label: 'konvertagency.doctors::lang.accordion.sub_title'
+        type: text
+        searchable: true
+        sortable: true
+    description:
+        label: 'konvertagency.doctors::lang.accordion.description'
+        type: text
+        searchable: true
+        sortable: true

@@ -1,0 +1,177 @@
+fields:
+    title:
+        label: 'konvertagency.doctors::lang.discounts.title'
+        span: left
+        placeholder: 'konvertagency.doctors::lang.discounts.title_placeholder'
+        required: 1
+        type: text
+    slug:
+        label: 'konvertagency.doctors::lang.discounts.slug'
+        span: right
+        placeholder: 'konvertagency.doctors::lang.discounts.placeholder_slug'
+        required: 1
+        preset:
+            field: title
+            type: ''
+        type: text
+    ImgPpromotions:
+        label: 'konvertagency.doctors::lang.discounts.img_promotions'
+        mode: image
+        imageWidth: '150'
+        imageHeight: '100'
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: right
+        type: fileupload
+    txt_title:
+        label: 'konvertagency.doctors::lang.discounts.txt_title'
+        span: auto
+        placeholder: 'konvertagency.doctors::lang.discounts.txt_title_placeholder'
+        type: text
+    price_current:
+        label: 'konvertagency.doctors::lang.discounts.price_current'
+        span: left
+        cssClass: left-50
+        required: 0
+        type: number
+    price_old:
+        label: 'konvertagency.doctors::lang.discounts.price_old'
+        span: left
+        cssClass: right-50
+        type: number
+    txt_promotions:
+        label: 'konvertagency.doctors::lang.discounts.txt_promotions'
+        size: large
+        span: left
+        type: richeditor
+    txt_btn:
+        label: 'konvertagency.doctors::lang.discounts.txt_btn'
+        span: right
+        default: 'konvertagency.doctors::lang.discounts.content_btn'
+        type: text
+        cssClass: left-50
+    link:
+        label: 'konvertagency.doctors::lang.discounts.link'
+        span: right
+        placeholder: 'konvertagency.doctors::lang.discounts.placeholder_link'
+        cssClass: 'right-50 right-l-50'
+        type: text
+    date:
+        label: 'konvertagency.doctors::lang.discounts.date'
+        mode: date
+        span: right
+        trigger:
+            action: enable
+            field: auto_date
+            condition: unchecked
+        placeholder: 'konvertagency.doctors::lang.discounts.placeholder_date'
+        type: datepicker
+    date_on:
+        label: 'konvertagency.doctors::lang.discounts.date_on'
+        span: right
+        default: 1
+        type: checkbox
+        trigger:
+            action: enable
+            field: auto_date
+            condition: unchecked
+    auto_date:
+        label: 'konvertagency.doctors::lang.discounts.auto_date'
+        span: right
+        default: 1
+        type: checkbox
+    publication:
+        label: 'konvertagency.doctors::lang.othe.publication'
+        span: right
+        default: 1
+        type: switch
+    sort_order:
+        label: 'konvertagency.doctors::lang.discounts.sort_order'
+        span: left
+        default: ''
+        type: number
+tabs:
+    fields:
+        banner_publication:
+            label: 'konvertagency.doctors::lang.discounts.banner_publication'
+            span: left
+            default: 1
+            type: switch
+            tab: 'konvertagency.doctors::lang.discounts.banner_home'
+        banner_list_txt:
+            label: 'konvertagency.doctors::lang.discounts.banner_list_comment'
+            span: left
+            quickselect: true
+            select_all: true
+            default:
+                - title
+                - txt_title
+                - price_current
+                - price_old
+                - date
+            options:
+                title: 'konvertagency.doctors::lang.discounts.title'
+                txt_title: 'konvertagency.doctors::lang.discounts.txt_title'
+                price_current: 'konvertagency.doctors::lang.discounts.price_current'
+                price_old: 'konvertagency.doctors::lang.discounts.price_old'
+                date: 'konvertagency.doctors::lang.discounts.date'
+            type: checkboxlist
+            trigger:
+                action: hide
+                field: banner_publication
+                condition: unchecked
+            tab: 'konvertagency.doctors::lang.discounts.banner_home'
+        ImgPpromotionsHome:
+            label: 'konvertagency.doctors::lang.discounts.img_promotions_home'
+            mode: image
+            imageWidth: '150'
+            imageHeight: '100'
+            useCaption: true
+            thumbOptions:
+                mode: crop
+                extension: auto
+            span: right
+            disabled: false
+            trigger:
+                action: hide
+                field: banner_publication
+                condition: unchecked
+            type: fileupload
+            tab: 'konvertagency.doctors::lang.discounts.banner_home'
+        banner_btn:
+            label: 'konvertagency.doctors::lang.discounts.banner_btn'
+            span: left
+            type: text
+            default: 'konvertagency.doctors::lang.discounts.content_banner_btn'
+            placeholder: 'konvertagency.doctors::lang.discounts.placeholder_content_banner_btn'
+            trigger:
+                action: hide
+                field: banner_publication
+                condition: unchecked
+            tab: 'konvertagency.doctors::lang.discounts.banner_home'
+        txt_position:
+            label: 'konvertagency.doctors::lang.discounts.txt_position'
+            options:
+                1: 'konvertagency.doctors::lang.othe.left'
+                2: 'konvertagency.doctors::lang.othe.center'
+                3: 'konvertagency.doctors::lang.othe.right'
+            span: right
+            default: '3'
+            type: balloon-selector
+            trigger:
+                action: hide
+                field: banner_publication
+                condition: unchecked
+            tab: 'konvertagency.doctors::lang.discounts.banner_home'
+        banner_custom_txt:
+            label: 'konvertagency.doctors::lang.discounts.banner_custom_txt'
+            size: small
+            span: full
+            type: richeditor
+            trigger:
+                action: hide
+                field: banner_publication
+                condition: unchecked
+            tab: 'konvertagency.doctors::lang.discounts.banner_home'

@@ -1,0 +1,64 @@
+fields:
+    gallerie_title:
+        label: 'konvertagency.doctors::lang.galleries.title'
+        span: left
+        type: text
+    slug_gallerie:
+        label: 'konvertagency.doctors::lang.galleries.slug'
+        span: right
+        preset:
+            field: gallerie_title
+            type: slug
+        type: text
+    description:
+        label: 'konvertagency.doctors::lang.galleries.description'
+        span: full
+        type: text
+tabs:
+    fields:
+        size:
+            label: 'konvertagency.doctors::lang.slide.size'
+            options:
+                - 'как есть'
+                - '3:2 горизонтальный'
+                - '2:3 вертикальный'
+                - '1:1 квадрат'
+            showSearch: true
+            span: auto
+            type: dropdown
+            tab: 'konvertagency.doctors::lang.galleries.setting'
+        class:
+            label: 'konvertagency.doctors::lang.slide.slide_class'
+            span: auto
+            type: text
+            tab: 'konvertagency.doctors::lang.galleries.setting'
+        pcs:
+            label: 'konvertagency.doctors::lang.galleries.pcs'
+            span: auto
+            default: '4'
+            type: number
+            tab: 'konvertagency.doctors::lang.galleries.setting'
+        action:
+            label: 'konvertagency.doctors::lang.galleries.action'
+            options:
+                0: 'Ничего не делать'
+                2: 'Перейти по ссылке'
+                3: 'Открыть на весь экран'
+            span: auto
+            type: radio
+            tab: 'konvertagency.doctors::lang.galleries.setting'
+        slide_title_position:
+            label: 'konvertagency.doctors::lang.galleries.slide_title_position'
+            span: left
+            type: checkbox
+            tab: 'konvertagency.doctors::lang.galleries.setting'
+        pagination_mobile:
+            label: 'konvertagency.doctors::lang.galleries.pagination_mobile'
+            span: auto
+            type: checkbox
+            tab: 'konvertagency.doctors::lang.galleries.setting'
+        pagination:
+            label: 'konvertagency.doctors::lang.galleries.pagination'
+            span: right
+            type: checkbox
+            tab: 'konvertagency.doctors::lang.galleries.setting'

@@ -1,0 +1,97 @@
+{% set contentbase = __SELF__.contentbase %}
+{% set yes = false %}
+{% spaceless %}
+
+{% if idcontentcode %}
+
+<section class="pagecontent {% if  marginbottom == 0 %} marginbottom-0 {% endif %}">
+  {% if contentbase %}
+
+  {% for contentepage in contentbase %}
+  {% if contentepage.id == idcontentcode %}
+  {% set title = (contentepage.title) %}
+  {% set yes = true %}
+  {# {% set path = (titlepage.bg_title.path) %} #}
+
+
+{#   idcontentcode = {{ idcontentcode }}<br>
+  contentepage.id = {{ contentepage.id }}<br>
+  imgcontent = {{ contentepage.imgcontent.path }}<br>
+  img_position = {{ contentepage.img_position }}<br>
+  0 слева<br>
+  1 справа<br>
+
+  marginbottom = {{ marginbottom }}<br>
+
+  <br>
+ #}
+
+<div style="color: red; position:absolute; background:#eee; z-index:1">
+{# id - {{contentepage.id}} #}
+</div>
+
+
+  <div class="container">
+    <div class="row">
+
+      {% if not contentepage.imgcontent %}
+      <div class="col-12">
+        {% else %}
+        <div class="col-md-6 {% if  contentepage.img_position == 1 %} pagecontent__order_1 {% else %} pagecontent__order_0 {% endif %}">
+          <div class="pagecontent__img shadow">
+            <img src="{{ contentepage.imgcontent.thumb(540,540,{'mode':'crop', 'quality': 70}) }}">
+          </div>
+        </div>
+        <div class="col-md-6 h-top">
+          {% endif %}
+          {% if title %}
+            <h2>{{ title }}</h2>
+          {% endif %}
+          <div class="pagecontent__txt">
+            {{ contentepage.text | raw }}
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+    {% endif %} {# titlepage.id == idtitlecode #}
+    {% endfor %}
+    {# {{ d(contentbase) }} #}
+
+
+
+    {% else %} {# contentbase #}
+      {% set title = "В базе контента нет записей" %}
+      {% set yes = true %}
+      <section>
+        <br>
+        <h4> {{ title }} </h4>
+      </section>
+    {% endif %} {# contentbase #}
+
+
+    {% if not yes %}
+      {% set title = "Текстового блока с номером "  ~ idcontentcode ~ " не существует" %}
+      <section>
+        <br>
+        <h4> {{ title }} </h4>
+      </section>
+    {% endif %}
+
+
+
+    {% else %}{# idcontentcode #}
+      {% set title = "Не указан номер текстового блока" %}
+      {% set yes = true %}
+      <section>
+        <br>
+        <h4> {{ title }} </h4>
+      </section>
+    {% endif %} {# idcontentcode #}
+
+</section>
+
+
+{% endspaceless %}

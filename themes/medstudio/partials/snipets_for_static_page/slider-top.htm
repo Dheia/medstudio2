@@ -1,0 +1,76 @@
+description = "слайдер на главной"
+
+[viewBag]
+snippetCode = "slider-top"
+snippetName = "Слайдер на главной"
+==
+
+
+{% set top_gallery = {
+'slide_1': {
+'h1': "акции",
+'h2': "Cпециальные условия",
+'foto': "top_slider_2_1.jpg",
+},
+'slide_2': {
+'h1': "Подарочный",
+'h2': "Сертификат",
+'foto': "top_slider_2_2.jpg",
+},
+'slide_3': {
+'h1': "Рассрочка",
+'h2': "Кредит 0%",
+'foto': "top_slider_2_3.jpg",
+},
+} %}
+
+
+
+
+<div class="slider-background">
+  <!-- <div class="slider"> -->
+    <!-- <div class="swiper-button-prev-m"> < </div> -->
+    <!-- <div class="container-slider-top"> -->
+      <div class="container-fluid padding_0" style="max-width: 1140px;">
+
+
+        <div class="col-12  padding_0 overflow_hidden">
+          <div class="swiper-container" id="swiper-slider-top">
+           <div class="swiper-wrapper">
+
+
+
+{% for slide in top_gallery %}
+            <div class="swiper-slide slide-top ">
+              <div class="slider-top-content">
+                <div class="slide-top-txt">
+                  {{ slide.h1 }} <br>
+                  <span>{{ slide.h2 }}</span>
+                </div>
+                <div class="slider-top-content-img ">
+                  <img src="{{ slide.foto|media }}" alt="">
+                </div>
+              </div>
+            </div>
+{% endfor %}
+        </div>
+        {# <div class="swiper-pagination mobile-hiden"></div> #}
+      </div>
+    </div>
+  </div>
+  <!-- <div class="swiper-button-next-m"> > </div> -->
+<!-- </div> -->
+
+<!-- </div> -->
+</div>
+
+<script>
+
+  document.addEventListener("DOMContentLoaded", f_ready);
+//  window.addEventListener("resize", f_ready);
+function f_ready() {
+  top_slider("#swiper-slider-top", "fade", 4000 );
+    // (эфект, delay )
+  }
+</script>
+

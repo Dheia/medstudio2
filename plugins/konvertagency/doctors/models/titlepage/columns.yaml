@@ -1,0 +1,13 @@
+columns:
+    id:
+        label: 'konvertagency.doctors::lang.title.id'
+        type: number
+        sortable: true
+    title:
+        label: 'konvertagency.doctors::lang.title.title'
+        type: text
+        sortable: true
+    sub_title:
+        label: 'konvertagency.doctors::lang.title.sub_title'
+        type: text
+        sortable: true

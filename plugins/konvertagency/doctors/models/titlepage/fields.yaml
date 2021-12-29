@@ -1,0 +1,38 @@
+fields:
+    title:
+        label: 'konvertagency.doctors::lang.title.title'
+        span: auto
+        type: text
+    bgmedia:
+        label: 'konvertagency.doctors::lang.title.bgmedia'
+        mode: image
+        span: auto
+        type: mediafinder
+    sub_title:
+        label: 'konvertagency.doctors::lang.title.sub_title'
+        span: left
+        type: text
+    bg_title:
+        label: 'konvertagency.doctors::lang.title.bg'
+        mode: image
+        imageWidth: '300'
+        imageHeight: '80'
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: right
+        trigger: null
+        type: fileupload
+    btn_appointment:
+        label: 'konvertagency.doctors::lang.title.btn_appointment'
+        span: left
+        type: text
+    position_bg:
+        label: 'konvertagency.doctors::lang.title.position_bg'
+        options:
+            - 'В центре'
+            - Справа
+            - Слева
+        span: right
+        type: radio

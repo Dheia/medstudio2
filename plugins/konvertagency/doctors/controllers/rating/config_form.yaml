@@ -1,0 +1,10 @@
+name: Rating
+form: $/konvertagency/doctors/models/rating/fields.yaml
+modelClass: KonvertAgency\Doctors\Models\Rating
+defaultRedirect: konvertagency/doctors/rating
+create:
+    redirect: 'konvertagency/doctors/rating/update/:id'
+    redirectClose: konvertagency/doctors/rating
+update:
+    redirect: konvertagency/doctors/rating
+    redirectClose: konvertagency/doctors/rating

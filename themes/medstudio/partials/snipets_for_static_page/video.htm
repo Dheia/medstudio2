@@ -1,0 +1,115 @@
+description = "видео"
+
+[viewBag]
+snippetCode = "videotest"
+snippetName = "видео (не использовать)"
+snippetProperties[idvideo][title] = "Идентификатор видео"
+snippetProperties[idvideo][type] = "string"
+snippetProperties[idvideo][default] = ""
+snippetProperties[idvideo][options][] = ""
+snippetProperties[titlevideo][title] = "Название видео"
+snippetProperties[titlevideo][type] = "string"
+snippetProperties[titlevideo][default] = ""
+snippetProperties[titlevideo][options][] = ""
+snippetProperties[size][title] = "Размер"
+snippetProperties[size][type] = "dropdown"
+snippetProperties[size][default] = 0
+snippetProperties[size][options][no] = "из настроек \"video\""
+snippetProperties[size][options][1080p] = "1920x1080"
+snippetProperties[size][options][720p] = "1280x720"
+snippetProperties[size][options][480p] = "854x480"
+snippetProperties[size][options][360p] = "640x360"
+snippetProperties[size][options][315p] = "560x315"
+snippetProperties[adaptive][title] = "Размер по контейнеру"
+snippetProperties[adaptive][type] = "checkbox"
+snippetProperties[adaptive][default] = 1
+snippetProperties[adaptive][options][] = ""
+
+[video]
+videoId = "EfxySNqMmgw"
+playerControls = 1
+privacyMode = 1
+responsive = "16by9"
+width = 854
+height = 480
+==
+{% set video = video %}
+{% set idvideo = idvideo ? idvideo : video.videoId %}
+
+
+{% if adaptive %}
+	{% set h = "100%" %}
+	{% set w = "100%" %}
+
+	{% if video.responsiveRatio == "16by9 "%}
+		{% set proportion = "video-proportion-16x9" %}
+	{% elseif video.responsiveRatio == "4by3" %}
+		{% set proportion = "video-proportion-4x3" %}
+	{% elseif video.responsiveRatio == "21by9" %}
+		{% set proportion = "video-proportion-21x9" %}
+	{% elseif video.responsiveRatio == "1by1" %}
+		{% set proportion = "video-proportion-1x1" %}
+	{% endif %}
+
+{% else %}{# adaptive #}
+
+	{% if video.responsiveRatio == "16by9 "%}
+		{% set proportion = "video-no-proportion-16x9" %}
+	{% elseif video.responsiveRatio == "4by3" %}
+		{% set proportion = "video-no-proportion-4x3" %}
+	{% elseif video.responsiveRatio == "21by9" %}
+		{% set proportion = "video-no-proportion-21x9" %}
+	{% elseif video.responsiveRatio == "1by1" %}
+		{% set proportion = "video-no-proportion-1x1" %}
+	{% endif %}
+
+
+	{% if size == "315p" %}
+		{% set h = 315 %}
+		{% set w = 560 %}
+	{% elseif size == "360p" %}
+		{% set h = 360 %}
+		{% set w = 640 %}
+	{% elseif size == "480p" %}
+		{% set h = 480 %}
+		{% set w = 854 %}
+	{% elseif size == "720p" %}
+		{% set h = 720 %}
+		{% set w = 1280 %}
+	{% elseif size == "1080p" %}
+		{% set h = 1080 %}
+		{% set w = 1920 %}
+	{% else %}
+		{% set h = video.height %}
+		{% set w = video.width %}
+	{% endif %}
+{% endif %}{# adaptive #}
+
+<section>
+
+
+
+{% if video.videoId %}
+<div class="container">
+	<div class="row">
+<div class="col-12">
+{% if titlevideo %}
+<h2> {{titlevideo}} </h2>
+{% endif %}
+<div class="video {% if adaptive %}video-adaptive{% endif %} {{proportion}}">
+				<iframe width='{{ w }}' height='{{ h }}' frameborder='0'
+					src='https://www.youtube{% if video.privacyMode %}-nocookie{% endif %}.com/embed/{{idvideo}}?controls={{video.playerControls ? 1 : 0}}'
+					allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen>
+				</iframe>
+</div>
+</div>
+	</div>
+</div>
+
+
+{% endif %}
+
+	</section>
+
+{# 		no:из настроек \"video\"| 1080p:1920x1080 | 720p:1280x720 | 480p:854x480  | 360p:640x360 | 315p:560x315
+ #}

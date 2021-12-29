@@ -1,0 +1,11 @@
+name: SampleWorks
+modelClass: KonvertAgency\Doctors\Models\SampleWorks
+form: $/konvertagency/doctors/models/sampleworks/fields.yaml
+defaultRedirect: konvertagency/doctors/sampleworks
+create:
+    redirect: 'konvertagency/doctors/sampleworks/update/:id'
+    redirectClose: konvertagency/doctors/sampleworks
+update:
+    redirect: konvertagency/doctors/sampleworks
+    redirectClose: konvertagency/doctors/sampleworks
+preview: {  }

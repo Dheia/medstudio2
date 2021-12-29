@@ -1,0 +1,11 @@
+columns:
+    title:
+        label: 'konvertagency.doctors::lang.etaps.title'
+        type: text
+        searchable: true
+        sortable: true
+    id:
+        label: 'konvertagency.doctors::lang.etaps.id'
+        type: text
+        searchable: true
+        sortable: true

@@ -1,0 +1,20 @@
+fields:
+    title:
+        label: 'konvertagency.doctors::lang.blockforpage.title'
+        span: full
+        required: 1
+        type: text
+    description:
+        label: 'konvertagency.doctors::lang.blockforpage.description'
+        span: full
+        type: text
+    url:
+        label: 'konvertagency.doctors::lang.blockforpage.url'
+        span: full
+        required: 1
+        type: text
+    public:
+        label: 'konvertagency.doctors::lang.blockforpage.public'
+        span: auto
+        default: 1
+        type: switch

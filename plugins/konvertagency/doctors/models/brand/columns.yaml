@@ -1,0 +1,6 @@
+columns:
+    name_brand:
+        label: 'konvertagency.doctors::lang.brand.name'
+        type: text
+        searchable: true
+        sortable: true

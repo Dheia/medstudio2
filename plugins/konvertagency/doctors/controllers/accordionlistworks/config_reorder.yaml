@@ -1,0 +1,4 @@
+title: AccordionListWorks
+modelClass: KonvertAgency\Doctors\Models\AccordionListWorks
+toolbar:
+    buttons: reorder_toolbar

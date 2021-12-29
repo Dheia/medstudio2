@@ -1,0 +1,10 @@
+name: Galleries
+form: $/konvertagency/doctors/models/galleries/fields.yaml
+modelClass: KonvertAgency\Doctors\Models\Galleries
+defaultRedirect: konvertagency/doctors/galleries
+create:
+    redirect: 'konvertagency/doctors/galleries/update/:id'
+    redirectClose: konvertagency/doctors/galleries
+update:
+    redirect: konvertagency/doctors/galleries
+    redirectClose: konvertagency/doctors/galleries

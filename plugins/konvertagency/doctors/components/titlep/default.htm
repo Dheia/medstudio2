@@ -1,0 +1,93 @@
+{% set titlebase = __SELF__.titlebase %}
+{% set yes = false %}
+
+{# {{ d(id_title) }} #}
+{% spaceless %}
+
+  {% if idtitlecode %}
+    {% if titlebase %}
+
+      {% for titlepage in titlebase %}
+        {% if titlepage.id == idtitlecode %}
+{#          {% set id_title = titlepage.id %}#}
+          {% set title = (titlepage.title) %}
+          {% set sub_title = (titlepage.sub_title) %}
+          {% set yes = true %}
+
+          {% if titlepage.position_bg == 1 %}
+            {% set position_bg = " " ~ 'position_bg_right' %}
+          {% elseif titlepage.position_bg == 2 %}
+            {% set position_bg = " " ~ 'position_bg_left' %}
+          {% else %}
+            {% set position_bg = " " ~ 'position_bg_center' %}
+          {% endif %}
+
+
+
+          {# {% set path = (titlepage.bg_title.path) %} #}
+          <section>
+
+            <div class="section-h1">
+              <div class="section-h1__txt">
+                <h1><span class="section-h1__title">{{ title|raw }}</span></h1>
+                <div class="section-h1__subtitle">{{ (sub_title)|cur|raw }}</div>
+
+                {% if titlepage.btn_appointment %}
+                  <div class="btn-title">
+                    {% partial 'btn-pop-up' titleBtn =  titlepage.btn_appointment %}
+                  </div>
+                {% endif %}
+              </div>
+              <div class="section-h1__bg{{ position_bg }}">
+
+
+                {% if titlepage.bgmedia %}
+                  <img src="{{ titlepage.bgmedia|media }}" alt="">
+                {% else %}
+                  <img src="{{ titlepage.bg_title.thumb(auto,500,{'mode':'crop', 'quality': 70}) }}" alt="">
+                {% endif %}
+
+
+
+                {# <img src="{{path}}" alt=""> #}
+              </div>
+            </div>
+            <div class="clearfix"></div>
+          </section>
+
+        {% endif %} {# titlepage.id == idtitlecode #}
+      {% endfor %}
+    {% else %} {# titlebase #}
+
+      {% set yes = true %}
+
+      <section>
+        <div class="not_found">
+          В базе заголовков <span>нет записей</span>
+        </div>
+      </section>
+
+    {% endif %} {# titlebase #}
+
+
+  {% else %} {# idtitlecode #}
+    {% set yes = true %}
+    <section>
+      <div class="not_found">
+        Не указан <span>номер</span> заголовка
+      </div>
+    </section>
+
+  {% endif %} {# idtitlecode #}
+
+  {% if not yes %}
+    <section>
+      <div class="not_found">
+        Заголовка с номером <span> {{ idtitlecode }} </span> не существует
+      </div>
+    </section>
+
+
+  {% endif %}
+
+{% endspaceless %}

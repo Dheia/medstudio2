@@ -1,0 +1,4 @@
+title: Country
+modelClass: KonvertAgency\Doctors\Models\Country
+toolbar:
+    buttons: reorder_toolbar

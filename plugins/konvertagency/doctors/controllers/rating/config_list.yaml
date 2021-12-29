@@ -1,0 +1,12 @@
+list: $/konvertagency/doctors/models/rating/columns.yaml
+modelClass: KonvertAgency\Doctors\Models\Rating
+title: Rating
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'konvertagency/doctors/rating/update/:id'

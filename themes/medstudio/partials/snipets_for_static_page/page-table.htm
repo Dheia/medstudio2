@@ -1,0 +1,14 @@
+description = "Таблица"
+
+[viewBag]
+snippetCode = "page-table"
+snippetName = "страница - Таблица"
+snippetProperties[tableslug][title] = "Slug таблицы"
+snippetProperties[tableslug][type] = "string"
+snippetProperties[tableslug][default] = ""
+snippetProperties[tableslug][options][] = ""
+
+[Table]
+table_slug = "любой"
+==
+{% component 'Table' %}

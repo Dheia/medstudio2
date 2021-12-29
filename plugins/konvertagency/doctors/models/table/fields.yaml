@@ -1,0 +1,45 @@
+fields:
+    title:
+        label: 'konvertagency.doctors::lang.table.title'
+        span: left
+        type: text
+    table_slug:
+        label: 'konvertagency.doctors::lang.table.table_slug'
+        span: right
+        placeholder: 'konvertagency.doctors::lang.table.slug_table_placeholder'
+        required: 1
+        preset:
+            field: title
+            type: slug
+        type: text
+    class:
+        label: 'konvertagency.doctors::lang.faq.class'
+        span: auto
+        type: text
+    visible_row:
+        label: 'konvertagency.doctors::lang.table.visible_row'
+        span: auto
+        placeholder: 'konvertagency.doctors::lang.table.placeholder'
+        default: '6'
+        type: number
+    visible_pcs:
+        label: 'konvertagency.doctors::lang.table.visible_pcs'
+        span: auto
+        default: 0
+        type: checkbox
+    order:
+        label: 'konvertagency.doctors::lang.table.order'
+        span: auto
+        type: number
+    type:
+        label: 'konvertagency.doctors::lang.table.type'
+        options:
+            - Услуги
+            - Прайс
+        span: auto
+        type: radio
+    description:
+        label: 'konvertagency.doctors::lang.faq.description'
+        span: full
+        placeholder: 'konvertagency.doctors::lang.faq.description_placeholder'
+        type: text

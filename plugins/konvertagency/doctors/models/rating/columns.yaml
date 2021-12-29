@@ -1,0 +1,9 @@
+columns:
+    description:
+        label: 'konvertagency.doctors::lang.rating.description'
+        type: text
+        sortable: true
+    id:
+        label: r
+        type: number
+        sortable: true

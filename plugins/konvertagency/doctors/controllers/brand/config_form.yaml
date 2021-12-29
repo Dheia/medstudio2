@@ -1,0 +1,10 @@
+name: Brand
+form: $/konvertagency/doctors/models/brand/fields.yaml
+modelClass: KonvertAgency\Doctors\Models\Brand
+defaultRedirect: konvertagency/doctors/brand
+create:
+    redirect: 'konvertagency/doctors/brand/update/:id'
+    redirectClose: konvertagency/doctors/brand
+update:
+    redirect: konvertagency/doctors/brand
+    redirectClose: konvertagency/doctors/brand

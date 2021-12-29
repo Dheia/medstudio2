@@ -1,0 +1,149 @@
+[staticPage]
+useContent = 1
+default = 1
+
+[staticMenu staticMenuAll]
+code = "static-menu-all"
+==
+<!doctype html>
+<html lang="ru-RU">
+
+
+{% set time = 'now'|date('h:i:s') %}
+ <!-- <p>{{ time }} для обновления css</p> -->
+
+ <head>
+   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+   {% if this.page.meta_title %}
+    <title>{{ this.page.meta_title|raw }} </title>
+  {% else %}
+    <title>MedStudio - {{ this.page.title }}</title>
+  {% endif %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="yandex-verification" content="469b6cd73a11984c" />
+
+
+
+  <meta name="description" content="{{ this.page.meta_description|raw}}">
+
+
+  {# <link rel="icon" type="image/png" href="{{ 'assets/images/favicon.ico'|theme }}"> #}
+
+  <link rel="icon" type="image/x-icon" href="{{ 'assets/images/favicon.svg'|theme }}">
+
+
+
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> -->
+  <link href="{{ 'assets/css/4.5.2.bootstrap-reboot-grid.min.css'|theme }}" rel="stylesheet">
+
+
+  <!-- <script src="{{'assets/js/jquery.3.6.0.min.js'|theme}}"></script> -->
+
+  <link href="{{ 'assets/css/swiper-bundle.min.css'|theme }}" rel="stylesheet">
+  <link href="{{ 'assets/css/glightbox.min.css'|theme }}" rel="stylesheet">
+
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="{{ 'assets/css/style-medstudio.css'|theme }}?{{ time }}" >
+<link rel="stylesheet" type="text/css" href="{{ 'assets/css/media-style-medstudio.css'|theme }}?{{ time }}" >
+
+
+{#   <link href="{{ 'assets/css/style-medstudio.css'|theme }}?{{ time }}" rel="preload stylesheet" as="style">
+  <link href="{{ 'assets/css/media-style-medstudio.css'|theme }}?{{ time }}" rel="preload stylesheet" as="style">
+ #}
+
+{% if this.page.id == "vrachi" %}
+  <link href="{{ 'assets/css/medstudio-for-page-vrachi.css'|theme }}" rel="preload stylesheet" as="style">
+{% endif %}
+
+  <!-- <link href="{{ [
+'assets/css/4.5.2.bootstrap-reboot-grid.min.css',
+'assets/css/swiper-bundle.min.css',
+'assets/css/style-medstudio.css'
+]|theme }}" rel="stylesheet"> -->
+{% styles %}
+
+
+
+</head>
+
+<body>
+
+
+
+
+
+
+<!-- <div style="position: fixed; color: red; z-index: 1000000;   font-weight: 500;  font-size: 1em;">static-page.htm </div> -->
+<header>
+  {% partial 'header' %}
+</header>
+
+
+<div class="patch-top_nav">&nbsp;</div>
+
+<div id="div_panelBvi"></div>
+
+<div class=" container-fluid container-menu">
+  <div class="row ">
+    <div class=" container container-menu-0-1">
+      <div id="top_nav" >
+
+        <div id="logo" class="logo logo-min">
+         <a href="{{ url('/') }}">
+          <img  src="{{ 'assets/images/logo_medstudio.svg'|theme }}" alt="MedStudio">
+          <div class="logo-txt-1">Стоматологический центр</div>
+        </a>
+      </div>
+
+
+      <nav class="top-menu">
+       <input name="togle" id="menu__toggle" type="checkbox" />
+       <label class="menu__btn" for="menu__toggle">
+        <span></span>
+        <span> <span class="txt-mob-menu">Главное меню</span> </span>
+      </label>
+
+      <div style="display: none">
+        <svg aria-hidden="true" focusable="false" role="img"  style="fill-rule:evenodd;" class="caret_arow" viewBox="0 0 33.307 19.864">
+          <polyline id="caret" fill="currentColor" points="16.653,9.827 28.364,0 33.307,5.89 16.653,19.864 0,5.89 4.943,0 "></polyline>
+        </svg>
+      </div>
+
+      {% partial 'static-menu' itemsMenuAll=staticMenuAll.menuItems class= " nav navbar-nav"%}
+      <!-- /.top-menu -->
+    </nav>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="pagecontent">
+  {% page %}
+</div>
+
+<footer>
+  {% partial 'footer' %}
+</footer>
+{#{% component 'staticPage' %}#}
+<script src="{{ 'assets/js/swiper-bundle.min.js'|theme }}"></script>
+<script src="{{ 'assets/js/glightbox.min.js'|theme }}"></script>
+<script src="{{ 'assets/js/medstudio.js'|theme }}"></script>
+
+<script src="{{ 'assets/js/bvi_font_size_preload.js'|theme }}"></script>
+{# bvi_font_size_preload.js скрипт можно отключить, он предварительно устанавливает размер шрифта если используется "Версия сайта для слабовидящих"; #}
+
+
+{# framework #}
+{# framework extras #}
+{# <!-- для аякса -->#}
+{# scripts #}
+{% partial 'metrika' %}
+  {# {% include 'layouts/metrika.htm'|theme %} {# включить на сайте #}
+</body>
+

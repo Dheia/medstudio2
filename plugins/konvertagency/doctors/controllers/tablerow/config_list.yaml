@@ -1,0 +1,12 @@
+list: $/konvertagency/doctors/models/tablerow/columns.yaml
+modelClass: KonvertAgency\Doctors\Models\TableRow
+title: TableRow
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'konvertagency/doctors/tablerow/update/:id'

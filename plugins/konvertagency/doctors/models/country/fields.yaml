@@ -1,0 +1,17 @@
+fields:
+    name:
+        label: 'konvertagency.doctors::lang.country.name'
+        span: auto
+        type: text
+    flag:
+        label: 'konvertagency.doctors::lang.country.flag'
+        mode: image
+        imageWidth: '54'
+        imageHeight: '36'
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        cssClass: flag
+        type: fileupload

@@ -1,0 +1,6 @@
+title: Etap
+
+nameFrom: title
+modelClass: KonvertAgency\Doctors\Models\Etap
+toolbar:
+    buttons: reorder_toolbar

@@ -1,0 +1,150 @@
+description = "Интерьер"
+
+[viewBag]
+snippetCode = "interior"
+snippetName = "Галерея интерьера"
+==
+
+{% set swiper_interior = {
+  'slide_1': {
+    'h1': "1",
+    'foto': "interior-1.jpg",
+  },
+  'slide_2': {
+    'h1': "2",
+    'foto': "interior-2.jpg",
+  },
+
+
+  'slide_3': {
+    'h1': "3",
+    'foto': "interior-3.jpg",
+  },
+
+
+  'slide_4': {
+    'h1': "4",
+    'foto': "interior-4.jpg",
+  },
+
+
+  'slide_5': {
+    'h1': "5",
+    'foto': "interior-5.jpg",
+  },
+
+
+  'slide_6': {
+    'h1': "6",
+    'foto': "interior-6.jpg",
+  },
+
+
+  'slide_7': {
+    'h1': "7",
+    'foto': "interior-7.jpg",
+  },
+
+
+  'slide_8': {
+    'h1': "8",
+    'foto': "interior-8.jpg",
+  },
+
+
+  'slide_9': {
+    'h1': "9",
+    'foto': "interior-9.jpg",
+  },
+
+
+  'slide_10': {
+    'h1': "10",
+    'foto': "interior-10.jpg",
+  },
+
+
+
+} %}
+
+<section>
+  {% set buttonPrev = random() %}
+  {% set buttonNext = random() %}
+  {% set nameGallery = random() %}
+
+  {% set nameGallery = "swiper-interior" %}
+  {% set topnum = 31 %}
+
+
+  <div class=" container-fluid padding_0" style="  position: relative;">
+
+    <div class="swiper-container" id="id{{ nameGallery }}">
+      <div class="swiper-wrapper ">
+
+{#     <div class="swiper-slide">
+      <img data-src="path/to/picture-1.jpg" class="swiper-lazy" />
+      <div class="swiper-lazy-preloader"></div>
+    </div> #}
+
+
+        {% for slide in swiper_interior %}
+          <div class="swiper-slide flex-grow-11">
+            <div class="swiper-interior-img">
+              <img data-src="{{ slide.foto|media }}" alt="Интерьер клиники {{ slide.h1 }}" class="swiper-lazy">
+              <div class="swiper-lazy-preloader"></div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="container arow-interior ">
+
+      <div class="swiper-button-prev swiper-button-prev-m id{{ buttonPrev }}">
+
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="fill-rule:evenodd;" class="arow-to-left" viewBox="0 0 6.437 11.91">
+          <defs>
+            <filter style="color-interpolation-filters:sRGB" id="filter-arow-glou-1">
+              <feOffset dx="0" dy="0"/>
+              <feGaussianBlur stdDeviation="1.0" result="result1"/>
+              <feBlend mode="normal" in2="result1"/>
+            </filter>
+          </defs>
+          <g id='arow-glou-1'>
+            <polygon fill="white" points="1.441,0 6.437,5.955 1.441,11.91 0,10.701 3.982,5.955 0,1.209 "
+                     style="filter:url(#filter-arow-glou-1)"
+                     transform="matrix(0.72973557,0,0,0.72973557,0.8777544,1.6222308)"/>
+            <polygon fill="white" points="1.441,0 6.437,5.955 1.441,11.91 0,10.701 3.982,5.955 0,1.209 "
+                     style="filter:url(#filter-arow-glou-1)"
+                     transform="matrix(0.72973557,0,0,0.72973557,0.8777544,1.6222308)"/>
+            <polygon fill="currentColor" points="1.441,0 6.437,5.955 1.441,11.91 0,10.701 3.982,5.955 0,1.209 "
+                     transform="matrix(0.72973557,0,0,0.72973557,0.8777544,1.6222308)"/>
+          </g>
+        </svg>
+      </div>
+
+      <div class="swiper-button-next swiper-button-next-m id{{ buttonNext }}">
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="fill-rule:evenodd; " class="arow-to-right" viewBox="0 0 6.437 11.91">
+          <use xlink:href="#arow-glou-1"/>
+        </svg>
+
+
+      </div>
+
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", f_ready);
+
+      //  window.addEventListener("resize", f_ready);
+
+      function f_ready() {
+        // f_slider(3, 0, '#id{{ nameGallery }}', 0, '.id{{ buttonPrev }}', '.id{{ buttonNext }}', 0, 2);
+
+        f_slider(4, 1, '#id{{ nameGallery }}', 0, '.id{{ buttonPrev }}', '.id{{ buttonNext }}', 0, 2);
+      }
+
+      // (число слайдов, расстояние между слайдами, имя контейнера со слайдами,  макс ширина слайда для PC , кнопка prev, кнопка next, по сколько слайдов листать, строк в слайдере)
+
+    </script>
+</section>

@@ -1,0 +1,29 @@
+fields:
+    title:
+        label: 'konvertagency.doctors::lang.quote_block.title'
+        span: auto
+        placeholder: 'konvertagency.doctors::lang.quote_block.placeholder_title'
+        type: text
+    imgmedia:
+        label: 'konvertagency.doctors::lang.quote_block.imgmedia'
+        mode: image
+        span: auto
+        type: mediafinder
+    name:
+        label: 'konvertagency.doctors::lang.quote_block.name'
+        span: left
+        type: text
+    txt:
+        label: 'konvertagency.doctors::lang.quote_block.text'
+        size: large
+        span: full
+        required: 1
+        type: richeditor
+    url:
+        label: 'konvertagency.doctors::lang.quote_block.url'
+        span: auto
+        type: text
+    description:
+        label: 'konvertagency.doctors::lang.quote_block.description'
+        span: auto
+        type: text

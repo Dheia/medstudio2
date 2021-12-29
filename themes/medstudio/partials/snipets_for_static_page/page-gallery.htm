@@ -1,0 +1,16 @@
+description = "Галерея слайдер"
+
+[viewBag]
+snippetCode = "page-gallery"
+snippetName = "Галерея слайдер"
+snippetProperties[sluggallery][title] = "Идентификатор галереи"
+snippetProperties[sluggallery][type] = "string"
+snippetProperties[sluggallery][default] = ""
+snippetProperties[sluggallery][options][] = ""
+
+[Gallery]
+slug_gal = "не имеет значения, т.к. задается в сниппете"
+==
+{# {% set slugcode = this.controller.vars.sluggallery %} #}
+
+{% component 'Gallery' %}

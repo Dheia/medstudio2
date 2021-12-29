@@ -1,0 +1,12 @@
+list: $/konvertagency/doctors/models/faqrow/columns.yaml
+modelClass: KonvertAgency\Doctors\Models\FaqRow
+title: FaqRow
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'konvertagency/doctors/faqrow/update/:id'

@@ -1,0 +1,84 @@
+{% set quote = __SELF__.quote %}
+{# {{ d(quote) }} #}
+
+{# {{ comp_message }} #}
+
+{% set yes = false %}
+
+{% if quote != '' %}
+
+  {% spaceless %}
+    <section>
+      <div class="{{ class }}">
+        {% for var in quote %}
+
+          <div class="container">
+            <div class="row">
+              {% if var.title %}
+                <div class="col-12">
+                  <h2>{{ var.title }}</h2>
+                </div>
+              {% endif %}
+            </div>
+            <div class="quote-block">
+              <div class="row">
+                {% set yes = true %}
+                {% set full_quote = false %}
+
+                {% if var.imgmedia or var.name %}
+                  {% set full_quote = true %}
+                  <div class="col-lg-4 col-lg-30p">
+
+                    {% if var.imgmedia %}
+                      <div class="quote-block__img">
+                        {% if var.url %} <a href="{{ var.url }}"> {% endif %}
+                          <img src="{{ var.imgmedia|media }}" alt="{{ var.name ? var.name : '' }}">
+                          {% if var.url %}</a>{% endif %}
+                      </div>
+                    {% endif %}
+
+                    {% if var.name %}
+                      <div class="quote-block__txt_img">
+                        {% if var.url %}<a href="{{ var.url }}">{% endif %}
+                          {{ var.name }}
+                          {% if var.url %}</a>{% endif %}
+                      </div>
+
+                    {% endif %}
+                  </div> {# col-lg-4 col-lg-30p #}
+                {% endif %} {# var.imgmedia or var.name #}
+
+                <div class=" {{ full_quote ? 'col-lg-8 col-lg-70p' : 'col-12' }} quote-block_bg">
+                  <div class="quote-block__txt">
+                    {{ var.txt|raw }}
+                  </div>
+                </div>
+
+
+              </div> {# row #}
+            </div> {# quote-block #}
+
+          </div> {# container #}
+        {% endfor %}
+      </div> {# {{ class }} #}
+    </section>
+  {% endspaceless %}
+
+{% else %} {# if accordion #}
+  <section>
+    <div class="not_found">
+      Блоки с цитатами не найдены
+    </div>
+  </section>
+
+{% endif %} {# if quote #}
+
+
+
+{% if not yes %}
+  <section>
+    <div class="not_found">
+      <span> {{ comp_message }} </span>
+    </div>
+  </section>
+{% endif %}

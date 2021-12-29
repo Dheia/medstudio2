@@ -1,0 +1,10 @@
+name: Faq
+form: $/konvertagency/doctors/models/faq/fields.yaml
+modelClass: KonvertAgency\Doctors\Models\Faq
+defaultRedirect: konvertagency/doctors/faq
+create:
+    redirect: 'konvertagency/doctors/faq/update/:id'
+    redirectClose: konvertagency/doctors/faq
+update:
+    redirect: konvertagency/doctors/faq
+    redirectClose: konvertagency/doctors/faq

@@ -1,0 +1,31 @@
+fields:
+    title:
+        label: 'konvertagency.doctors::lang.etap.title'
+        span: auto
+        type: text
+    block_etaps:
+        label: 'konvertagency.doctors::lang.etaps.slug'
+        nameFrom: title
+        descriptionFrom: description
+        span: auto
+        type: relation
+    sub_title:
+        label: 'konvertagency.doctors::lang.etap.sub_title'
+        span: auto
+        type: text
+    img_etap:
+        label: 'konvertagency.doctors::lang.etap.img_etap'
+        mode: image
+        imageWidth: '120'
+        imageHeight: '100'
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: right
+        type: fileupload
+    txt:
+        label: 'konvertagency.doctors::lang.etap.txt'
+        size: large
+        span: full
+        type: richeditor

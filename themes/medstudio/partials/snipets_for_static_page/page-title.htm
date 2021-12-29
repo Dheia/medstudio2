@@ -1,0 +1,15 @@
+description = "заголовок страницы"
+
+[viewBag]
+snippetCode = "page-title"
+snippetName = "страница - заголовок"
+snippetProperties[idtitlecode][title] = "ID заголовка"
+snippetProperties[idtitlecode][type] = "string"
+snippetProperties[idtitlecode][default] = ""
+snippetProperties[idtitlecode][options][] = ""
+
+[TitlePage]
+id_title = 10
+==
+{# {% set idcode = this.controller.vars.idtitlecode %} #}
+{% component 'TitlePage' %}

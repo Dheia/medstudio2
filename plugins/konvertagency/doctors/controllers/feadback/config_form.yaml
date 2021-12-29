@@ -1,0 +1,10 @@
+name: Feadback
+form: $/konvertagency/doctors/models/feadback/fields.yaml
+modelClass: KonvertAgency\Doctors\Models\Feadback
+defaultRedirect: konvertagency/doctors/feadback
+create:
+    redirect: 'konvertagency/doctors/feadback/update/:id'
+    redirectClose: konvertagency/doctors/feadback
+update:
+    redirect: konvertagency/doctors/feadback
+    redirectClose: konvertagency/doctors/feadback

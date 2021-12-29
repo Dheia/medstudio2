@@ -1,0 +1,4 @@
+title: Table
+modelClass: KonvertAgency\Doctors\Models\Table
+toolbar:
+    buttons: reorder_toolbar

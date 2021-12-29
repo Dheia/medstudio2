@@ -1,0 +1,10 @@
+name: QuoteBlock
+form: $/konvertagency/doctors/models/quoteblock/fields.yaml
+modelClass: KonvertAgency\Doctors\Models\QuoteBlock
+defaultRedirect: konvertagency/doctors/quoteblock
+create:
+    redirect: 'konvertagency/doctors/quoteblock/update/:id'
+    redirectClose: konvertagency/doctors/quoteblock
+update:
+    redirect: konvertagency/doctors/quoteblock
+    redirectClose: konvertagency/doctors/quoteblock

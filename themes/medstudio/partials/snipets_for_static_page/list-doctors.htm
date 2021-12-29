@@ -1,0 +1,148 @@
+description = "Список докторов"
+
+[viewBag]
+snippetCode = "list-doctors"
+snippetName = "Список докторов"
+
+[builderList]
+modelClass = "KonvertAgency\Doctors\Models\Doctor"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "last_name"
+noRecordsMessage = "Записи не найдены"
+detailsPage = "doktor"
+detailsKeyColumn = "slug"
+detailsUrlParameter = "slug"
+pageNumber = "{{ :page }}"
+sortColumn = "rating"
+sortDirection = "asc"
+==
+<?php
+function onStart()
+{
+$str= $_SERVER['REQUEST_URI'];
+$rgPath=explode('/', $str);
+$result=$rgPath[count($rgPath)-1];
+$this['ThisPage'] = $result;
+}
+?>
+==
+
+
+{% set records = builderList.records %}
+{% set displayColumn = builderList.displayColumn %}
+{% set noRecordsMessage = builderList.noRecordsMessage %}
+{% set detailsPage = builderList.detailsPage %}
+{% set detailsKeyColumn = builderList.detailsKeyColumn %}
+{% set detailsUrlParameter = builderList.detailsUrlParameter %}
+
+
+<section>
+  <div class="container">
+    <div class="record-list">
+      {% set column = 4 %}
+      {% set column_curent = 1 %}
+
+      {% for record in records %}
+
+        {# *** #}
+          {% set view_this = ThisPage in record.view_in_page ? true : false %}
+        {# *** #}
+
+        {% if view_this %}
+
+
+          <div class="card-person">
+            {# Use spaceless tag to remove spaces inside the A tag. #}
+
+            {% if record.PhotoDoctor %}
+              <div class="card-person-img">
+                <a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}">
+
+                  <img src="{{ record.PhotoDoctor.thumb(333,auto,{'quality': 80}) }}" alt="{{ record.PhotoDoctor.title }}">
+                  {# <img src="{{ record.PhotoDoctor | resize(333, false, { mode: 'auto', quality: '80', extension: 'jpg'}) }}" alt="{{ record.PhotoDoctor.title }}"> #}
+                </a>
+
+              </div>
+            {% else %}
+              <div style="height: 100%;"></div>
+            {% endif %}
+
+            <div class="card-person-txt flex-grow-11">
+              <div class="card-person-name">
+
+                {% spaceless %}
+                {% if detailsPage %}
+                <a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}">
+
+                  {% endif %}
+
+
+                  <!-- {{ attribute(record, displayColumn) }} -->
+
+                  {{ record.last_name }} {{ record.name }}
+                  <br>
+                  {{ record.patronymic }}
+
+
+
+                  {% if detailsPage %}
+                </a>
+                {% endif %}
+              </div>
+              <div class="card-person-spec flex-grow-11">
+                {{ (record.specialities|replace({",": "<br>"}))|raw }}
+              </div>
+
+              {% endspaceless %}
+
+
+            </div>
+            <div>&nbsp;</div>
+
+
+          </div>
+
+
+
+          {% if (column_curent)==(column) %}
+            <!-- <div class="flex-horiz-break"><br></div> -->
+            {% set column_curent = 1 %}
+
+          {% else %}
+            <div class="flex-vert-break{{ column_curent }}"></div>
+            {% set column_curent = column_curent + 1 %}
+          {% endif %}
+
+        {% endif %} <!-- view_this -->
+
+
+      {% else %}
+        <div class="no-data">{{ noRecordsMessage }}</div>
+      {% endfor %}
+
+
+    </div>
+
+{# не настроено #}
+{#     {% if records.lastPage > 1 %}
+      <ul class="pagination">
+        {% if records.currentPage > 1 %}
+          <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage-1) }) }}">&larr; Prev</a></li>
+        {% endif %}
+
+        {% for page in 1..records.lastPage %}
+          <li class="{{ records.currentPage == page ? 'active' : null }}">
+            <a href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
+          </li>
+        {% endfor %}
+
+        {% if records.lastPage > records.currentPage %}
+          <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage+1) }) }}">Next &rarr;</a></li>
+        {% endif %}
+      </ul>
+    {% endif %} #}
+{# не настроено #}
+
+  </div>
+</section>

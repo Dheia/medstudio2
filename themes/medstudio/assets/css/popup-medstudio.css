@@ -1,0 +1,376 @@
+
+/*@import "swiper-bundle.min.css" screen;*/
+/*@import "4.5.2.bootstrap-reboot-grid.min.css" screen;*/
+
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto Light'), local('Roboto-Light'), url('../font/roboto/Robotolight.woff2') format('woff2'), url('../font/roboto/Robotolight.woff') format('woff'), url('../font/roboto/Robotolight.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto Light Italic'), local('Roboto-LightItalic'), url('../font/roboto/Robotolightitalic.woff2') format('woff2'), url('../font/roboto/Robotolightitalic.woff') format('woff'), url('../font/roboto/Robotolightitalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto Light'), local('Roboto-Light'), url('../font/roboto/Roboto.woff2') format('woff2'), url('../font/roboto/Roboto.woff') format('woff'), url('../font/roboto/Roboto.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto Bold'), local('Roboto-Bold'), url('../font/roboto/Robotobold.woff2') format('woff2'), url('../font/roboto/Robotobold.woff') format('woff'), url('../font/roboto/Robotobold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+
+
+
+
+
+
+:root {
+  --bg-html-color: #fff;
+  --bg-html-second: #fafafa;
+
+  --main-color: #373737;
+  --btn-color:#70a3d0;
+  --btn-hover: #566BAF;
+
+  --elem-color: #70a3d0;
+  --elem-hover-color: #566BAF;
+  /*--elem-hover-color: #70A3D0;*/
+  --second-color: #808080;
+  --second-color-font: #808080;
+  --second-color-font-active: #626262;
+  --bg-color-light: #edeeeb;
+  --hover-bg: #f8f8f8;
+  --tin-line-color: rgba(0, 0, 0, 0.08);
+  --white: #fff;
+  --menu-width: 260px;
+}
+
+
+
+/*
+:root {
+  --main-color: #2B354B;
+  --btn-color: #26478A;
+  --second-color: #26478A;
+  --second-color-font: #808080;
+  --second-color-font-active: #373737;
+  --bg-color-light: #edeeeb;
+  --hover-bg: #f8f8f8;
+  --tin-line-color: rgba(0, 0, 0, 0.08);
+  --menu-width: 260px;
+}
+
+*/
+
+
+
+html {
+  font-size: 16px;
+  color: var(--bg-html-color);
+}
+
+
+body {
+
+  font-size: 16px;
+  line-height: 1.2em;
+      font-family: Roboto, sans-serif;
+      font-weight: 300;
+
+}
+
+* {
+  outline: none !important
+}
+
+section {
+  margin-bottom: 3.5em;
+  /*background: pink;*/
+}
+
+a,
+a:hover {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+
+input[type="checkbox"]:focus {
+  border: 0;
+  outline: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+h1  {
+  font-size: 1.5em;
+  line-height: 1.05em;
+  font-weight: 400;
+  color: var(--btn-color);
+  max-width: 230px;
+
+}
+
+.row_mail{
+  /*background: tomato;*/
+  min-height: 100vh;
+  justify-content:center;
+}
+
+
+.form {
+  padding: 1em;
+  width: 100%;
+}
+
+.form_mail{
+  background: #fff;
+  /*border:dashed red ;*/
+  max-width: 350px;
+  border-radius: 5px;
+}
+
+.title_form{
+  display: flex;
+  color: var(--main-color);
+  text-align: center;
+  justify-content: center;
+
+}
+
+.description_form{
+ color: var(--main-color);
+ text-align: center;
+ /*margin-bottom: .5em;*/
+}
+
+
+.form input
+{
+  width: 100%;
+  margin-top: 0.8em;
+  padding: .5em;
+  border-radius: 5px;
+  border: 1px solid var(--second-color);
+
+}
+
+
+
+.form p{
+  margin-bottom:  0.3em;
+  margin-top: .3em;
+}
+
+.form ul{
+  margin: 0;
+}
+
+.form input[type="tel"]:focus {
+  letter-spacing: 2px;
+  /*color: red;*/
+}
+
+
+.acceptance_checkbox{
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  font-size: .8em;
+  margin-top: 1.5em;
+}
+
+.acceptance_checkbox input{
+  margin-top: 1px;
+  width: auto;
+  margin-right: .5em;
+
+}
+.text-danger{
+  color:red;
+  font-size: .8em;
+}
+
+.btn {
+  position: relative;
+  /*min-width: 90px;*/
+  padding: 0.6em 0.6em;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.9em;
+  line-height: 1.4em;
+  background: var(--btn-color);
+  border:none;
+  border-radius: 5px;
+  /*box-shadow: 0px 0px 25px -2px #DDD;*/
+  transition: .2s;
+  color: #fff;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.btn:hover {
+  color: var(--main-color);
+  color: var(--white);
+  transition: 200ms ease all;
+  /*background: white;*/
+  background: var(--btn-hover);
+}
+
+
+
+/*
+.btn span:before,
+.btn span:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2px;
+  width: 0;
+  background: var(--main-color);
+  transition: 400ms ease all;
+}
+
+.btn span:after {
+  right: inherit;
+  top: inherit;
+  left: 0;
+  bottom: 0;
+}
+
+.btn:hover {
+
+  color: var(--main-color);
+  transition: 400ms ease all;
+  background: white;
+}
+
+
+.btn:hover>span:before,
+.btn:hover>span:after {
+  width: 100%;
+  transition: 400ms ease all;
+}
+
+*/
+
+
+.form-btn {
+ margin:1em auto 0 auto;
+ width: 100%;
+}
+
+.message_send{
+  /*background: green;*/
+  padding: 1em;
+  margin-top: 1em;
+  text-align: center;
+  display: none;
+  border-radius: 5px;
+  font-size:1.2em;
+  line-height: 1.2;
+}
+
+.btn-close a {
+  top: 0.5em;
+  right: 0.5em;
+  padding: 0.15em;
+  padding-bottom: .25em;
+  font-size: 2em;
+  line-height: .45em;
+  position: absolute;
+  border-radius: 5px;
+  border:1px solid var(--second-color);
+  color:var(--btn-color);
+  transition: 400ms ease all;
+}
+
+.btn-close a:hover {
+  color:var(--bg-html-color);
+  background: var(--btn-color);
+  border:1px solid var(--btn-color);
+  transition: 400ms ease all;
+
+}
+
+.pagecontent
+ul {
+  list-style-type: none;
+}
+
+ul>li {
+  /*text-indent: -1em;*/
+}
+
+
+ol li,
+ul li {
+  padding-bottom: .5em;
+}
+
+
+.pagecontent ul{
+  padding: 0;
+  margin: 0;
+  list-style:none
+
+}
+
+.pagecontent ul > li::before {
+  content: "• ";
+  text-indent: -1em;
+  color: var(--btn-color);
+}
+
+.pagecontent  {
+  font-size: .9em;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.glightbox-popup .gprev,
+.glightbox-popup .gnext  {
+  display: none ;
+}
+
+.glightbox-popup .goverlay {
+  /*background: rgba(0,0,0,.7) !important;*/
+  background: #fff !important;
+}
+
+.glightbox-popup .gslide-media {
+
+  border-radius: 5px;
+  overflow: hidden;
+
+}

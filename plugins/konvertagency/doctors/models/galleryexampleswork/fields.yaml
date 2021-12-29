@@ -1,0 +1,7 @@
+fields:
+    title:
+        label: Relation
+        span: auto
+        nameFrom: name
+        descriptionFrom: description
+        type: relation

@@ -1,0 +1,180 @@
+{# {{ d(etaps_slug) }} #}
+{% set etaps_all = __SELF__.etaps %}
+{% set etaps = __SELF__.etap %}
+{#{{ d(etaps_all) }}#}
+{#{{ d(etaps) }}#}
+{#{{ d(comp_message) }}#}
+
+<section></section>
+
+{# {% set ii = 40 %} #}
+{% set yes = false %}
+
+  {% if etaps_all %}
+{#    {% spaceless %}#}
+      <section>
+        {% set nameSwiper=  random() %}
+        {% set namePaginator=  random() %}
+        {% set nameEtapTxt=  random() %}
+        {% set nameEtapMenu=  random() %}
+        {% set duration = 1 %}
+        {% set menu  = [] %}
+        {% set menuCreate = true %}
+
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              {% for etap_all in etaps_all %}
+                <h2>{{ etap_all.title }}</h2>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row row_etaps">
+            <div class="swiper-container etapsSwiper " id="id{{ nameSwiper }}">
+              {% if etaps %}
+
+
+              <div class="swiper-wrapper swiper-wrapper-container swiper-wrapper-stretch">
+
+
+
+                {% for etap in etaps %}
+                  {% set yes = true %}
+                  {% set menu = menu|merge([etap.title]) %}
+                  <div class="swiper-slide etap-slide swiper-wrapper-stretch">
+
+
+{% if menuCreate %}
+{# {% set menuCreate = false %} #}
+              <div class="etaps-pagination  {{ etap.img_etap ? 'etaps-pagination-w50' : 'etaps-pagination-w100' }}  ">
+                <div class="swiper-pagination" id="id{{ namePaginator }}"></div>
+              </div>
+{% endif %}
+
+
+
+
+                    <div class="etap-slide-col class{{ nameEtapTxt }}">
+                      <div class="etap-slide-txt">
+                        <h3>   {{ etap.sub_title }}</h3>
+                        {{ etap.txt | raw }}
+                      </div>
+                    </div>
+
+{% if etap.img_etap %}
+                    <div class="etap-slide-col">
+                      <div class="img-etap">
+                        <img src="{{ etap.img_etap.thumb(auto,500,{'mode':'crop', 'quality': 70}) }}">
+                      </div>
+                    </div>
+{% endif %}
+
+                  </div> {# swiper-slide etap-slide #}
+
+
+
+                {% endfor %}
+
+              </div> {# swiper-wrapper #}
+            </div> {# swiper-container #}
+
+
+            <div id="id{{ nameEtapMenu }}" data-js-array="{{ menu|json_encode }}"></div>
+
+            <script>
+              document.addEventListener("DOMContentLoaded", f_ready{{ nameSwiper }});
+              window.addEventListener("resize", menu_margin{{ nameSwiper }});
+
+
+              function f_ready{{ nameSwiper }}() {
+                let menu = document.querySelector('#id{{ nameEtapMenu }}').dataset.jsArray;
+
+                etaps_slider{{ nameSwiper }}(menu, {{ duration }});
+                menu_margin{{ nameSwiper }}();
+
+              }
+
+              function menu_margin{{ nameSwiper }}() {
+                let h_pagination = document.querySelector('#id{{ namePaginator }}').clientHeight;
+                let txt = document.querySelectorAll('.class{{ nameEtapTxt }}');
+
+                for (let bviElement of txt) {
+                  bviElement.style.marginTop = h_pagination + 'px';
+                }
+              }
+
+              function etaps_slider{{ nameSwiper }}(menu_, duration) {
+
+                var jsonData = JSON.parse(menu_);
+
+                let menu_list = [];
+                for (var i = 0; i < jsonData.length; i++) {
+                  var counter = jsonData[i];
+                  menu_list.push(jsonData[i]);
+
+                }
+                const swiper{{ nameSwiper }} = new Swiper('#id{{ nameSwiper }}', {
+                  // Optional parameters
+                  loop: true,
+                  effect: "fade",
+                  speed: 150,
+                  fadeEffect: {
+                    // чтобы не проявлялись нижние слайды при   fade Effect
+                    crossFade: true
+                  },
+                  autoHeight: true,
+                  resizeObserver: true,
+                  pagination: {
+                    el: '#id{{ namePaginator }}',
+                    clickable: true,
+
+
+                    renderBullet: function (index, className) {
+                      return '<span class=" btn light-btn ' + className + '">' + '<span class="center">' + (menu_list[index]) + '</span>' + '</span>';
+                    },
+                  },
+
+                });
+              }
+            </script>
+
+
+            {% else %} {# etaps #}
+              <div class="not_found">
+                Этап(ы) лечения не найден(ы)
+              </div>
+            {% endif %}{# etaps #}
+
+          </div> {# row #}
+        </div> {# container #}
+      </section>
+
+{#    {% endspaceless %}#}
+
+  {% else %} {# etaps_all #}
+    <section>
+      <div class="not_found">
+
+
+        <span>  {{ comp_message }} </span>
+
+      </div>
+    </section>
+  {% endif %} {# etaps_all #}
+
+
+
+{% if not yes  and  etaps_all %}
+  <section>
+    <div class="not_found">
+      Этапы лечения не найдены (этот блок этапов не заполнен)
+
+    </div>
+  </section>
+{% endif %}
+
+
+
+

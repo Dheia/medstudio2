@@ -1,0 +1,438 @@
+{% set galleries = __SELF__.galleries %}
+{# {% set slides = __SELF__.slides %} #}
+{% set slides_img = __SELF__.slides_img %}
+{% set slides = __SELF__.summ %}
+{% set slides_galleries = __SELF__.slides_galleries %}
+{% set brand = __SELF__.brand %}
+{% set country = __SELF__.country %}
+
+
+{% set yes = false %}
+
+{# sluggallery - {{ sluggallery }} <br> #}
+{# {{ d(slides_galleries.attributes) }} #}
+
+{#
+<div class="container">
+  <div class="row">
+    <div class="col-4">{{ d(slides) }}</div>
+    <div class="col-3">{{ d(slides_img.43) }}</div>
+    <div class="col-3">{{ d(summ) }}</div>
+  </div>
+</div>
+#}
+{# {{ d(slides.table) }} #}
+
+
+
+{% spaceless %}
+
+{% if sluggallery %}
+  {% if galleries %}
+
+
+
+
+    {% for gallerie in galleries %}
+      {% if  gallerie.slug_gallerie == sluggallery %}
+        <section>
+        <h2> {{ gallerie.gallerie_title }} </h2>
+        {% set yes = true %}
+        {# slug slider = {{ gallerie.slug_gallerie }}<br> #}
+        {% set id_gal = gallerie.id %}
+
+
+        {% set buttonPrev =  random() %}
+        {% set buttonNext =  random() %}
+        {% set nameGallery =  random() %}
+
+        {% if  gallerie.pagination %}
+          {% set topnum =  60 %}
+        {% else %}
+          {% set topnum =  31 %}
+        {% endif %}
+
+        {% if gallerie.slide_title_position %}
+          {% set topnum =  11 %}
+        {% endif %}
+
+        {% if gallerie.slide_title_position and gallerie.pagination %}
+          {% set topnum =  0 %}
+        {% endif %}
+
+
+        {% if  gallerie.class %}
+          {% set slide_class = " " ~ gallerie.class|remove_sp_char ~ " " %} {# заменяет спецсимволы на пробел #}
+
+
+        {% else %}
+          {% set slide_class =  "" %}
+        {% endif %}
+
+
+
+        <div class="slider swiper-slider">
+          <div class="container margin_0">
+            <div class="row">
+              <div class="col-12 swiper-button-next-prew">
+                <div class="swiper-button-prev-m top-{{ topnum }} id{{ buttonPrev }}">
+
+<span>
+
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" version="1.1" style="fill-rule:evenodd;"
+     class="arow-to-left" viewBox="0 0 1.84 3.41">
+  <polyline fill="currentColor" points="0.41,0 1.84,1.7 0.41,3.41 0,3.06 1.14,1.7 0,0.35 "/>
+</svg>
+
+</span>
+
+
+                  {# <span>&lt;</span> #}
+
+                </div>
+
+
+                <div class="slider-person-card swiper-container " id="id{{ nameGallery }}">
+
+                  <div class="swiper-wrapper {% if  gallerie.pagination %} swiper-wrapper-paginatot-bottom {% endif %}">
+
+                    {% set ii=0 %}
+                    {% for slide in slides %}
+
+                      {# {% set i=0 %} #}
+                      {% for render_slide in slides_galleries %}
+                        {% if (slide.id == render_slide.slides_id) and (render_slide.galleries_id == id_gal ) %}
+
+
+                          {# <div class="container"> #}
+                          {# <div class="row"> #}
+
+                          {# width_height_img назначение размеров картинки галереи от количества кадров #}
+                          {% include 'sys/width_height_img' %}
+                          {# {% if slide.brand  %} slide-tovar {% endif %} #}
+                          <div
+                              class=" swiper-slide  flex-grow-11 {% if gallerie.slide_title_position %} flex-grow-a {% endif %}">
+
+                            {# slide.position {{slide.position}} #}
+                            {# slide.id {{slide.id}} #}
+
+                            {% if  slide.brand and slide.brand != 'нет' %}
+                            <div class="flex-grow-11 slide-tovar">
+
+{#<div class="brand-title">#}
+{#<!-- заголовок бренда -->#}
+{#{{ slide.brand }} {{ slide.id }}#}
+{#</div>#}
+
+                              {% endif %}
+
+
+                              {# {{ d(slide) }} #}
+                              {% if gallerie.action == 2 and slide.link and slide.img_slide %}
+                                <a href="{{ slide.link }}">
+                                {% endif %}
+                                {# {% if gallerie.action == 3 %}<a href="{{ slide.link }}">{% endif %} #}
+
+                                {% if gallerie.action == 3 and slide.img_slide %}
+                                <a href="{{ slides_img[ii].thumb(1200,false,{'mode':'auto', 'quality': 90}) }}"
+                                   class="class{{ nameGallery }}">
+                                  {% endif %}
+
+                                  {% if slide.img_slide %}
+                                   {% if slide.slide_title %}
+
+                                    {% if gallerie.slide_title_position and slide.slide_title %}
+                                      <div class="slide-title slide-title-top">{{ slide.slide_title }}</div>
+                                    {% endif %}
+                                  {% endif %}
+
+                                  {# picture-for-galerey назначение размеров картинки галереи от количества кадров и разрешения экрана #}
+
+                                  {% if  slide.brand and slide.brand != 'нет' %}
+
+                                    <div class="gallerey-img border-bottom{{ slide_class }}">
+                                      {% include 'sys/picture-for-galerey' %}
+                                    </div>
+
+
+                                  {% else %}
+                                    <div class="gallerey-img shadow{{ slide_class }}">
+                                      {# cc #}
+
+                                      {% include 'sys/picture-for-galerey' %}
+                                    </div>
+                                  {% endif %}
+                                  {% if slide.slide_title %}
+
+                                    {% if not gallerie.slide_title_position %}
+                                      <div class="slide-title">
+                                        {{ slide.slide_title }}
+                                      </div>
+                                    {% endif %}
+                                  {% endif %}
+
+                                  {% if gallerie.action == 2 and slide.link and slide.img_slide %}
+                                  </a>
+                                {% endif %}
+
+                                {% if gallerie.action == 3 and slide.img_slide %} </a> {% endif %}
+
+                            {% else %} {# if slide.img_slide #}
+
+
+
+
+
+
+
+
+                                {% if slide.link and gallerie.action == 2 %}
+                                <a href="{{ slide.link }}" class="flex-grow-11">
+                                {% endif %}
+
+                                  <div class="tag-slide flex-grow-11">
+
+                                  {% if slide.slide_title %}
+                                    {{ slide.slide_title }}
+                                  {% endif %}
+                              </div>
+
+                                {% if slide.link and gallerie.action == 2 %}
+                                </a>
+                                {% endif %}
+
+
+
+
+
+
+                              {% endif %} {# if slide.img_slide #}
+
+                              {% if  slide.brand and slide.brand != 'нет' %}
+
+
+
+
+
+                                {# {% if slide.properties_title %}
+<div class="properties_title">
+  {{ slide.properties_title }}
+</div>
+{% endif %}
+                                #}
+
+
+                                <div class="properties-tovar flex-grow-11">
+
+                                  <div class="properties-tovar-item">
+                                    <div class="properties-tovar-item-name">
+                                      Производитель:
+                                    </div>
+                                    <div class="properties-tovar-item-valuie">
+                                      {# {{ slide.properties_1|raw }} #}
+
+                                      {% for b in brand %}
+                                        {% if slide.brand == b.name_brand %}
+                                          {% for c in country %}
+                                            {% if b.country == c.name %}
+                                              <div class="flag">
+                                                <!-- <div class="image shadow">
+<img src="{{ c.flag.thumb(54,36,{'mode':'crop'}) }}">
+</div> -->
+                                                <div class="flag-txt">
+                                                  {{ c.name }}
+                                                </div>
+                                              </div>
+                                            {% endif %}
+                                          {% endfor %}
+                                        {% endif %}
+                                      {% endfor %} {# b in brand #}
+
+                                    </div>
+                                  </div>
+
+                                </div>
+
+
+                                {% if slide.properties_1 or slide.properties_2 or slide.properties_3 or slide.properties_4 %}
+                                  <div class="properties-tovar flex-grow-11">
+
+
+                                    {% if slide.properties_1 %}
+                                      <div class="properties-tovar-item">
+                                        <div class="properties-tovar-item-name">
+                                          {{ properties_1 }}&nbsp;
+                                        </div>
+                                        <div class="properties-tovar-item-valuie">
+                                          {{ slide.properties_1|raw }}
+                                        </div>
+                                      </div>
+                                    {% endif %}
+
+
+
+
+                                    {% if slide.properties_2 %}
+                                      <div class="properties-tovar-item">
+                                        <div class="properties-tovar-item-name">
+                                          {{ properties_2 }}
+                                        </div>
+                                        <div class="properties-tovar-item-valuie">
+                                          {{ slide.properties_2|raw }}
+                                        </div>
+                                      </div>
+                                    {% endif %}
+
+
+
+
+                                    {% if slide.properties_3 %}
+                                      <div class="properties-tovar-item">
+                                        <div class="properties-tovar-item-name">
+                                          {{ properties_3 }}
+                                        </div>
+                                        <div class="properties-tovar-item-valuie">
+                                          {{ slide.properties_3|raw }}
+                                        </div>
+                                      </div>
+                                    {% endif %}
+
+
+
+
+                                    {% if slide.properties_4 %}
+                                      <div class="properties-tovar-item">
+                                        <div class="properties-tovar-item-name">
+                                          {{ properties_4 }}
+                                        </div>
+                                        <div class="properties-tovar-item-valuie">
+                                          {{ slide.properties_4|raw }}
+                                        </div>
+                                      </div>
+                                    {% endif %}
+
+                                  </div>
+                                {% endif %} {# slide.properties_1 or slide.properties_2 or slide.properties_3 or slide.properties_4 #}
+
+                                {# {% if slide.price %}
+                                  <!-- прайс -->
+                                    <div class="price-tovar">
+                                      {{ ((slide.price|cur)|span_numb)|raw }}
+                                    </div>
+                                  {% endif %} #}
+
+                              {% endif %} {# slide.brand and slide.brand != 'нет' #}
+
+
+                              {% if slide.price %}
+                                <!-- прайс -->
+                                <div class="price-tovar">
+                                  {{ ((slide.price|cur)|span_numb)|raw }}
+                                </div>
+                              {% endif %}
+
+                              {% if  slide.brand and slide.brand != 'нет' %}
+                            </div>
+                            {% endif %}
+                          </div>
+
+                          {# </div> #}
+                          {# </div> #}
+
+                        {% endif %} {# slide.id == render_slide.slides_id) and (render_slide.galleries_id == id_gal #}
+                        {# {% set i = i + 1 %} #}
+                      {% endfor %} {# render_slide in slides_galleries #}
+                      {% set ii = ii + 1 %}
+                    {% endfor %} {# slide in slides #}
+
+
+                  </div>
+                  {% if  gallerie.pagination %}
+                    <div class="swiper-pagination{% if  gallerie.pagination_mobile %} mobile-hiden {% endif %}"></div>
+                  {% endif %}
+                </div>
+
+                <div class="swiper-button-next-m top-{{ topnum }} id{{ buttonNext }}">
+
+<span>
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" version="1.1" style="fill-rule:evenodd;"
+     class="arow-to-right" viewBox="0 0 1.84 3.41">
+  <polyline fill="currentColor" points="0.41,0 1.84,1.7 0.41,3.41 0,3.06 1.14,1.7 0,0.35 "/>
+</svg>
+</span>
+
+
+                  {# <span>&gt;</span> #}
+
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <script>
+          document.addEventListener("DOMContentLoaded", f_ready);
+
+          //	window.addEventListener("resize", f_ready);
+          function f_ready() {
+            f_slider({{ gallerie.pcs }}, 30, '#id{{ nameGallery }}', 0, '.id{{ buttonPrev }}', '.id{{ buttonNext }}', 0);
+          }
+
+          // (число слайдоав, между слайдами, имя контейнера со слайдами, высота слайда (расчитывается) макс ширина слайда для PC ) , кнопка prev, кнопка next, по сколько слайдов листать
+        </script>
+      {% if gallerie.action == 3 %}
+        <script>
+          document.addEventListener("DOMContentLoaded", glightbox_start);
+
+          function glightbox_start() {
+            var lightbox = GLightbox({
+              selector: '.class{{ nameGallery }}',
+            });
+          }
+        </script>
+      {% endif %} {# gallerie.action == 3 #}
+
+      {% endif %} {# gallerie.slug_gallerie == sluggallery #}
+
+    {% endfor %}{# gallerie in galleries #}
+
+    </section>
+
+
+
+
+  {% else %} {# galleries #}
+    {% set yes = true %}
+    <section>
+      <div class="not_found">
+        В базе гелерей <span>нет записей</span>
+      </div>
+    </section>
+  {% endif %} {# galleries #}
+
+
+{% else %} {# sluggallery #}
+  {% set yes = true %}
+  <section>
+    <div class="not_found">
+      Не указан <span>идентификатор</span> галереи
+    </div>
+  </section>
+
+{% endif %} {# sluggallery #}
+
+{% if not yes %}
+  <section>
+    <div class="not_found">
+      Галереи с идентификатором <span> {{ sluggallery }} </span> не существует
+    </div>
+  </section>
+{% endif %}
+
+
+
+
+{% endspaceless %}

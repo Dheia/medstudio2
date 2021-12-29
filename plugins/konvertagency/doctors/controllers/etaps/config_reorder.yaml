@@ -1,0 +1,4 @@
+title: Etaps
+modelClass: KonvertAgency\Doctors\Models\Etaps
+toolbar:
+    buttons: reorder_toolbar

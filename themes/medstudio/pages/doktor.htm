@@ -1,0 +1,225 @@
+title = "Доктор"
+url = "/doktor/:slug"
+layout = "static-page-noindex"
+description = "Страница врача"
+is_hidden = 0
+
+[builderDetails]
+modelClass = "KonvertAgency\Doctors\Models\Doctor"
+identifierValue = "{{ :slug }}"
+modelKeyColumn = "slug"
+displayColumn = "last_name"
+notFoundMessage = "Записи о докторе не найдены"
+==
+{# {{ attribute(record, displayColumn) }} #}
+<section>
+  <div class="container container-page-doctor">
+    <div class="row">
+
+
+      {% set record = builderDetails.record %}
+      {% set displayColumn = builderDetails.displayColumn %}
+      {% set notFoundMessage = builderDetails.notFoundMessage %}
+
+      {% if record %}
+
+        {% if record.PhotoDoctor %}
+          <div class="col-lg-4 col-md-6">
+            <div class="photo-page-doctor">
+              <img src="{{ record.PhotoDoctor.thumb(333,auto,{'quality': 80}) }}" alt="{{ record.PhotoDoctor.title }}">
+
+              {# <img src="{{ record.PhotoDoctor | resize(333, false, { mode: 'auto', quality: '80', extension: 'jpg' }) }}" alt="{{ record.PhotoDoctor.title }}"> #}
+            </div>
+          </div>
+        {% endif %}
+
+        <div class="col-lg-8 col-md-6  flex-grow-11">
+          <div class="info-page-doctor flex-grow-11">
+            {# <div class="space"></div> #}
+            <div class="block">
+              <h1>{{ record.last_name }} {{ record.name }} <span class="pc-hiden"><br></span> {{ record.patronymic }}
+              </h1>
+            </div>
+
+            {% if record.start_year_work %}
+              {% set numWork =  'now'|date('Y') - record.start_year_work %}
+
+              {% if (numWork == 1) or (numWork == 21) or (numWork == 21) or (numWork == 31) or (numWork == 41) or (numWork == 51) or (numWork == 61) or (numWork == 71) or (numWork == 81) or (numWork == 91) %}
+                {% set numWorkTxt = 'года' %}
+              {% else %}
+                {% set numWorkTxt = 'лет' %}
+              {% endif %}
+
+
+              <div class="experience">
+                Стаж более <span>{{ numWork }}</span> {{ numWorkTxt }}
+              </div>
+            {% endif %}
+
+            {% if record.specialities %}
+              <div class="specialities">
+                {{ record.specialities }}
+              </div>
+            {% endif %}
+
+            {% if record.specialization %}
+              <div class="specialization">
+                <h5>Специализация:</h5>
+                {{ (record.specialization|replace({",": "<br>"}))|raw }}<br>
+
+              </div>
+            {% endif %}
+
+{% partial 'btn-pop-up' class= " page-doctor-btn" %}
+
+{#             <a href="#" class="btn page-doctor-btn">
+              Записаться на прием
+              <span></span>
+            </a>
+ #}
+            {% if record.certificates|length > 0 %}
+
+              {% set buttonPrev1 =  random() %}
+              {% set buttonNext1 =  random() %}
+              {% set nameGallery =  random() %}
+
+              <div class="bottom_0">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-12 padding_0"><h5>Повышение квалификации:</h5></div>
+                    <div class="col-12  gllery-certificates ">
+
+                      <div class="col-12 swiper-button-next-prew  disabled-opacity">
+                        <div class="swiper-button-prev-m id{{ buttonPrev1 }} top-31">
+
+                          <span>
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" aria-hidden="true" focusable="false" role="img"  style="fill-rule:evenodd;" class="arow-to-left" viewBox="0 0 1.84 3.41">
+  <polyline fill="currentColor" points="0.41,0 1.84,1.7 0.41,3.41 0,3.06 1.14,1.7 0,0.35 " />
+</svg>
+
+</span>
+
+                        </div>
+                        <div class="swiper-container" id="id{{ nameGallery }}">
+                          <div class="swiper-wrapper">
+                            {% for image in record.certificates %}
+
+
+
+                              <div class="swiper-slide">
+                                <div class="certificates-img">
+                                  {# <a href="{{ image.thumb(1200,false,{'mode':'auto', 'quality': 70}) }}" class="glightbox"> #}
+                                  <a href="{{ image.path }}" class="class{{ nameGallery }}"
+
+                                      {# {% if image.title %}
+                                     data-title={{ image.title }}
+                                      {% endif %}
+                                      {% if image.description %}
+                                     data-description={{ image.description }}
+                                      {% endif %}
+                                      #}
+
+                                     data-type="image"
+                                      {# data-effect="fade" #}
+                                     data-zoomable="true"
+                                     data-draggable="true"
+                                  >
+
+                                    <img src="{{ image.thumb(200,130,{'mode':'crop', 'quality': 30}) }}"
+                                         alt="{{ image.title }}">
+                                    {# <img src="{{ image | resize(200, 130, { mode: 'crop', quality: '30', extension: 'jpg'}) }}" alt="{{ record.image.title }}"> #}
+
+
+                                  </a>
+                                  {# {{ image.title }} <br> #}
+                                  {# {{ image.description }} <br> #}
+
+                                </div>
+                              </div>
+
+                              {#
+                              {% set thumb = {mode: 'crop', width: 200, height: 200, quality: 75, position: 'top-center'} %}
+                              #}
+
+                            {% endfor %}
+                          </div>
+                          {# <div class="swiper-pagination mobile-hiden"></div> #}
+                        </div>
+                        <div class="swiper-button-next-m id{{ buttonNext1 }} top-31"><span>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" aria-hidden="true" focusable="false" role="img"  style="fill-rule:evenodd;" class="arow-to-right" viewBox="0 0 1.84 3.41">
+  <polyline fill="currentColor" points="0.41,0 1.84,1.7 0.41,3.41 0,3.06 1.14,1.7 0,0.35 " />
+</svg>
+</span></div>
+                      </div>
+                      {# <div class="swiper-pagination"></div> #}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <script>
+                document.addEventListener("DOMContentLoaded", glightbox_start);
+
+                function glightbox_start() {
+                  var lightbox = GLightbox({
+                    selector: '.class{{ nameGallery }}',
+                  });
+                  // lightbox.on('open', () => {
+                  //   alert("lightbox");
+                  // });
+                }
+              </script>
+
+              <script>
+                document.addEventListener("DOMContentLoaded", f_ready);
+                window.addEventListener("resize", f_ready);
+
+                function f_ready() {
+                  f_slider(4, 20, '#id{{ nameGallery }}', 150, '.id{{ buttonPrev1 }}', '.id{{ buttonNext1 }}', 0);
+
+
+                  // (число слайдоав, между слайдами, имя контейнера со слайдами, высота слайда (расчитывается) макс ширина слайда для PC ) , кнопка prev, кнопка next, по сколько слайдов листать
+                }
+              </script>
+
+
+            {% endif %}
+
+          </div>
+
+        </div>
+
+        {% if record.description %}
+          <div class="col-12">
+            <div class="space"></div>
+            <h5>О враче:</h5>
+            {{ record.description|raw }}
+          </div>
+        {% endif %}
+
+
+
+
+
+        {# <br>
+        {{ record.PhotoDoctor }}
+        <br>
+        <br>
+        {{ record.PhotoDoctor.path }}
+        <br>
+        <br>
+        {{ record.PhotoDoctor.file_name }} #}
+
+        {# {{record.certificates}} #}
+      {% else %}
+        <div class="col-12 notFoundMessage">
+          <br>
+          <br>
+          {{ notFoundMessage }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+</section>

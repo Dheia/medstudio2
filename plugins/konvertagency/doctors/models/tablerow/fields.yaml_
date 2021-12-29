@@ -1,0 +1,23 @@
+fields:
+    table_slug:
+        label: 'konvertagency.doctors::lang.table_row.table_slug'
+        showSearch: true
+        span: left
+        type: dropdown
+    nomination:
+        label: 'konvertagency.doctors::lang.table_row.nomination'
+        size: large
+        span: right
+        type: richeditor
+    article:
+        label: 'konvertagency.doctors::lang.table_row.article'
+        span: left
+        type: text
+    pcs:
+        label: 'konvertagency.doctors::lang.table_row.pcs'
+        span: left
+        type: text
+    price:
+        label: 'konvertagency.doctors::lang.table_row.price'
+        span: left
+        type: text

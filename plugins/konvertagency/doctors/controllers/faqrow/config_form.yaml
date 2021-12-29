@@ -1,0 +1,10 @@
+name: FaqRow
+form: $/konvertagency/doctors/models/faqrow/fields.yaml
+modelClass: KonvertAgency\Doctors\Models\FaqRow
+defaultRedirect: konvertagency/doctors/faqrow
+create:
+    redirect: 'konvertagency/doctors/faqrow/update/:id'
+    redirectClose: konvertagency/doctors/faqrow
+update:
+    redirect: konvertagency/doctors/faqrow
+    redirectClose: konvertagency/doctors/faqrow

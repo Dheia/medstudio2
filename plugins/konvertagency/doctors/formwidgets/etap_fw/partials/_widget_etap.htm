@@ -1,0 +1,61 @@
+<style>
+    .select2-container {
+        width: 100% !important;
+        display: block;
+        position: relative;
+        z-index: 2;
+    }
+    .select2-container--default .select2-selection--multiple .select2-selection__choice{
+      color: black;
+    }
+    .dump {
+        z-index: 1;
+        position: relative;
+    }
+
+</style>
+
+<?
+if ( $vars['title']){
+echo '"'.$vars['title'].'"';
+}
+?>
+
+
+<br>
+<select multiple name="<? echo  $this -> vars['name_select'];  ?>" id="" class="s2">
+  <!--   <option selected disabled hidden><? echo $this -> vars['placeholder_select'] ?></option> -->
+    <?php foreach($etap as $key => $value):?>
+   <option selected value="<? echo $key?>"><? echo $value?></option>
+  <?php endforeach?>
+
+
+  </select>
+  <!-- -->
+<div class="dump" >
+<?
+dump ($this -> vars['name_select']);
+dump ($this -> vars['selectedEtap']);
+//dump ($this -> vars['getFieldName']);
+
+dump ($this -> vars['etap']);
+
+?>
+</div>
+
+
+<!--  -->
+<script>
+$(document).on('render', function () {
+
+  $('.s2').select2({
+    placeholder: "<? echo $this -> vars['placeholder_select'] ?>",
+    tags: true,
+
+  })
+});
+
+
+
+
+</script>

@@ -1,0 +1,27 @@
+columns:
+    slide_title:
+        label: 'konvertagency.doctors::lang.slide.title'
+        type: text
+        searchable: true
+        sortable: true
+    description:
+        label: 'konvertagency.doctors::lang.slide.description'
+        type: text
+        searchable: true
+        sortable: true
+    id:
+        label: 'konvertagency.doctors::lang.slide.id'
+        type: number
+        sortable: true
+    any_title:
+        label: 'konvertagency.doctors::lang.slide.slug_gallerie'
+        type: text
+        searchable: true
+        sortable: true
+        relation: gallery
+        valueFrom: slug_gallerie
+    link:
+        label: 'konvertagency.doctors::lang.slide.link'
+        type: text
+        searchable: true
+        sortable: true

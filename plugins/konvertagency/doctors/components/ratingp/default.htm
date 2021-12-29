@@ -1,0 +1,615 @@
+{% set ratings = __SELF__.rating %}
+
+{% spaceless %}
+{# maxitems {{ maxitems }}<br> #}
+{# maxitems {{ maxitems }}<br> #}
+{# title {{ title }}<br> #}
+
+{% if not maxitems %}
+  {% set maxitems = 0 %}
+{% endif %}
+
+{% if ratings %}
+  <section>
+    {% set buttonPrev =  random() %}
+    {% set buttonNext =  random() %}
+    {% set nameGallery =  random() %}
+    {% set topnum =  31 %}
+    {% if maxitems > 4 %}
+      {% if size == 0 %}
+        {% set width_img = 220 %}
+        {% set height_img = false %}
+      {% elseif size == 1 %}
+        {% set width_img = 220 %}
+        {% set height_img = 143 %}
+      {% elseif size == 2 %}
+        {% set width_img = 220 %}
+        {% set height_img = 340 %}
+      {% else %}
+        {% set width_img = 220 %}
+        {% set height_img = 230 %}
+      {% endif %}
+      {% set quality_img = 40 %}
+
+    {% elseif maxitems == 4 %}
+      {% if size == 0 %}
+        {% set width_img = 280 %}
+        {% set height_img = false %}
+      {% elseif size == 1 %}
+        {% set width_img = 280 %}
+        {% set height_img = 183 %}
+      {% elseif size == 2 %}
+        {% set width_img = 280 %}
+        {% set height_img = 430 %}
+      {% else %}
+        {% set width_img = 280 %}
+        {% set height_img = 280 %}
+      {% endif %}
+      {% set quality_img = 50 %}
+
+    {% elseif maxitems == 3 %}
+      {% if size == 0 %}
+        {% set width_img = 385 %}
+        {% set height_img = false %}
+      {% elseif size == 1 %}
+        {% set width_img = 385 %}
+        {% set height_img = 250 %}
+      {% elseif size == 2 %}
+        {% set width_img = 385 %}
+        {% set height_img = 590 %}
+      {% else %}
+        {% set width_img = 385 %}
+        {% set height_img = 385 %}
+      {% endif %}
+      {% set quality_img = 60 %}
+
+    {% elseif maxitems == 2 %}
+      {% if size == 0 %}
+        {% set width_img = 600 %}
+        {% set height_img = false %}
+      {% elseif size == 1 %}
+        {% set width_img = 600 %}
+        {% set height_img = 390 %}
+      {% elseif size == 2 %}
+        {% set width_img = 600 %}
+        {% set height_img = 920 %}
+      {% else %}
+        {% set width_img = 600 %}
+        {% set height_img = 600 %}
+      {% endif %}
+      {% set quality_img = 80 %}
+
+    {% elseif maxitems == 1 %}
+      {% if size == 0 %}
+        {% set width_img = 1110 %}
+        {% set height_img = false %}
+      {% elseif size == 1 %}
+        {% set width_img = 1110 %}
+        {% set height_img = 720 %}
+      {% elseif size == 2 %}
+        {% set width_img = 1110 %}
+        {% set height_img = 1700 %}
+      {% else %}
+        {% set width_img = 1110 %}
+        {% set height_img = 1110 %}
+      {% endif %}
+      {% set quality_img = 90 %}
+
+    {% else %}
+      {% if size == 0 %}
+        {% set width_img = 600 %}
+        {% set height_img = false %}
+      {% elseif size == 1 %}
+        {% set width_img = 600 %}
+        {% set height_img = 390 %}
+      {% elseif size == 2 %}
+        {% set width_img = 600 %}
+        {% set height_img = 920 %}
+      {% else %}
+        {% set width_img = 600 %}
+        {% set height_img = 600 %}
+      {% endif %}
+      {% set quality_img = 80 %}
+    {% endif %}
+
+    <svg height="0" width="0" xmlns="http://www.w3.org/2000/svg" version="1.1">
+      <defs>
+        <path id="half_star"
+              d="M25 0l7.5 15.964 17.5 2.2 -12.866 12.065 3.317 17.324 -15.451 -8.507 -15.451 8.507 3.317 -17.324 -12.866 -12.065 17.5 -2.2 7.5 -15.964zm0 4.703l0 32.06 12.686 6.985 -2.723 -14.224 10.564 -9.907 -14.369 -1.806 -6.158 -13.108z"/>
+        <path id="empty_star"
+              d="M25 0l7.5 15.964 17.5 2.2 -12.866 12.065 3.317 17.324 -15.451 -8.507 -15.451 8.507 3.317 -17.324 -12.866 -12.065 17.5 -2.2 7.5 -15.964zm0 4.703l-6.158 13.108 -14.369 1.806 10.564 9.907 -2.723 14.224 12.686 -6.985 12.686 6.985 -2.723 -14.224 10.564 -9.907 -14.369 -1.806 -6.158 -13.108z"/>
+        <polygon id="star"
+                 points="25,0 32.5,15.964 50,18.164 37.134,30.229 40.451,47.553 25,39.046 9.549,47.553 12.866,30.229 0,18.164 17.5,15.964"/>
+      </defs>
+    </svg>
+
+
+    <div class="slider swiper-slider">
+      <div class="container margin_0">
+        <div class="row">
+          <div class="col-12">
+            {% if title %}
+              <h2> {{ title }} </h2>
+            {% endif %}
+          </div>
+          <div class="col-12 swiper-button-next-prew">
+            <div class="swiper-button-prev-m top-{{ topnum }} id{{ buttonPrev }}">
+<span>
+
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" version="1.1" style="fill-rule:evenodd;"
+     class="arow-to-left" viewBox="0 0 1.84 3.41">
+  <polyline fill="currentColor" points="0.41,0 1.84,1.7 0.41,3.41 0,3.06 1.14,1.7 0,0.35 "/>
+</svg>
+
+</span>
+
+              {# <span>&lt;</span> #}
+
+
+            </div>
+
+
+            <div class="swiper-container " id="id{{ nameGallery }}">
+
+              <div class="swiper-wrapper">
+
+
+                {% for rating in ratings %}
+
+                  {% if rating.description  != 'нет' and rating.description %}
+
+                    <div class="swiper-slide shadow">
+                      {# flex-grow-11 #}
+                      <div class="block-rating ">
+                        <div class="gallerey-img {{ slide_class }}">
+                          <picture>
+                            {% if maxitems == 2 %}
+
+                              {% if size == 0 %}
+                                <source media="(min-width:1199px)"
+                                        srcset="{{ rating.img_rating.thumb(600,false,{'mode':'auto', 'quality': 90}) }}">
+                              {% elseif size == 1 %}
+                                <source media="(min-width:1199px)"
+                                        srcset="{{ rating.img_rating.thumb(600,390,{'mode':'crop', 'quality': 90}) }}">
+                              {% elseif size == 2 %}
+                                <source media="(min-width:1199px)"
+                                        srcset="{{ rating.img_rating.thumb(600,920,{'mode':'crop', 'quality': 90}) }}">
+                              {% else %}
+                                <source media="(min-width:1199px)"
+                                        srcset="{{ rating.img_rating.thumb(600,600,{'mode':'crop', 'quality': 90}) }}">
+                              {% endif %}
+
+                            {% else %}
+
+                              {% if size == 0 %}
+                                <source media="(min-width:1199px)"
+                                        srcset="{{ rating.img_rating.thumb(360,false,{'mode':'auto', 'quality': 60}) }}">
+                              {% elseif size == 1 %}
+                                <source media="(min-width:1199px)"
+                                        srcset="{{ rating.img_rating.thumb(360,235,{'mode':'crop', 'quality': 60}) }}">
+                              {% elseif size == 2 %}
+                                <source media="(min-width:1199px)"
+                                        srcset="{{ rating.img_rating.thumb(360,550,{'mode':'crop', 'quality': 60}) }}">
+                              {% else %}
+                                <source media="(min-width:1199px)"
+                                        srcset="{{ rating.img_rating.thumb(360,360,{'mode':'crop', 'quality': 60}) }}">
+                              {% endif %}
+                            {% endif %} {# maxitems == 2 #}
+
+
+                            {% if size == 0 %}
+                              <source media="(min-width:659px)"
+                                      srcset="{{ rating.img_rating.thumb(600,false,{'mode':'auto', 'quality': 90}) }}">
+                            {% elseif size == 1 %}
+                              <source media="(min-width:659px)"
+                                      srcset="{{ rating.img_rating.thumb(600,390,{'mode':'crop', 'quality': 90}) }}">
+                            {% elseif size == 2 %}
+                              <source media="(min-width:659px)"
+                                      srcset="{{ rating.img_rating.thumb(600,920,{'mode':'crop', 'quality': 90}) }}">
+                            {% else %}
+                              <source media="(min-width:659px)"
+                                      srcset="{{ rating.img_rating.thumb(600,600,{'mode':'crop', 'quality': 90}) }}">
+                            {% endif %}
+
+
+                            {% if size == 0 %}
+                              <source media="(min-width:485px)"
+                                      srcset="{{ rating.img_rating.thumb(480,false,{'mode':'auto', 'quality': 70}) }}">
+                            {% elseif size == 1 %}
+                              <source media="(min-width:485px)"
+                                      srcset="{{ rating.img_rating.thumb(480,313,{'mode':'crop', 'quality': 70}) }}">
+                            {% elseif size == 2 %}
+                              <source media="(min-width:485px)"
+                                      srcset="{{ rating.img_rating.thumb(480,740,{'mode':'crop', 'quality': 70}) }}">
+                            {% else %}
+                              <source media="(min-width:485px)"
+                                      srcset="{{ rating.img_rating.thumb(480,480,{'mode':'crop', 'quality': 70}) }}">
+                            {% endif %}
+
+
+                            {% if size == 0 %}
+                              <source media="(min-width:360px)"
+                                      srcset="{{ rating.img_rating.thumb(360,false,{'mode':'auto', 'quality': 60}) }}">
+                            {% elseif size == 1 %}
+                              <source media="(min-width:360px)"
+                                      srcset="{{ rating.img_rating.thumb(360,235,{'mode':'crop', 'quality': 60}) }}">
+                            {% elseif size == 2 %}
+                              <source media="(min-width:360px)"
+                                      srcset="{{ rating.img_rating.thumb(360,550,{'mode':'crop', 'quality': 60}) }}">
+                            {% else %}
+                              <source media="(min-width:360px)"
+                                      srcset="{{ rating.img_rating.thumb(360,360,{'mode':'crop', 'quality': 60}) }}">
+                            {% endif %}
+
+
+                            <img
+                                src="{{ rating.img_rating.thumb(width_img,height_img,{'mode':'crop', 'quality': quality_img}) }}" alt="">
+                          </picture>
+
+
+                        </div>
+
+                        <div class="stars">
+                          {% if rating.stars == 0 %}
+
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#empty_star"/>
+                              </svg>
+                            </div>
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#empty_star"/>
+                              </svg>
+                            </div>
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#empty_star"/>
+                              </svg>
+                            </div>
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#empty_star"/>
+                              </svg>
+                            </div>
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#empty_star"/>
+                              </svg>
+                            </div>
+
+                          {% elseif rating.stars == 1 %}.
+
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#half_star"/>
+                              </svg>
+                            </div>
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#empty_star"/>
+                              </svg>
+                            </div>
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#empty_star"/>
+                              </svg>
+                            </div>
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#empty_star"/>
+                              </svg>
+                            </div>
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#empty_star"/>
+                              </svg>
+                            </div>
+
+
+                          {% elseif rating.stars == 2 %}
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#star"/>
+                              </svg>
+                            </div>
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#empty_star"/>
+                              </svg>
+                            </div>
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#empty_star"/>
+                              </svg>
+                            </div>
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#empty_star"/>
+                              </svg>
+                            </div>
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#empty_star"/>
+                              </svg>
+                            </div>
+                          {% elseif rating.stars == 3 %}
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#star"/>
+                              </svg>
+                            </div>
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#half_star"/>
+                              </svg>
+                            </div>
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#empty_star"/>
+                              </svg>
+                            </div>
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#empty_star"/>
+                              </svg>
+                            </div>
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#empty_star"/>
+                              </svg>
+                            </div>
+                          {% elseif rating.stars == 4 %}
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#star"/>
+                              </svg>
+                            </div>
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#star"/>
+                              </svg>
+                            </div>
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#empty_star"/>
+                              </svg>
+                            </div>
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#empty_star"/>
+                              </svg>
+                            </div>
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#empty_star"/>
+                              </svg>
+                            </div>
+                          {% elseif rating.stars == 5 %}
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#star"/>
+                              </svg>
+                            </div>
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#star"/>
+                              </svg>
+                            </div>
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#half_star"/>
+                              </svg>
+                            </div>
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#empty_star"/>
+                              </svg>
+                            </div>
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#empty_star"/>
+                              </svg>
+                            </div>
+                          {% elseif rating.stars == 6 %}
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#star"/>
+                              </svg>
+                            </div>
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#star"/>
+                              </svg>
+                            </div>
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#star"/>
+                              </svg>
+                            </div>
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#empty_star"/>
+                              </svg>
+                            </div>
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#empty_star"/>
+                              </svg>
+                            </div>
+
+                          {% elseif rating.stars == 7 %}
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#star"/>
+                              </svg>
+                            </div>
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#star"/>
+                              </svg>
+                            </div>
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#star"/>
+                              </svg>
+                            </div>
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#half_star"/>
+                              </svg>
+                            </div>
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#empty_star"/>
+                              </svg>
+                            </div>
+
+                          {% elseif rating.stars == 8 %}
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#star"/>
+                              </svg>
+                            </div>
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#star"/>
+                              </svg>
+                            </div>
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#star"/>
+                              </svg>
+                            </div>
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#star"/>
+                              </svg>
+                            </div>
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#empty_star"/>
+                              </svg>
+                            </div>
+                          {% elseif rating.stars == 9 %}
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#star"/>
+                              </svg>
+                            </div>
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#star"/>
+                              </svg>
+                            </div>
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#star"/>
+                              </svg>
+                            </div>
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#star"/>
+                              </svg>
+                            </div>
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#half_star"/>
+                              </svg>
+                            </div>
+
+
+                          {% elseif rating.stars > 9 %}
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#star"/>
+                              </svg>
+                            </div>
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#star"/>
+                              </svg>
+                            </div>
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#star"/>
+                              </svg>
+                            </div>
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#star"/>
+                              </svg>
+                            </div>
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#star"/>
+                              </svg>
+                            </div>
+
+                          {% else %}
+                            <div class="star">
+                              <svg viewBox="0 0 50 48">
+                                <use href="#empty_star"/>
+                              </svg>
+                            </div>
+                          {% endif %}
+
+                          <div class=" star-txt">
+                            {{ rating.rating }}
+                          </div>
+
+                        </div> {# stars #}
+
+                        <div class="block-rating-txt">
+                          {{ rating.txt }}<br>
+                        </div>
+                      </div>
+                    </div>
+                  {% endif %}  {# rating.description  != 'нет' and rating.description #}
+                {% endfor %}  {# rating in ratings #}
+
+
+              </div>
+              {# {% if  gallerie.pagination %}
+                    <div class="swiper-pagination{% if  gallerie.pagination_mobile %} mobile-hiden {% endif %}"></div>
+                  {% endif %} #}
+            </div>
+
+            <div class="swiper-button-next-m top-{{ topnum }} id{{ buttonNext }}">
+<span>
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" version="1.1" style="fill-rule:evenodd;"
+     class="arow-to-right" viewBox="0 0 1.84 3.41">
+  <polyline fill="currentColor" points="0.41,0 1.84,1.7 0.41,3.41 0,3.06 1.14,1.7 0,0.35 "/>
+</svg>
+</span>
+              {# <span>&gt;</span> #}
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script>
+      document.addEventListener("DOMContentLoaded", f_ready);
+
+      //  	window.addEventListener("resize", f_ready);
+      function f_ready() {
+        f_slider({{ maxitems }}, 30, '#id{{ nameGallery }}', 0, '.id{{ buttonPrev }}', '.id{{ buttonNext }}', 0);
+      }
+
+      // (число слайдоав, между слайдами, имя контейнера со слайдами, высота слайда (расчитывается) макс ширина слайда для PC  , кнопка prev, кнопка next, по сколько слайдов листать)
+
+
+    </script>
+
+
+  </section>
+
+{% endif %} {# ratings #}
+
+
+
+{% endspaceless %}

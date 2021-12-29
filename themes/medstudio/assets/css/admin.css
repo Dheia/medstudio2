@@ -1,0 +1,62 @@
+ /* Для админки - это копия, основной код содержится в базе данных таблице system_settings в поле backend_brand_settings */
+
+
+
+.flag .image img {
+  min-width: 54px !important;
+  min-height: 36px !important;
+}
+
+.flag .image {
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.flag .icon-container{
+  border: solid 1px #ccc !important;
+  border-radius: 3px;
+}
+.layout.control-tabs.oc-logo-transparent:not(.has-tabs){
+  background-size: 50% auto;
+
+}
+.accordion_list_img .icon-container{
+  background: #ccc !important;
+}
+
+.left-50,
+.right-50  {
+  width: calc(48.5%/2-1.5%)!important;
+}
+
+.right-50  {
+  margin-left: 3%;
+  clear: none !important;
+  float: left !important;
+}
+
+
+/* .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+    cursor: not-allowed;
+    background-color: #eee !important;
+    color: #72809d;
+    opacity: 1;
+}
+ */
+input[type="checkbox"][disabled]{
+    background-color: #00f !important;
+
+  }
+
+.custom-checkbox input:disabled + label, .custom-radio input:disabled + label {
+color: #ccc;
+
+}
+
+@media (max-width: 769.98px) {
+  .left-50,
+  .right-50  {
+    width: calc(100%/2-1.5%)!important;
+  }
+  .right-l-50{
+     margin-left: 0;
+    }
+}

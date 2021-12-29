@@ -1,0 +1,76 @@
+description = "Кнопка записи"
+
+[viewBag]
+snippetCode = "btn-pop-up"
+snippetName = "Кнопка записи"
+snippetProperties[titleBtn][title] = "надпись  на кнопке"
+snippetProperties[titleBtn][type] = "string"
+snippetProperties[titleBtn][default] = ""
+snippetProperties[titleBtn][options][] = ""
+snippetProperties[class][title] = "дополнительный класс"
+snippetProperties[class][type] = "string"
+snippetProperties[class][default] = ""
+snippetProperties[class][options][] = ""
+==
+{% set IdBtn =  random() %}
+  {% set titleBtn = titleBtn ? titleBtn : "запись на прием" %}
+
+    {% set class = class ? class : "standart-btn" %}
+      {% set currentPage =  currentFullUrl() %}
+
+<div class="width100">
+  <a href="{{ 'sendmail' | page }}?refer={{ currentPage }}"
+     class="class{{ IdBtn }} btn {{ class }}"
+      {# data-title="My title" #}
+     data-width="350px"
+      {# data-height="auto" #}
+      {# touchNavigation ="false" #}
+  >
+    {{ titleBtn }}
+    <span></span>
+  </a>
+</div>
+<script>
+  //HttpContext.Current.Response.AddHeader("x-frame-options", "SAMEORIGIN");
+
+  document.addEventListener("DOMContentLoaded", glightbox_start);
+
+  function glightbox_start() {
+    let lightbox = GLightbox({
+      selector: '.class{{ IdBtn }}',
+      skin: "popup glightbox-clean",
+      closeOnOutsideClick: false,
+      closeButton: false,
+// width: '300px',
+// height: "auto",
+// closeButton: true,
+    });
+
+    lightbox.on('slide_after_load', () => {
+      // установка высоты фрейма
+      var lightboxContainer = document.querySelector(".ginner-container");
+      // let iframe = document.getElementsByTagName('iframe')[0].contentWindow;
+      // let iframe_form =  iframe.document.getElementById('form');
+      // let iframe_form = iframe.document.querySelector(".container_form");
+      // let heightIframe = iframe.contentWindow.document.querySelector(".container_form").querySelector(".form ").clientHeight;
+      //console.log(heightIframe);
+      //lightboxContainer.style.height = heightIframe + 'px';
+      lightboxContainer.style.height = 0 + 'px';
+    });
+
+
+    window.addEventListener('message', function (event) {
+      let lightboxContainer = document.querySelector(".ginner-container");
+      let message = event.data;
+      // console.log('Получено сообщение из фрейма: ' + message);
+      if (lightboxContainer) {
+        lightboxContainer.style.height = message + 'px';
+      }
+
+      if (message == 'sending') {
+        lightbox.close();
+      }
+    });
+
+  }
+</script>

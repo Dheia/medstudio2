@@ -1,0 +1,15 @@
+fields:
+    question:
+        label: 'konvertagency.doctors::lang.faq_row.question'
+        span: auto
+        type: text
+    faq_slug:
+        label: 'konvertagency.doctors::lang.faq_row.faq_slug'
+        showSearch: true
+        span: auto
+        type: dropdown
+    answer:
+        label: 'Rich editor'
+        size: large
+        span: full
+        type: richeditor

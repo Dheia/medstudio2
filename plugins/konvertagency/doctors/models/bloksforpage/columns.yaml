@@ -1,0 +1,10 @@
+columns:
+    title:
+        label: 'konvertagency.doctors::lang.blockforpage.title'
+        type: text
+    description:
+        label: 'konvertagency.doctors::lang.blockforpage.description'
+        type: text
+    url:
+        label: 'konvertagency.doctors::lang.blockforpage.url'
+        type: text

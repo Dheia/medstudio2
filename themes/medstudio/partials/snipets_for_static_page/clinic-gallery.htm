@@ -1,0 +1,75 @@
+description = "фото клиники"
+
+[viewBag]
+snippetCode = "clinic-gallery"
+snippetName = "фото клиники"
+==
+
+
+{% set clinic_gallery = {
+
+	'img_1': {
+	'foto': "foto-clinik-1.jpg",
+},
+
+'img_2': {
+'foto': "foto-clinik-2.jpg",
+
+},
+
+'img_3': {
+'foto': "foto-clinik-3.jpg",
+
+},
+
+
+
+} %}
+
+{% set buttonPrev1 =  random() %}
+{% set buttonNext1 =  random() %}
+{% set nameGallery =  random() %}
+
+<div class="slider swiper-slider">
+	<div class="container margin_0">
+		<div class="row" >
+			<div class="col-12 swiper-button-next-prew">
+				<div class="swiper-button-prev-m top-50 id{{buttonPrev1}}"><span>&lt;</span></div>
+
+
+				<div class="slider-person-card swiper-container " id="id{{ nameGallery }}">
+
+					<div class="swiper-wrapper">
+
+						{% for clinic_gallery_in in clinic_gallery %}
+						<div class="swiper-slide  flex-grow-11">
+								<div class="gallerey-img">
+									<a href="{{ clinic_gallery_in.link }}">
+										<img src="/storage/app/media/uploaded-files/{{ clinic_gallery_in.foto }}" alt="">
+									</a>
+								</div>
+						</div>
+						{% endfor %}
+				</div>
+
+					<div class="swiper-pagination mobile-hiden"></div>
+				</div>
+
+				<div class="swiper-button-next-m top-50 id{{buttonNext1}}"><span>&gt;</span></div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+
+	document.addEventListener("DOMContentLoaded", f_ready);
+//	window.addEventListener("resize", f_ready);
+function f_ready() {
+				f_slider(2, 30, '#id{{ nameGallery }}',  0, '.id{{buttonPrev1}}', '.id{{buttonNext1}}', 0);
+       // (число слайдоав, между слайдами, имя контейнера со слайдами, высота слайда (расчитывается) макс ширина слайда для PC ) , кнопка prev, кнопка next, по сколько слайдов листать
+  }
+
+</script>
+

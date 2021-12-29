@@ -1,0 +1,20 @@
+columns:
+    id:
+        label: 'konvertagency.doctors::lang.table.id'
+        type: number
+        sortable: true
+    title:
+        label: 'konvertagency.doctors::lang.table.title'
+        type: text
+        searchable: true
+        sortable: true
+    table_slug:
+        label: 'konvertagency.doctors::lang.table.table_slug'
+        type: text
+        searchable: true
+        sortable: true
+    description:
+        label: 'konvertagency.doctors::lang.table.description'
+        type: text
+        searchable: true
+        sortable: true

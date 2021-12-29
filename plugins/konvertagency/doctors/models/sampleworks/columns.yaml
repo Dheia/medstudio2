@@ -1,0 +1,9 @@
+columns:
+    title:
+        label: 'konvertagency.doctors::lang.sampleworks.title'
+        type: text
+        sortable: true
+    link:
+        label: 'konvertagency.doctors::lang.sampleworks.link'
+        type: text
+        sortable: true

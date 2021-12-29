@@ -1,0 +1,20 @@
+list: $/konvertagency/doctors/models/discounts/columns.yaml
+modelClass: KonvertAgency\Doctors\Models\Discounts
+title: Discounts
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'konvertagency/doctors/discounts/update/:id'
+structure:
+    showTree: false
+    showReorder: true
+    maxDepth: 0
+    direction: desc
+# defaultSort:
+#     column: id
+#     direction: desc

@@ -1,0 +1,4 @@
+title: Slides
+modelClass: KonvertAgency\Doctors\Models\Slides
+toolbar:
+    buttons: reorder_toolbar

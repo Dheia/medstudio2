@@ -1,0 +1,243 @@
+{% set discounts = __SELF__.discounts %}
+{% set discounts_arr = __SELF__.discounts_arr %}
+{% set notFoundMessage = __SELF__.discounts_notFoundMessage %}
+
+{# {% set  class-section = "section-big-img bMySQL - med_studio_ru@localhostg_left" %} #}
+
+
+
+{# {{ d(discounts) }} #}
+    {# {{ d(discounts_arr) }} #}
+{% set publicationNot = true %}
+
+{% if discounts %}
+  {% set yes = false %}
+  {% spaceless %}
+
+    {# <div class="home_banner"> #}
+
+{# <div class="gallerie-banner-top-bg">#}
+{#  <div class="container-fluid padding_0" style="max-width: 1140px;">#}
+{#    <div class="col-12  padding_0 overflow_hidden">#}
+
+    <div class="swiper-container" id="swiper-slider-top">
+
+      <div class="swiper-wrapper swiper-wrapper-container">
+
+
+        {% set slides_count = 0 %}
+        {% for record in discounts %}
+
+          {% set yes = true %}
+
+          {% if record.date %}
+            {% set date_prn = record.auto_date ? last_date_months() : rus_date_months(record.date|date("d-m-Y")) %}
+            {% set date =  record.auto_date ? 'now'|date('Ymt') : record.date|date("Ymd") %}
+            {% set data_on = ('now'|date('Ymd') <= date) ? 1 : 0 %}
+          {% else %}
+            {% set date_prn = record.auto_date ? last_date_months() : '' %}
+            {% set data_on =  1 %}
+          {% endif %}
+
+
+          {% if (data_on == 1) or (record.date_on == 0) %}
+
+
+
+
+            {% if record.txt_position == 3 %}
+              {% set class_section = "bg_left" %}
+              {% set col = "col-7" %}
+
+            {% elseif record.txt_position == 2 %}
+              {% set class_section = "bg_center" %}
+              {% set col = "col-12 col-lg-8 col-md-10" %}
+
+            {% else %}
+              {% set class_section = "bg_right" %}
+              {% set col = "col-7" %}
+
+            {% endif %}
+            <div class="swiper-slide section-big-img {{ class_section }} gallerie-banner-top"> <!-- swiper-slide -->
+              {% set slides_count = slides_count + 1 %}
+              {% if not record.banner_btn %}
+                <a href="/discounts/{{ record.slug }}" rel="nofollow">
+              {% endif %}
+
+                <div class="section-big-img__txt">
+                  <div class="container">
+                    <div class="row section-big-row">
+
+                      {% if  record.banner_custom_txt %}
+
+                        <div class="{{ col }}  big-txt_flex custom_banner_txt">
+                          {{ record.banner_custom_txt|raw }}
+                        </div>
+
+                      {% else %} {# record.banner_custom_txt #}
+
+                        <div class="{{ col }}  big-txt_flex">
+                          <div class="section-big-img__txt-11">
+
+                            {% if 'title' in record.banner_list_txt %}
+                              <span>{{ record.title }}</span>
+                              {% set br = "<br>" %}
+                            {% endif %}
+
+                            {# цены #}
+                            {% if record.price_old and ( not record.price_current) and 'price_old' in record.banner_list_txt %}
+                              {{ br|raw }}
+                              <del class="cross promotions-price_old">
+                                <span> {{ record.price_old }} руб.</span>
+                              </del>
+                            {% endif %}
+
+                            {% if record.price_old and  record.price_current %}
+                              {{ br|raw }}
+                              {% if 'price_old' in record.banner_list_txt %}
+                                <del class="cross promotions-price_old">
+                                  {{ record.price_old|cur|span_numb }}
+                                </del>
+                              {% endif %}
+
+                              {% if 'price_current' in record.banner_list_txt %}
+                                <span class="promotions-price_current">
+                           {{ record.price_current|cur|span_numb }}
+                          </span>
+                              {% endif %}
+                            {% endif %}
+
+                            {% if ( not record.price_old ) and  record.price_current and 'price_current' in record.banner_list_txt %}
+                              {{ br|raw }}
+                              <span class="promotions-price_current">
+                           {{ record.price_current|cur|span_numb }}
+                          </span>
+                            {% endif %}
+                            {# end цены #}
+                          </div>
+
+
+                        </div>
+
+                        {# <div class="col-xl-5 col-lg-6 col-md-7 col-12 big-txt_flex"> #}
+
+                        {% if record.txt_title and 'txt_title' in record.banner_list_txt %}
+
+                          <div class="{{ col }}  big-txt_flex">
+                            <div class="section-big-img__txt-22">
+
+                              {{ record.txt_title }}{% if record.txt_title|last == "." or record.txt_title|last == "," or record.txt_title|last == "!"  or record.txt_title|last == "?" or record.txt_title|last == ";" or record.txt_title|last == ":" %}{% else %}.{% endif %}
+
+                              {# {{ record.txt_title|last == "." ? '' : "." }} #}
+
+                              {% if date_prn and (data_on == 1)  and 'date' in record.banner_list_txt %}
+                                <br>
+                                <span class="promotions_date">
+                                  Только до {{ date_prn }}!
+                                </span>
+                              {% endif %}
+                            </div>
+                          </div>
+
+
+                        {% else %} {# record.txt_title #}
+
+                          {% if date_prn and (data_on == 1)  and 'date' in record.banner_list_txt %}
+                            <div class="{{ col }}  big-txt_flex">
+                              <div class="section-big-img__txt-22">
+                            <span class="promotions_date">
+                              Только до {{ date_prn }}!
+                            </span>
+                              </div>
+                            </div>
+                          {% endif %}
+
+                        {% endif %}  {# record.txt_title #}
+
+                      {% endif %} {# record.banner_custom_txt #}
+
+
+
+                      {% if record.banner_btn %}
+                        <div class="btn-title-big">
+                          {# <div class="width100right"> #}
+                          {# <div class="col-12"> #}
+                          <a class="btn standart-btn" href="/discounts/{{ record.slug }}"
+                             rel="nofollow">&nbsp;{{ record.banner_btn }}&nbsp;<span></span></a>
+                             <span></span>
+                          {# </div> #}
+                          {# </div> #}
+                        </div> {# btn-title #}
+                      {% endif %}
+
+
+
+                    </div> {# row #}
+                  </div> {# container #}
+                </div>
+
+                <div class="section-big-img__bg">
+                  {% if record.ImgPpromotionsHome %}
+                    {# <img src="{{ record.ImgPpromotionsHome.path}}" alt=""> #}
+                    <img src="{{ record.ImgPpromotionsHome.thumb(1920,765,{'mode':'crop', 'quality': 70}) }}" alt="">
+                  {% else %}
+                    <img src="{{'transparent.png'|media|resize(1920,765, { mode: 'crop','quality': 1 }) }} "/>
+                  {% endif %}
+                </div>
+
+                {% if not record.banner_btn %}
+              </a>
+              {% endif %}
+
+            </div><!-- end swiper-slide -->
+          {% else %}{# {% if (data_on == 1) or (record.date_on == 0) %} #}
+
+            {# {% partial 'slider-top' %} #}
+            {% set publicationNot = true %}
+
+          {% endif %}{# {% if (data_on == 1) or (record.date_on == 0) %} #}
+        {% endfor %} {# record in discounts #}
+
+      </div><!-- end swiper-wrapper -->
+    </div><!-- end swiper-container -->
+{#</div>#}
+{#</div>#}
+{#</div>#}
+
+  {% endspaceless %}
+{% else %} {# if discounts #}
+  {% partial 'top-banner' %}
+
+  {# <div class="no-data">{{ notFoundMessage }}</div> #}
+{% endif %} {# if discounts #}
+
+
+
+{% if not yes  or slides_count == 0 %}
+
+  {% partial 'top-banner' %}
+
+  {# <section>
+    <div class="not_found">
+      <br>
+      <div class="no-data">Акций в текущем месяце не предусмотрено.</div>
+    </div>
+  </section> #}
+
+{% endif %}
+
+
+
+
+{% if slides_count != 1 %}
+  <script>
+    document.addEventListener("DOMContentLoaded", f_ready);
+    window.addEventListener("resize", f_ready);
+
+    function f_ready() {
+      top_slider("#swiper-slider-top", 'flip', 400000);
+      // (id слайдера, эффект, время смены слайда )
+      //  эффекты - 'slide' | 'fade' | 'cube' | 'coverflow' | 'flip' | 'creative' | 'cards'
+    }
+  </script>
+{% endif %}

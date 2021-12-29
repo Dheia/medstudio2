@@ -1,0 +1,27 @@
+columns:
+    id:
+        label: id
+        type: number
+        sortable: true
+    title:
+        label: 'konvertagency.doctors::lang.discounts.title'
+        type: text
+        searchable: true
+        sortable: true
+    slug:
+        label: 'konvertagency.doctors::lang.discounts.slug'
+        type: text
+        searchable: true
+        sortable: true
+    publication:
+        label: 'konvertagency.doctors::lang.othe.publication'
+        type: number
+        sortable: true
+    sort_order:
+        label: 'konvertagency.doctors::lang.discounts.sort_order'
+        type: number
+        sortable: true
+    banner_publication:
+        label: 'konvertagency.doctors::lang.discounts.banner_home'
+        type: number
+        sortable: true

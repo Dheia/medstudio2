@@ -1,0 +1,246 @@
+{% set price_tables = __SELF__.price_tables %}
+{% set price_rows = __SELF__.price_rows %}
+
+
+<section></section>
+<section>
+
+  {% set ii = 40 %}
+  {% set duration = 1 %}
+  {% if price_tables %}
+  {% set menu = [] %}
+
+    {# {% spaceless %} #}
+  {# {% set menu = menu|merge(ii) %} #}
+  <div class="container">
+    <div class="row">
+      {# <div class="col-4">{{ d(price_tables) }}</div> #}
+      {# <div class="col-4">{{ d(price_rows) }}</div> #}
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row row15">
+      <div class="swiper-container priceSwiper">
+
+        <div class="swiper-pagination"></div>
+
+        <div class="swiper-wrapper">
+          {% for table in price_tables %}
+            {% set menu = menu|merge([table.title]) %}
+            {% set tableslug = table.table_slug %}
+
+            {% set rows_hidden_id =  "id" ~ random() %}
+            {% set btn_hidden_id =  "btn" ~ random() %}
+
+            {% if  table.class %}
+
+              {% set table_class = " " ~ table.class|remove_sp_char ~ " " %} {# заменяет спецсимволы на пробел #}
+            {% else %}
+              {% set table_class =  "" %}
+            {% endif %}
+
+
+            <div class="swiper-slide price-slide">
+
+              {# <b> {{ table.title }}</b> {{ btn_hidden_id }}<br> #}
+              <div class="table{{ table_class }} ">
+ {#
+                 {% if table.title %}
+                  <h2> {{ table.title }} </h2>
+                {% endif %}
+ #}
+                <div class="tr_first">
+                  <div class="td article mobile-hiden">Номенклатура</div>
+                  <div class="td nomination">Услуга клиники</div>
+                  {% if table.visible_pcs %}
+                    <div class="rowforever">
+
+                      <div class="td pcs">кол-во</div>
+                      <div class="td price">Цена</div>
+                    </div>
+                  {% else %}
+                    <div class="td price">Цена</div>
+                  {% endif %}
+                </div>
+
+                {# {% set visible_row =  table.visible_row %}
+									 отключено для галереи прайсов присвоением 0 строуой ниже
+                #}
+                {% set visible_row =  0 %}
+                {% set render_row =  0 %}
+
+
+
+                {% for row in price_rows %}
+                {% if row.table_slug == tableslug %}
+                {% set render_row =  render_row + 1 %}
+
+
+                {% if render_row > visible_row and (visible_row or  visible_row != 0) and not rows_hidden %}
+                {% set rows_hidden = true %}
+
+
+              </div> <!-- закрываем тег видимой таблицы -->
+              <div class="table rows_hidden" id="{{ rows_hidden_id }}"> <!-- открываем тег скрытой таблицы -->
+                {% endif %}
+
+
+                <div class="tr">
+                  <div class="td article mobile-hiden">{{ row.article|raw }}</div>
+                  <div class="td nomination">{{ row.nomination|raw }}</div>
+                  {% if table.visible_pcs %}
+                    <div class="rowforever">
+                      <div class="td pcs">{{ row.pcs }}</div>
+                      <div class="td price">{{ (row.price|cur|span_numb)|raw }}</div>
+                    </div>
+                  {% else %}
+                    <div class="td price">{{ (row.price|cur|span_numb)|raw }}</div>
+                  {% endif %}
+                </div>
+                {% endif %} {# row.table_slug == tableslug #}
+                {% endfor %}{# row in rows #}
+
+
+              </div> {# class="table{{ table_class }} #}
+
+              {% if render_row > visible_row and (visible_row or  visible_row != 0) %}
+
+                <br>
+                <div class="width100">
+
+                     <a href="javascript:collapsTable('{{rows_hidden_id}}', '{{btn_hidden_id}}', {{duration}}, 'easeIn' , 'easeIn')" class="btn standart-btn light-btn" id="{{btn_hidden_id}}">
+                    Показать все цены
+                    <span></span></a>
+                </div>
+
+
+              {% endif %}
+
+            </div> {# swiper-slide #}
+          {% endfor %}
+
+
+        </div> {# swiper-wrapper #}
+
+
+        <!-- If we need navigation buttons -->
+{#
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+        <!-- If we need scrollbar -->
+        <div class="swiper-scrollbar"></div>
+#}
+      </div> {# swiper-container #}
+    </div> {# container #}
+  </div> {# row #}
+
+  {# menu {{ d(menu) }} #}
+
+  <div id="array-to-json" data-js-array="{{ menu|json_encode }}"></div>
+
+</section>
+
+{% else %} {# price_tables #}
+  <section>
+    <div class="not_found">
+      Нет таблиц ценами
+    </div>
+  </section>
+{% endif %} {# price_tables #}
+
+
+<script>
+
+  document.addEventListener("DOMContentLoaded", f_ready);
+
+  //  window.addEventListener("resize", f_ready);
+  function f_ready() {
+    let menu = document.querySelector('#array-to-json').dataset.jsArray;
+//let menu1 = JSON.parse('{{ menu | json_encode | raw }}');
+
+    price_slider(menu, {{duration}});
+
+  }
+
+  function price_slider(menu_, duration) {
+
+    var jsonData = JSON.parse(menu_);
+
+   let menu_list = [];
+    for (var i = 0; i < jsonData.length; i++) {
+      var counter = jsonData[i];
+      menu_list.push(jsonData[i]);
+
+    }
+
+   // let menu_list2 = ['Диагностика','Профгигиена','Терапия','Пародонтология','Хирургия','Имплантация','Ортопедия','Ортодонтия','Детская']
+
+   // console.log(menu_list);
+
+
+    const swiper = new Swiper('.priceSwiper', {
+      // Optional parameters
+      loop: true,
+      autoHeight: true,
+      effect: "fade",
+      fadeEffect: {
+        crossFade: true
+      },
+      resizeObserver: true,
+
+      // If we need pagination
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+
+        renderBullet: function (index, className) {
+          return '<span class=" btn light-btn ' + className + '">'+'<span class="center">' + (menu_list[index]) + '</span>'+ '</span>';
+        },
+
+      },
+
+      // Navigation arrows
+ //     navigation: {
+ //       nextEl: '.swiper-button-next',
+ //       prevEl: '.swiper-button-prev',
+ //     },
+
+      // And if we need scrollbar
+//      scrollbar: {
+//       el: '.swiper-scrollbar',
+//     },
+    });
+
+
+  let btn = document.querySelectorAll('.standart-btn');
+console.log('btns '+btn);
+
+
+ for (let btnN of btn) {
+ btnN.onclick = function() {
+    // alert('Спасибо');
+    // swiper.destroy();
+
+      // swiper.init();
+  setTimeout(function() {
+    swiper.update();
+  }, duration+50);
+
+  }
+ }
+
+
+
+
+}
+
+
+
+</script>
+
+{# {% endspaceless %} #}
+
+
+

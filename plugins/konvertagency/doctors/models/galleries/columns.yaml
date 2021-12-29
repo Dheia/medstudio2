@@ -1,0 +1,19 @@
+columns:
+    id:
+        label: 'konvertagency.doctors::lang.galleries.id'
+        type: number
+        sortable: true
+    gallerie_title:
+        label: 'konvertagency.doctors::lang.galleries.title'
+        type: text
+        searchable: true
+        sortable: true
+    description:
+        label: 'konvertagency.doctors::lang.galleries.description'
+        type: text
+        sortable: true
+    slug_gallerie:
+        label: 'konvertagency.doctors::lang.galleries.slug'
+        type: text
+        searchable: true
+        sortable: true

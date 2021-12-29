@@ -1,0 +1,180 @@
+{% set ratings = __SELF__.rating %}
+  {% set feadbacks = __SELF__.feadback %}
+    {# description #}
+    {# {{ d(ratings) }} #}
+    {# {{ d(feadbacks) }} #}
+{% spaceless %}
+    {% if ratings %}
+      {% if  feadbacks %}
+
+
+
+        <section>
+          {% set buttonPrev = random() %}
+          {% set buttonNext = random() %}
+          {% set nameGallery = random() %}
+          {% set topnum = 31 %}
+
+
+          <style>
+              .container-feadback {
+                  background-image: linear-gradient(to top, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.7) 100%), url({{ 'assets/images/bg_feadback.jpg'|theme }});
+              }
+          </style>
+
+
+          <div class="section-big-img bg_right" id="feadback">
+
+
+            <div class="section-big-img__txt">
+              <div class="container no50">
+                <div class="row section-big-row">
+
+
+                  <div class="col-xl-6 col-lg-7 col-md-8 col-12 big-txt_flex">
+
+
+                    <div class="section-big-img__txt-1  hidden-768 ">
+                      <span>Отзывы</span> наших пациентов
+                    </div>
+                    <div class="section-big-img__txt-1 visible-768 pc-hiden mobile-hiden" style="padding-left: 25px;">
+                      <span>Отзывы</span> пациентов
+                    </div>
+                    <div class="section-big-img__txt-1  pc-hiden" style="padding-left: 25px;">
+                      <span>Отзывы</span>
+                    </div>
+
+                  </div>
+                  <div class="col-xl-5 col-lg-6 col-md-7 col-12 big-txt_flex" style="padding: 0;   margin-top: 0.5em;">
+
+
+                    <div class="section-big-img__txt-2">
+
+                      {# ---------- код слайдера ---------- #}
+                      <div class="col-md-12 swiper-button-next-prew">
+
+
+                        <div class="swiper-button-prev-m top-{{ topnum }} id{{ buttonPrev }} feadback-arow">
+
+                          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="fill-rule:evenodd;" class="arow-to-left" viewBox="0 0 6.437 11.91">
+                            <defs>
+                              <filter style="color-interpolation-filters:sRGB" id="filter-arow-glou">
+                                <feOffset dx="0" dy="0"/>
+                                <feGaussianBlur stdDeviation="1.0" result="result1"/>
+                                <feBlend mode="normal" in2="result1"/>
+                              </filter>
+                            </defs>
+                            <g id='arow-glou'>
+                              <polygon fill="white"
+                                       points="1.441,0 6.437,5.955 1.441,11.91 0,10.701 3.982,5.955 0,1.209 "
+                                       style="filter:url(#filter-arow-glou)"
+                                       transform="matrix(0.72973557,0,0,0.72973557,0.8777544,1.6222308)"/>
+                              <polygon fill="white"
+                                       points="1.441,0 6.437,5.955 1.441,11.91 0,10.701 3.982,5.955 0,1.209 "
+                                       style="filter:url(#filter-arow-glou)"
+                                       transform="matrix(0.72973557,0,0,0.72973557,0.8777544,1.6222308)"/>
+                              <polygon fill="currentColor"
+                                       points="1.441,0 6.437,5.955 1.441,11.91 0,10.701 3.982,5.955 0,1.209 "
+                                       transform="matrix(0.72973557,0,0,0.72973557,0.8777544,1.6222308)"/>
+                            </g>
+                          </svg>
+                        </div>
+
+                        <div class="overlay-feadback hidden-768"></div>
+
+                        <div class="swiper-container " id="id{{ nameGallery }}">
+
+
+                          <div class="swiper-wrapper" style="margin-bottom: 0;">
+                            {# -------- код слайдера ------------ #}
+                            {% for feadback in feadbacks %}
+
+                              <div class="swiper-slide feadback flex-grow-11 ">
+
+{% if feadback.name %}
+   <div class="feadback_name">{{ feadback.name }} </div>
+{% endif %}
+
+
+                                <div class="feadback_txt">{{ feadback.feadback_txt|raw }}</div>
+                                {% if feadback.feadback_url %}
+                                  <div class="feadback_for">
+                                    <a href=" {{ feadback.feadback_url }} ">{{ feadback.feadback_for }}</a>
+                                  </div>
+                                {% else %}
+                                  <div class="feadback_for">
+                                    {{ feadback.feadback_for }}
+                                  </div>
+                                {% endif %}
+                                {% for rating in ratings %}
+                                  {% if rating.id == feadback.rating_description %}
+
+                                    {% if rating.description and rating.description != 'нет' %}
+                                      <div class="feadback_img">
+                                        <img
+                                            src="{{ rating.img_rating.thumb(100,false,{'mode':'auto', 'quality': 60}) }}"
+                                            alt="">
+                                      </div>
+
+                                    {% endif %}
+                                  {% endif %}
+
+
+                                {% endfor %} {# rating in ratings #}
+                                {# <hr> #}
+
+
+                              </div>
+                            {% endfor %} {# feadback in feadbacks #}
+                            {# ---------- код слайдер ---------- #}
+
+                          </div>
+                        </div>
+                        <div class="swiper-button-next-m top-{{ topnum }} id{{ buttonNext }} feadback-arow">
+                          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="fill-rule:evenodd; " class="arow-to-right" viewBox="0 0 6.437 11.91">
+                            <use xlink:href="#arow-glou"/>
+                          </svg>
+                        </div>
+                      </div>
+                      <script>
+                        document.addEventListener("DOMContentLoaded", f_ready);
+                        //  window.addEventListener("resize", f_ready);
+                        function f_ready() {
+                          f_slider(1, 30, '#id{{ nameGallery }}', 0, '.id{{ buttonPrev }}', '.id{{ buttonNext }}', 0);
+                        }
+                        // (число слайдоав, между слайдами, имя контейнера со слайдами, высота слайда (расчитывается) макс ширина слайда для PC ) , кнопка prev, кнопка next, по сколько слайдов листать
+                      </script>
+                      {# ---------- код слайдер ---------- #}
+
+
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+
+            <div class="section-big-img__bg section-big-img__bg__feadback">
+              {# <img src="/storage/app/media/uploaded-files/home-bg-3.jpg"> #}
+              <img src="{{ 'assets/images/bg_feadback.jpg'|theme }}">
+            </div>
+
+
+          </div>
+
+        </section>
+
+
+      {% else %} {# feadbacks #}
+        <div class="not_found">
+          <span>нет записей</span> в базе агрегаторов рейтингов
+        </div>
+      {% endif %} {# feadbacks #}
+    {% else %} {# ratings #}
+      <div class="not_found">
+        <span>нет записей</span> в базе отзывов
+      </div>
+    {% endif %} {# ratings #}
+
+{% endspaceless %}

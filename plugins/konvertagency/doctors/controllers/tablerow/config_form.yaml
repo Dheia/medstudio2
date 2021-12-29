@@ -1,0 +1,10 @@
+name: TableRow
+form: $/konvertagency/doctors/models/tablerow/fields.yaml
+modelClass: KonvertAgency\Doctors\Models\TableRow
+defaultRedirect: konvertagency/doctors/tablerow
+create:
+    redirect: 'konvertagency/doctors/tablerow/update/:id'
+    redirectClose: konvertagency/doctors/tablerow
+update:
+    redirect: konvertagency/doctors/tablerow
+    redirectClose: konvertagency/doctors/tablerow

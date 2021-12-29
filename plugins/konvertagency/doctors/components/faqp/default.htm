@@ -1,0 +1,119 @@
+{% set faqs = __SELF__.faqs %}
+{% set rows = __SELF__.rows %}
+{% set yes = false %}
+
+{% spaceless %}
+
+{% if faqslug %}
+  {% if faqs %}
+
+
+    {% for faq in faqs %}
+      {% if faq.faq_slug == faqslug %}
+        {% set yes = true %}
+
+        {% if  faq.class %}
+          {% set faq_class = " " ~ faq.class|remove_sp_char ~ " " %} {# заменяет спецсимволы на пробел #}
+         {% else %}
+          {% set faq_class =  "" %}
+        {% endif %}
+
+        <section>
+          {% set idblock =  "idblock" ~ random() %}
+          <div class="container" id="{{ idblock }}">
+            <div class="row">
+              <div class="col-12 faq_row{{ faq_class }}">
+                {% if faq.title %}
+                  <h2> {{ faq.title }} </h2>
+                {% endif %}
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" aria-hidden="true" focusable="false" role="img"  style="fill-rule:evenodd; display:none;" class="caret_arow" viewBox="0 0 33.307 19.864">
+      <polyline id="caret" fill="currentColor" points="16.653,9.827 28.364,0 33.307,5.89 16.653,19.864 0,5.89 4.943,0 "></polyline>
+    </svg>
+                {% for row in rows %}
+                  {% if row.faq_slug == faqslug %}
+                    {% set id =  "id" ~ random() %}
+
+                    <div class="faq" id="{{ id }}">
+                      <a href="javascript:collapsElementFaqNativeTimeSet( '{{ idblock }}' ,'{{ id }}' , 'false', 250)">
+
+                        <div class="question">
+
+
+                           <div class="arrow">
+
+<span>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" aria-hidden="true" focusable="false" role="img"  style="fill-rule:evenodd;" class="caret_arow" viewBox="0 0 33.307 19.864">
+  <use xlink:href="#caret" />
+</svg>
+
+  </span>
+                            {# <span>&gt;</span> #}
+                          </div>
+
+                          <div class="question-txt">
+                            {{ row.question}}
+                          </div>
+
+{#                            <div class="arrow">
+<span>
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" version="1.1" style="fill-rule:evenodd;" class="arow-to-right" viewBox="0 0 1.84 3.41">
+  <polyline fill="currentColor" points="0.41,0 1.84,1.7 0.41,3.41 0,3.06 1.14,1.7 0,0.35 " />
+</svg>
+</span>
+                            {# <span>&gt;</span> #}
+                         {# </div> #}
+                        </div>
+
+                      </a>
+                      <div class="answer">
+                        {{ row.answer|raw }}
+
+                      </div>
+                    </div>
+
+                  {% endif %} {# row.faq_slug == faqslug #}
+
+
+                {% endfor %} {# row in rows #}
+
+              </div>
+            </div>
+          </div>
+        </section>
+
+      {% endif %}  {# table.faqlug #}
+    {% endfor %}  {# table in faq #}
+
+
+
+  {% else %} {# faq #}
+    <section>
+      <div class="not_found">
+        В базе вопросов <span>нет записей</span>
+      </div>
+    </section>
+  {% endif %} {# faq #}
+
+
+
+{% else %} {# faqlug #}
+  {% set yes = true %}
+  <section>
+    <div class="not_found">
+      Не указан <span>идентификатор</span> вопросов
+    </div>
+  </section>
+
+{% endif %} {# faqlug #}
+
+
+{% if not yes %}
+  <section>
+    <div class="not_found">
+      Вопросов с идентификатором <span> {{ faqslug }} </span> не существует
+    </div>
+  </section>
+{% endif %}
+
+
+{% endspaceless %}

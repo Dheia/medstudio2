@@ -1,0 +1,20 @@
+columns:
+    id:
+        label: 'konvertagency.doctors::lang.quote_block.id'
+        type: number
+        searchable: true
+        sortable: true
+    title:
+        label: 'konvertagency.doctors::lang.quote_block.title'
+        type: text
+        searchable: true
+        sortable: true
+    description:
+        label: 'konvertagency.doctors::lang.quote_block.description'
+        type: text
+        searchable: true
+        sortable: true
+    txt:
+        label: 'konvertagency.doctors::lang.quote_block.text'
+        type: text
+        searchable: true

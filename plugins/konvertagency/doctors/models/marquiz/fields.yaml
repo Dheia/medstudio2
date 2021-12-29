@@ -1,0 +1,85 @@
+fields:
+    title:
+        label: 'konvertagency.doctors::lang.marquiz.title'
+        span: left
+        type: text
+    slug:
+        label: 'konvertagency.doctors::lang.marquiz.slug'
+        span: right
+        placeholder: 'konvertagency.doctors::lang.marquiz.slug_marquiz_placeholder'
+        default: ''
+        preset:
+            field: title
+            type: ''
+        type: text
+    img_marquiz:
+        label: 'konvertagency.doctors::lang.marquiz.img_marquiz'
+        mode: image
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: right
+        type: fileupload
+    date:
+        label: 'konvertagency.doctors::lang.marquiz.date'
+        span: left
+        trigger:
+            action: enable
+            field: auto_date
+            condition: unchecked
+        type: text
+    auto_date:
+        label: 'konvertagency.doctors::lang.marquiz.auto_date'
+        span: left
+        placeholder: 'konvertagency.doctors::lang.marquiz.auto_date_marquiz_placeholder'
+        default: 1
+        type: checkbox
+    txt_slogan:
+        label: 'konvertagency.doctors::lang.marquiz.txt_slogan'
+        span: left
+        type: text
+    per_row:
+        label: 'konvertagency.doctors::lang.marquiz.per_row'
+        span: left
+        default: '3'
+        type: number
+    txt:
+        label: 'konvertagency.doctors::lang.marquiz.txt'
+        size: small
+        span: right
+        type: richeditor
+    repeater:
+        label: 'konvertagency.doctors::lang.marquiz.repeater'
+        prompt: 'Add new item'
+        style: default
+        span: left
+        type: repeater
+        form:
+            fields:
+                txt_act_marquiz:
+                    label: 'konvertagency.doctors::lang.marquiz.repeater'
+                    span: auto
+                    type: text
+                old_price:
+                    label: 'konvertagency.doctors::lang.marquiz.old_price'
+                    span: auto
+                    type: text
+                new_price:
+                    label: 'konvertagency.doctors::lang.menu.new_price'
+                    span: auto
+                    type: text
+                img_act_marquiz:
+                    label: 'konvertagency.doctors::lang.marquiz.img_act_marquiz'
+                    mode: image
+                    span: auto
+                    type: mediafinder
+    id_marquiz_site:
+        label: 'konvertagency.doctors::lang.marquiz.id_marquiz_site'
+        span: right
+        type: text
+    txt_btn:
+        label: 'konvertagency.doctors::lang.marquiz.txt_btn'
+        span: right
+        default: Подобрать
+        type: text

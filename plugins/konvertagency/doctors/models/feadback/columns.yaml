@@ -1,0 +1,17 @@
+columns:
+    rating_description:
+        label: 'agregator id'
+        type: number
+        searchable: true
+        sortable: true
+    any_name:
+        label: 'konvertagency.doctors::lang.feadback.description'
+        type: text
+        searchable: true
+        sortable: true
+        relation: agregator
+        valueFrom: description
+    feadback_txt:
+        label: 'konvertagency.doctors::lang.feadback.feadback_txt'
+        type: text
+        searchable: true

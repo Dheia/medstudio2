@@ -1,0 +1,4 @@
+title: Rating
+modelClass: KonvertAgency\Doctors\Models\Rating
+toolbar:
+    buttons: reorder_toolbar

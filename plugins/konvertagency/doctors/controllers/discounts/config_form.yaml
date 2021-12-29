@@ -1,0 +1,10 @@
+name: Discounts
+form: $/konvertagency/doctors/models/discounts/fields.yaml
+modelClass: KonvertAgency\Doctors\Models\Discounts
+defaultRedirect: konvertagency/doctors/discounts
+create:
+    redirect: 'konvertagency/doctors/discounts/update/:id'
+    redirectClose: konvertagency/doctors/discounts
+update:
+    redirect: konvertagency/doctors/discounts
+    redirectClose: konvertagency/doctors/discounts
